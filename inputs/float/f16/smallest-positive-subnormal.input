@@ -1,0 +1,17 @@
+name: float_f16_smallest_positive_subnormal
+description: |
+  This is the smallest positive non-zero binary16 value, 2^-24. Hardware or
+  accelerated kernels using flush-to-zero modes may turn it into positive zero,
+  changing equality, loop termination, underflow behavior, and division
+  results. Its encoding also exercises gradual underflow.
+format: hex
+decode-as: f16
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f16"
+  - "subnormal"
+  - "underflow"
+---
+01 00 # 0x0001: 2^-24

@@ -1,0 +1,20 @@
+name: real_world_url_ipv6_expanded
+description: |
+  This fully expanded IPv6 literal denotes the same address as the paired
+  compressed URL. Text comparison, cache keys, and host allowlists must account
+  for legal IPv6 presentation variants.
+
+  RFC 5952 describes canonicalization of IPv6 address text:
+  https://www.rfc-editor.org/rfc/rfc5952.html
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "host"
+  - "ip-literal"
+  - "ipv6"
+  - "equivalence"
+  - "valid"
+---
+http://[2001:0db8:0000:0000:0000:0000:0000:0001]/resource

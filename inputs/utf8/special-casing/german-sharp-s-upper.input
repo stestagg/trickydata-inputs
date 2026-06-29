@@ -1,0 +1,26 @@
+name: casing_german_sharp_s_upper
+description: |
+  This ASCII string is the full uppercase result of the paired German word
+  containing LATIN SMALL LETTER SHARP S (U+00DF). It is a useful baseline for
+  verifying length-changing uppercase conversion and case-insensitive lookup.
+
+  The Unicode Character Database SpecialCasing.txt file records full mappings:
+  https://www.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 7
+  code-points: 7
+  scalar-values: 7
+  legacy-grapheme-clusters: 7
+  extended-grapheme-clusters: 7
+pair:
+  - with: german-sharp-s.input
+    hint: equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-casing"
+  - "baseline"
+---
+STRASSE

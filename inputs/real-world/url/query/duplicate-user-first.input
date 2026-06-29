@@ -1,0 +1,26 @@
+name: real_world_url_query_duplicate_user_first
+description: |
+  The query contains the same key twice with `user` first and `admin` last.
+  Query syntax does not define duplicate-key resolution: frameworks may choose
+  first, last, all, or reject, so authorization code and business logic can
+  observe different values.
+
+  RFC 3986 section 3.4 treats the query as component data rather than defining
+  a key-value map:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.4
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: duplicate-admin-first.input
+    hint: not-equal
+tags:
+  - "real-world"
+  - "url"
+  - "query"
+  - "duplicate-parameter"
+  - "parameter-pollution"
+  - "ordering"
+  - "not-equal"
+  - "valid"
+---
+https://example.com/check?role=user&role=admin

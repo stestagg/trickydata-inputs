@@ -1,0 +1,22 @@
+name: real_world_invalid_email_crlf_header_injection
+description: |
+  A valid-looking addr-spec is followed by raw CRLF and an inert marker header.
+  It is not one email address. Code that interpolates an unchecked address into
+  message headers can turn the suffix into header structure.
+
+  RFC 5322 sections 2.2 and 3.4.1 define header field and addr-spec boundaries:
+  https://www.rfc-editor.org/rfc/rfc5322.html#section-2.2
+  https://www.rfc-editor.org/rfc/rfc5322.html#section-3.4.1
+format: hex
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "crlf"
+  - "header-injection"
+  - "control-character"
+---
+"user@example.com" 0d 0a "X-Trickydata: marker"

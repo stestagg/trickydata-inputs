@@ -1,0 +1,26 @@
+name: language_html_data_active_element_load_throw
+description: |
+  If interpreted as HTML, this SVG load handler throws an uncaught Error with a
+  stable message. Browser test runners can detect it through page-error or
+  window.onerror hooks. The canary performs no network access, storage changes,
+  dialogs, or application calls.
+
+  This is an active counterpart to the inert custom-element canary and should
+  only be used where executing a local error handler is acceptable.
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: ../text/harmless-element.input
+    hint: tricky
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "active-xss-canary"
+  - "html-text-context"
+  - "svg"
+  - "event-handler"
+  - "throws-error"
+---
+<svg onload="throw new Error('trickydata-xss-canary')"></svg>

@@ -1,0 +1,21 @@
+name: real_world_invalid_url_ipv4_component_overflow
+description: |
+  The first dotted IPv4 component is 256. The WHATWG parser recognizes the
+  host as an IPv4 candidate and must fail rather than falling back to an
+  ordinary domain name.
+
+  The WHATWG IPv4 parser checks the numeric address range:
+  https://url.spec.whatwg.org/#concept-ipv4-parser
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "host"
+  - "ipv4"
+  - "integer-overflow"
+  - "parser-fallback"
+---
+http://256.0.0.1/

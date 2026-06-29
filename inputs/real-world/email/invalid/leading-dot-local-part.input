@@ -1,0 +1,21 @@
+name: real_world_invalid_email_leading_dot_local_part
+description: |
+  An unquoted local-part cannot begin with a dot. A validator that merely
+  allows `atext` and dot characters without enforcing dot-atom structure may
+  accept this subtly malformed address.
+
+  RFC 5321 section 4.1.2 defines a Dot-string as atoms separated by dots:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "local-part"
+  - "leading-dot"
+  - "dot-atom"
+---
+.john@example.com

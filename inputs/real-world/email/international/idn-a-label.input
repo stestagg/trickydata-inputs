@@ -1,0 +1,26 @@
+name: real_world_email_idn_a_label
+description: |
+  This ASCII-compatible domain is the A-label form of the paired Japanese
+  U-label domain. IDNA-aware comparison converts the U-label to A-label form
+  and applies normal DNS case-insensitive matching, so the two spellings are
+  equivalent.
+
+  RFC 5890 section 2.3.2.4 defines A-label/U-label equivalence:
+  https://www.rfc-editor.org/rfc/rfc5890.html#section-2.3.2.4
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: idn-u-label.input
+    hint: equal
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "idn"
+  - "idna"
+  - "a-label"
+  - "punycode"
+  - "equivalence"
+  - "valid"
+---
+user@xn--r8jz45g.xn--zckzah

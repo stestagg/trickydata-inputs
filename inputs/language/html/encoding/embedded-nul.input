@@ -1,0 +1,23 @@
+name: language_html_data_embedded_nul
+description: |
+  NUL separates an ASCII prefix from an inert element canary. C-string
+  boundaries can truncate before the markup, while the HTML input preprocessing
+  rules replace U+0000 with U+FFFD, causing validation, logging, and browser
+  parsing to operate on different values.
+
+  HTML input-stream preprocessing covers NULL handling here:
+  https://html.spec.whatwg.org/multipage/parsing.html#preprocessing-the-input-stream
+format: hex
+decode-as: bytes
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "nul"
+  - "truncation"
+  - "encoding"
+  - "api-boundary"
+  - "inert-canary"
+---
+"safe" 00 "<x-xss-canary>"

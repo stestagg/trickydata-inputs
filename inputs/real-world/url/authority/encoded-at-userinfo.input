@@ -1,0 +1,25 @@
+name: real_world_url_encoded_at_userinfo
+description: |
+  The percent-encoded at-sign belongs to the username; the later literal
+  at-sign terminates userinfo, so the host remains `attacker.invalid`.
+  Pre-decoding the whole URL before parsing creates two at-signs and can move
+  the perceived authority boundary.
+
+  RFC 3986 sections 2.4 and 3.2.1 require component boundaries to be parsed
+  before percent-decoding their data:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-2.4
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.2.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "uri"
+  - "authority"
+  - "userinfo"
+  - "percent-encoding"
+  - "delimiter-confusion"
+  - "ssrf"
+  - "valid"
+---
+https://trusted.example%40account@attacker.invalid/

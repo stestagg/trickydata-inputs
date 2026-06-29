@@ -1,0 +1,17 @@
+name: language_sql_data_line_comment_marker
+description: |
+  Two hyphens can begin an SQL line comment after unsafe interpolation, hiding
+  closing syntax or later predicates. As a parameter value they must remain two
+  ordinary characters.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "string"
+  - "line-comment"
+  - "escaping"
+  - "injection-canary"
+---
+--

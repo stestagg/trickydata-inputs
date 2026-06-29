@@ -1,0 +1,23 @@
+name: invalid_utf8_overlong_nul
+description: |
+  C0 80 is the non-shortest, two-byte representation historically used for
+  U+0000 by Modified UTF-8. Standard UTF-8 requires NUL to be encoded as the
+  single byte 00 and forbids both the 0xC0 starter and overlong encodings.
+  Accepting this form can reintroduce NUL after validation.
+
+  See RFC 3629's shortest-form requirement:
+  https://www.rfc-editor.org/rfc/rfc3629
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "overlong"
+  - "nul"
+  - "modified-utf8"
+  - "security-boundary"
+---
+c0 80

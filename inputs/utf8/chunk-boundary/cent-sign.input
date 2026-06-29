@@ -1,0 +1,29 @@
+name: utf8_chunk_cent_sign
+description: |
+  CENT SIGN (U+00A2) is a complete valid two-byte UTF-8 string. Appending the
+  paired unexpected-continuation chunk produces C2 A2 80, which is invalid
+  because the complete character is followed by a continuation byte with no
+  starter. This adjunct tests validation across concatenated chunks.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: utf8
+unicode-meta:
+  code-units: 2
+  code-points: 1
+  scalar-values: 1
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+pair:
+  - with: ../../invalid/utf8/unexpected-continuation.input
+    hint: tricky
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "chunk-boundary"
+  - "concatenation"
+  - "valid-prefix"
+---
+c2 a2 # CENT SIGN U+00A2

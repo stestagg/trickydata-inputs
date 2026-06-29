@@ -1,0 +1,22 @@
+name: invalid_utf8_continuation_between_ascii
+description: |
+  A lone continuation byte is surrounded by valid ASCII. This checks that
+  validation covers the whole input rather than accepting valid prefixes and
+  suffixes, and exposes differences in replacement and error-recovery behavior.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "continuation-byte"
+  - "valid-prefix"
+  - "valid-suffix"
+  - "error-recovery"
+---
+"A" 80 "B"

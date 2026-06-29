@@ -1,0 +1,20 @@
+name: integer_i32_zero
+description: |
+  Zero is the i32 additive identity and the critical invalid divisor for
+  integer division and remainder. Pairing it with one exercises divide-by-zero
+  handling across fixed-width integer implementations.
+format: hex
+decode-as: i32
+pair:
+  - with: one.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i32"
+  - "zero"
+  - "division-by-zero"
+  - "remainder-by-zero"
+  - "baseline"
+---
+00 00 00 00 # 0

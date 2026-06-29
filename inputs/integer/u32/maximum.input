@@ -1,0 +1,22 @@
+name: integer_u32_maximum
+description: |
+  This is the maximum u32 value, 4294967295, with every bit set.
+  Adding 1 crosses the unsigned upper boundary and may trap, wrap to zero,
+  saturate, or be widened. Reinterpreting the same bytes as i32 produces
+  -1, exposing signedness mistakes in storage, comparison, and conversion.
+format: hex
+decode-as: u32
+pair:
+  - with: one.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u32"
+  - "maximum"
+  - "boundary"
+  - "overflow"
+  - "conversion"
+  - "all-bits-set"
+---
+ff ff ff ff # 4294967295

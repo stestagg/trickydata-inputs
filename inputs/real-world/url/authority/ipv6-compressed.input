@@ -1,0 +1,25 @@
+name: real_world_url_ipv6_compressed
+description: |
+  This URL uses the compressed spelling of an IPv6 documentation address.
+  Brackets delimit the IP literal from the port grammar, and the address is
+  numerically equivalent to the paired expanded form.
+
+  RFC 3986 section 3.2.2 defines bracketed IP literals, and RFC 5952 defines
+  canonical IPv6 text representation:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.2.2
+  https://www.rfc-editor.org/rfc/rfc5952.html
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: ipv6-expanded.input
+    hint: equal
+tags:
+  - "real-world"
+  - "url"
+  - "host"
+  - "ip-literal"
+  - "ipv6"
+  - "equivalence"
+  - "valid"
+---
+http://[2001:db8::1]/resource

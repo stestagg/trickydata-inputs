@@ -1,0 +1,17 @@
+name: float_f16_epsilon
+description: |
+  This is binary16 machine epsilon, 2^-10: the gap between 1 and the next
+  representable value above 1. It catches code that assumes a universal
+  epsilon across float widths, uses epsilon as an absolute tolerance at every
+  magnitude, or accidentally performs the calculation at a wider precision.
+format: hex
+decode-as: f16
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f16"
+  - "epsilon"
+  - "precision"
+---
+00 14 # 0x1400: 2^-10 = 0.0009765625

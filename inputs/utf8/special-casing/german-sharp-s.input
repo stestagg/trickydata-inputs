@@ -1,0 +1,27 @@
+name: casing_german_sharp_s
+description: |
+  This input contains LATIN SMALL LETTER SHARP S (U+00DF). Full Unicode
+  uppercasing of "Straße" produces the paired string "STRASSE", increasing the
+  number of code points. It tests casing code that assumes every input scalar
+  maps to exactly one output scalar or that output length cannot grow.
+
+  The Unicode Character Database SpecialCasing.txt file records full mappings:
+  https://www.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 7
+  code-points: 6
+  scalar-values: 6
+  legacy-grapheme-clusters: 6
+  extended-grapheme-clusters: 6
+pair:
+  - with: german-sharp-s-upper.input
+    hint: equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-casing"
+  - "length-changing"
+---
+Straße

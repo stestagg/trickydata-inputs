@@ -1,0 +1,30 @@
+name: confusable_admin_cyrillic
+description: |
+  The first character in this identifier is CYRILLIC SMALL LETTER A (U+0430);
+  the remaining four characters are Latin ASCII. It can look like the paired
+  all-Latin identifier while remaining a different string in every binary
+  comparison.
+
+  The pair exercises identifier restrictions, account-name checks, audit
+  displays, and spoof-resistant matching. Unicode Technical Standard #39
+  defines mixed-script confusable detection:
+  https://www.unicode.org/reports/tr39/#Confusable_Detection
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 6
+  code-points: 5
+  scalar-values: 5
+  legacy-grapheme-clusters: 5
+  extended-grapheme-clusters: 5
+pair:
+  - with: confusable-admin-latin.input
+    hint: not-equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-confusables"
+  - "mixed-script"
+  - "text-spoofing"
+---
+аdmin

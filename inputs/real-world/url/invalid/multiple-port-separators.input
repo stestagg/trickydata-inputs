@@ -1,0 +1,20 @@
+name: real_world_invalid_url_multiple_port_separators
+description: |
+  The second colon cannot occur in a non-bracketed host and port. Splitting on
+  the first or last colon produces different apparent port strings.
+
+  The WHATWG port state fails when it encounters the second colon:
+  https://url.spec.whatwg.org/#port-state
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "authority"
+  - "port"
+  - "multiple-delimiters"
+  - "colon"
+---
+https://example.com:80:90/

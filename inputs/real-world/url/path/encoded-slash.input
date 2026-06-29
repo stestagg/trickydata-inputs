@@ -1,0 +1,26 @@
+name: real_world_url_encoded_slash
+description: |
+  `%2F` is an encoded reserved slash and remains data within one path segment
+  during generic URI normalization. Decoding it before routing changes the
+  segment structure and can produce authorization or traversal bugs.
+
+  RFC 3986 sections 2.2 and 6.2.2.2 say percent-encoded reserved characters are
+  not generally equivalent to their literal delimiters:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-2.2
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: literal-slash.input
+    hint: not-equal
+tags:
+  - "real-world"
+  - "url"
+  - "uri"
+  - "rfc3986"
+  - "path"
+  - "percent-encoding"
+  - "encoded-slash"
+  - "not-equal"
+  - "valid"
+---
+https://example.com/accounts/a%2Fb/profile

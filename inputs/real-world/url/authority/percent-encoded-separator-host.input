@@ -1,0 +1,24 @@
+name: real_world_url_percent_encoded_separator_host
+description: |
+  Current URL parsers should reject this host because `%2F` decodes to a path
+  separator. curl 7.80.0 through 7.83.0 accepted this shape and later
+  transposed it into a URL with a different host/path boundary, enabling filter
+  bypasses. The IP is TEST-NET-1, making this an inert regression case.
+
+  curl's CVE-2022-27780 advisory documents the parser flaw and example shape:
+  https://curl.se/docs/CVE-2022-27780.html
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "host"
+  - "percent-encoding"
+  - "delimiter-confusion"
+  - "parser-differential"
+  - "ssrf"
+  - "cve-2022-27780"
+  - "invalid-url"
+  - "invalid"
+---
+http://trusted.example%2F192.0.2.1/

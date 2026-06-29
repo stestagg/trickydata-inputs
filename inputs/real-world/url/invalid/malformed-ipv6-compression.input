@@ -1,0 +1,21 @@
+name: real_world_invalid_url_malformed_ipv6_compression
+description: |
+  IPv6 permits at most one double-colon compression marker; a triple colon
+  cannot be parsed as a valid address. A character-class check for hex digits
+  and colons will miss this structural error.
+
+  The WHATWG IPv6 parser defines compression parsing:
+  https://url.spec.whatwg.org/#concept-ipv6-parser
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "host"
+  - "ipv6"
+  - "malformed"
+  - "compression"
+---
+http://[2001:db8:::1]/

@@ -1,0 +1,18 @@
+name: language_html_data_attribute_srcdoc_name
+description: |
+  The iframe srcdoc attribute interprets its value as an HTML document. Dynamic
+  attribute-name systems should treat it as a distinct active-content sink, not
+  as an ordinary text-valued attribute.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "html-attribute-name"
+  - "srcdoc"
+  - "active-content-sink"
+  - "allowlist"
+---
+srcdoc

@@ -1,0 +1,20 @@
+name: float_f32_one_tenth
+description: |
+  This is the nearest binary32 representation of decimal 0.1, whose exact
+  value is 0.100000001490116119384765625. The paired f16 and f64 encodings are
+  different approximations of the same decimal literal, exposing cross-width
+  equality, promotion, serialization, and tolerance assumptions.
+format: hex
+decode-as: f32
+pair:
+  - with: ../f64/one-tenth.input
+    hint: not-equal
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f32"
+  - "decimal-conversion"
+  - "precision"
+---
+cd cc cc 3d # 0x3dcccccd: nearest binary32 value to 0.1

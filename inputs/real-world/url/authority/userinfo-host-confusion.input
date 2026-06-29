@@ -1,0 +1,26 @@
+name: real_world_url_userinfo_host_confusion
+description: |
+  The text before `@` is userinfo, not the host. The actual host is
+  `attacker.invalid`, even though the URL begins with a trusted-looking domain.
+  Display code and allowlists that stop at the first host-shaped token can make
+  the wrong security decision.
+
+  RFC 3986 section 3.2.1 defines userinfo and warns that it can be misleading:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.2.1
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: backslash-authority-confusion.input
+    hint: tricky
+tags:
+  - "real-world"
+  - "url"
+  - "uri"
+  - "authority"
+  - "userinfo"
+  - "host-confusion"
+  - "phishing"
+  - "ssrf"
+  - "valid"
+---
+https://trusted.example@attacker.invalid/account

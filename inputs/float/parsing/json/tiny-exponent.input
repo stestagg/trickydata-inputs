@@ -1,0 +1,31 @@
+name: float_parsing_json_tiny_exponent
+description: |
+  This RFC 8259 number is non-zero mathematically but is below the smallest
+  positive subnormal in binary16, binary32, and binary64. It targets parsers
+  that silently underflow to zero, preserve an arbitrary-precision decimal,
+  report range loss, or mishandle a long signed decimal exponent.
+
+  RFC 8259 permits implementations to limit numeric range and precision:
+  https://www.rfc-editor.org/rfc/rfc8259.html#section-6
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 7
+  code-points: 7
+  scalar-values: 7
+  legacy-grapheme-clusters: 7
+  extended-grapheme-clusters: 7
+tags:
+  - "float"
+  - "utf8"
+  - "floating-point-parsing"
+  - "json"
+  - "rfc-8259"
+  - "decimal"
+  - "exponent"
+  - "underflow"
+  - "f16"
+  - "f32"
+  - "f64"
+---
+1e-5000

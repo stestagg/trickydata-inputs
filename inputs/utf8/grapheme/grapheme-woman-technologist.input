@@ -1,0 +1,26 @@
+name: grapheme_woman_technologist
+description: |
+  This single emoji grapheme joins WOMAN (U+1F469) and PERSONAL COMPUTER
+  (U+1F4BB) with ZERO WIDTH JOINER (U+200D). Renderers commonly show one
+  pictograph although the input contains three scalar values, making it useful
+  for segmentation, editing, width, and fallback-rendering tests.
+
+  Unicode Technical Standard #51 defines emoji ZWJ sequences:
+  https://www.unicode.org/reports/tr51/#Emoji_ZWJ_Sequences
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 11
+  code-points: 3
+  scalar-values: 3
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-segmentation"
+  - "grapheme-clusters"
+  - "emoji"
+  - "zero-width-joiner"
+---
+👩‍💻

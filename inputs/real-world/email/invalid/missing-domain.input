@@ -1,0 +1,21 @@
+name: real_world_invalid_email_missing_domain
+description: |
+  The at-sign is present but the required domain is empty. A parser that trims
+  delimiters or treats the at-sign as optional punctuation may return a local
+  mailbox name instead of rejecting the addr-spec.
+
+  RFC 5322 section 3.4.1 requires a domain after the at-sign:
+  https://www.rfc-editor.org/rfc/rfc5322.html#section-3.4.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "domain"
+  - "empty-string"
+  - "missing-delimiter"
+---
+user@

@@ -1,0 +1,18 @@
+name: language_sql_data_leading_trailing_whitespace
+description: |
+  One leading and one trailing ASCII space catch automatic trimming in forms,
+  validation, binding, fixed-width columns, and result comparison. The intended
+  value is seven bytes, not the five-letter word alone.
+format: hex
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "string"
+  - "whitespace"
+  - "leading-whitespace"
+  - "trailing-whitespace"
+  - "normalization"
+---
+20 "value" 20

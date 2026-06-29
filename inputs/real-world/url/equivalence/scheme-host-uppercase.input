@@ -1,0 +1,22 @@
+name: real_world_url_scheme_host_uppercase
+description: |
+  The scheme and host differ from the paired URL only in ASCII case and are
+  equivalent. The mixed-case path is intentionally unchanged: lowercasing the
+  entire URL would corrupt a potentially case-sensitive resource identifier.
+
+  RFC 3986 section 6.2.2.1 limits case normalization to appropriate components:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-6.2.2.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "uri"
+  - "rfc3986"
+  - "scheme"
+  - "host"
+  - "case-folding"
+  - "equivalence"
+  - "valid"
+---
+HTTPS://EXAMPLE.COM/CaseSensitive

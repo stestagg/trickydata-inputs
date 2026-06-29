@@ -1,0 +1,23 @@
+name: real_world_invalid_url_nonhex_percent_escape_path
+description: |
+  `%GG` has two following characters, but neither is hexadecimal. WHATWG
+  parsing can preserve it after a validation error, while decoders differ on
+  whether to reject, replace, or leave the percent sign literal.
+
+  RFC 3986 section 2.1 defines hexadecimal percent triplets:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-2.1
+  https://url.spec.whatwg.org/#invalid-URL-unit
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "repair"
+  - "path"
+  - "percent-encoding"
+  - "malformed"
+  - "parser-differential"
+---
+https://example.com/%GG

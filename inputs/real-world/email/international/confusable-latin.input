@@ -1,0 +1,24 @@
+name: real_world_email_confusable_latin
+description: |
+  This all-ASCII address is the baseline for a visually similar SMTPUTF8
+  address whose local-part uses Cyrillic letters. They are distinct mailbox
+  names even when a font makes them difficult to distinguish.
+
+  RFC 6530 section 13 identifies homograph attacks in internationalized email:
+  https://www.rfc-editor.org/rfc/rfc6530.html#section-13
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: confusable-cyrillic.input
+    hint: not-equal
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "unicode-confusables"
+  - "text-spoofing"
+  - "local-part"
+  - "not-equal"
+  - "valid"
+---
+paypal@example.com

@@ -1,0 +1,20 @@
+name: language_sql_data_like_percent
+description: |
+  Percent matches any sequence in an SQL LIKE pattern. Applications that intend
+  a literal substring search must escape it separately from ordinary SQL string
+  quoting or risk unexpectedly broad matches.
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: escaped-percent.input
+    hint: tricky
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "like"
+  - "wildcard"
+  - "percent"
+  - "pattern-escaping"
+---
+%

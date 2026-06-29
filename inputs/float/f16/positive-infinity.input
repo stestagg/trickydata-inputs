@@ -1,0 +1,17 @@
+name: float_f16_positive_infinity
+description: |
+  Positive infinity is a valid IEEE 754 binary16 value rather than a finite
+  number or a NaN. It tests parsers and serializers that reject non-finite
+  values, range checks that only compare against a maximum, and arithmetic such
+  as infinity minus infinity that produces NaN.
+format: hex
+decode-as: f16
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f16"
+  - "infinity"
+  - "non-finite"
+---
+00 7c # 0x7c00: +infinity

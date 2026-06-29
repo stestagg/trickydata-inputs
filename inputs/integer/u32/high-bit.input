@@ -1,0 +1,18 @@
+name: integer_u32_high_bit
+description: |
+  This is 2147483648, the smallest u32 value with the high bit set and the
+  first value not representable as i32. Reinterpreting the same bytes as
+  i32 produces -2147483648; checked conversion may reject it.
+format: hex
+decode-as: u32
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u32"
+  - "high-bit"
+  - "boundary"
+  - "conversion"
+  - "sign-extension"
+  - "two's-complement"
+---
+00 00 00 80 # 2147483648

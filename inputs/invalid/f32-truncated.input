@@ -1,0 +1,19 @@
+name: invalid_f32_truncated
+description: |
+  The first three bytes of the little-endian f32 encoding of 1.0
+  (00 00 80 3f) with the final byte missing. An f32 requires exactly four
+  bytes, so any decoder that reads a fixed-width float from this payload must
+  fail rather than read past the end or zero-fill the missing byte. It is
+  stored as raw bytes because it is not a well-formed f32.
+format: hex
+decode-as: bytes
+invalid-as: f32
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f32"
+  - "invalid-f32"
+  - "truncated"
+---
+00 00 80 # f32 1.0 (00 00 80 3f) with the last byte dropped

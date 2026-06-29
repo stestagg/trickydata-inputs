@@ -1,0 +1,29 @@
+name: float_parsing_ecmascript_leading_zeroes
+description: |
+  ECMAScript StringToNumber accepts this decimal StringNumericLiteral with many
+  leading zeroes and produces 1.5. The same text is not a valid RFC 8259 JSON
+  number because JSON forbids leading zeroes. It targets accidental grammar
+  sharing between JavaScript coercion, source literals, and JSON parsers.
+
+  ECMA-262 defines StringNumericLiteral and StringToNumber here:
+  https://tc39.es/ecma262/multipage/abstract-operations.html#sec-stringtonumber
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 22
+  code-points: 22
+  scalar-values: 22
+  legacy-grapheme-clusters: 22
+  extended-grapheme-clusters: 22
+tags:
+  - "float"
+  - "utf8"
+  - "floating-point-parsing"
+  - "ecmascript"
+  - "ecma-262"
+  - "string-to-number"
+  - "decimal"
+  - "leading-zero"
+  - "f64"
+---
+00000000000000000001.5

@@ -1,0 +1,26 @@
+name: real_world_url_dot_segments_normalized
+description: |
+  This is the normalized path for the paired URL containing literal dot
+  segments. It is also paired as `tricky` with a percent-encoded dot-segment
+  spelling because WHATWG special-URL parsing recognizes encoded dots while
+  generic RFC normalization does not first decode reserved structure.
+
+  RFC 3986 section 5.2.4 and the WHATWG URL path state define the relevant
+  normalization algorithms:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-5.2.4
+  https://url.spec.whatwg.org/#url-path-state
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: encoded-dot-segment.input
+    hint: tricky
+tags:
+  - "real-world"
+  - "url"
+  - "path"
+  - "dot-segments"
+  - "normalization"
+  - "parser-differential"
+  - "valid"
+---
+https://example.com/a/b/marker

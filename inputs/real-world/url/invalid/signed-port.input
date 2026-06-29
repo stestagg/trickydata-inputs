@@ -1,0 +1,21 @@
+name: real_world_invalid_url_signed_port
+description: |
+  A leading plus sign is not part of URL port syntax even though general
+  integer parsers often accept it. Reusing a permissive numeric conversion can
+  make this malformed authority appear valid.
+
+  The WHATWG port state accepts ASCII digits only:
+  https://url.spec.whatwg.org/#port-state
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "authority"
+  - "port"
+  - "plus"
+  - "numeric-parsing"
+---
+https://example.com:+443/

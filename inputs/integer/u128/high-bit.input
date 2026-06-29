@@ -1,0 +1,18 @@
+name: integer_u128_high_bit
+description: |
+  This is 170141183460469231731687303715884105728, the smallest u128 value with the high bit set and the
+  first value not representable as i128. Reinterpreting the same bytes as
+  i128 produces -170141183460469231731687303715884105728; checked conversion may reject it.
+format: hex
+decode-as: u128
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u128"
+  - "high-bit"
+  - "boundary"
+  - "conversion"
+  - "sign-extension"
+  - "two's-complement"
+---
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 # 170141183460469231731687303715884105728

@@ -1,0 +1,20 @@
+name: float_f16_max_finite
+description: |
+  This is the largest finite binary16 value, 65504. Operations that round above
+  this range may produce positive infinity, saturate, trap, or be widened by an
+  implementation before rounding. Pairing it with infinity targets overflow
+  checks that rely on ordinary finite comparisons.
+format: hex
+decode-as: f16
+pair:
+  - with: positive-infinity.input
+    hint: tricky
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f16"
+  - "overflow"
+  - "boundary"
+---
+ff 7b # 0x7bff: 65504

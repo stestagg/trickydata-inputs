@@ -1,0 +1,23 @@
+name: real_world_url_encoded_dot_segment
+description: |
+  The WHATWG special-URL parser treats `%2e%2e` as a double-dot segment and
+  serializes this URL as `/a/b/marker`. A generic RFC 3986 normalizer does not
+  percent-decode a path before dot-segment removal, so parser choice changes
+  the normalized path.
+
+  The WHATWG URL Standard explicitly recognizes percent-encoded dot segments:
+  https://url.spec.whatwg.org/#double-dot-path-segment
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "whatwg-url"
+  - "path"
+  - "percent-encoding"
+  - "dot-segments"
+  - "parser-differential"
+  - "path-traversal"
+  - "context-dependent"
+---
+https://example.com/a/b/safe/%2e%2e/marker

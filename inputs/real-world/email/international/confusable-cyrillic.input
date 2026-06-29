@@ -1,0 +1,32 @@
+name: real_world_email_confusable_cyrillic
+description: |
+  The local-part uses Cyrillic U+0440, U+0430, U+0443, U+0440, and U+0430
+  followed by Latin `l`. RFC 6531 permits the non-ASCII atext under SMTPUTF8,
+  but the address remains unequal to the visually similar ASCII pair.
+
+  RFC 6531 section 3.3 extends atext with UTF-8 non-ASCII characters, and RFC
+  6530 section 13 discusses local-part homograph attacks:
+  https://www.rfc-editor.org/rfc/rfc6531.html#section-3.3
+  https://www.rfc-editor.org/rfc/rfc6530.html#section-13
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 23
+  code-points: 18
+  scalar-values: 18
+  legacy-grapheme-clusters: 18
+  extended-grapheme-clusters: 18
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "smtputf8"
+  - "rfc6531"
+  - "unicode-confusables"
+  - "mixed-script"
+  - "text-spoofing"
+  - "not-equal"
+  - "valid"
+---
+раураl@example.com

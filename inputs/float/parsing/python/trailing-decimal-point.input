@@ -1,0 +1,27 @@
+name: float_parsing_python_trailing_decimal_point
+description: |
+  Python float() accepts a number ending immediately after its decimal point.
+  RFC 8259 requires at least one fractional digit, so this compact input helps
+  distinguish a Python-compatible parser from a strict JSON parser and catches
+  tokenizers that always require digits on both sides of a decimal point.
+
+  Python documents the floatvalue grammar here:
+  https://docs.python.org/3/library/functions.html#float
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 2
+  code-points: 2
+  scalar-values: 2
+  legacy-grapheme-clusters: 2
+  extended-grapheme-clusters: 2
+tags:
+  - "float"
+  - "utf8"
+  - "floating-point-parsing"
+  - "python"
+  - "python-3"
+  - "decimal"
+  - "f64"
+---
+1.

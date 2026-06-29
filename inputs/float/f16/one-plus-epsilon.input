@@ -1,0 +1,18 @@
+name: float_f16_one_plus_epsilon
+description: |
+  This is the binary16 value immediately above 1, exactly 1 + 2^-10. The pair
+  differs by one unit in the last place, so it probes approximate-equality
+  thresholds, lossy promotion or serialization, and displays that round both
+  values to the same short decimal string.
+format: hex
+decode-as: f16
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f16"
+  - "epsilon"
+  - "ulp"
+  - "precision"
+---
+01 3c # 0x3c01: 1.0009765625

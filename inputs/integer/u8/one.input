@@ -1,0 +1,19 @@
+name: integer_u8_one
+description: |
+  One is a baseline u8 operand for boundary arithmetic. Adding it to the maximum
+  overflows, subtracting it from zero underflows, and dividing it by zero
+  exercises integer divide-by-zero handling. It also provides a simple value for
+  detecting accidental signed decoding.
+format: hex
+decode-as: u8
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u8"
+  - "one"
+  - "overflow"
+  - "underflow"
+  - "division-by-zero"
+  - "baseline"
+---
+01 # 1

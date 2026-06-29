@@ -1,0 +1,25 @@
+name: invalid_utf8_unexpected_continuation
+description: |
+  A continuation byte appears without a preceding multi-byte sequence starter.
+  Decoders must reject it rather than treating it as a standalone character,
+  skipping it, or silently replacing it.
+
+  This input is also the right-hand chunk for paired boundary cases. Appending
+  it to the paired prefixes produces an overlong NUL or a surrogate encoding;
+  appending it to the paired valid cent sign produces an extra continuation.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "continuation-byte"
+  - "unexpected-continuation"
+  - "chunk-boundary"
+---
+80 # Continuation byte with no sequence starter

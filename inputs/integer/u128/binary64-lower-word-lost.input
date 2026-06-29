@@ -1,0 +1,23 @@
+name: integer_u128_binary64_lower_word_lost
+description: |
+  This is 2^64 + 1. Conversion to binary64 rounds it to 2^64, so converting
+  back loses the low-order one bit and makes the entire lower 64-bit word zero.
+  It is a compact canary for routing 128-bit identifiers, counters, or database
+  values through a double-precision intermediate.
+format: hex
+decode-as: u128
+pair:
+  - with: above-u64-maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u128"
+  - "binary64"
+  - "float-roundtrip"
+  - "precision-loss"
+  - "lower-word"
+  - "serialization"
+  - "canary"
+---
+01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 # 18446744073709551617 (2^64 + 1)

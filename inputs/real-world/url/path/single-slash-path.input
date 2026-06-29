@@ -1,0 +1,25 @@
+name: real_world_url_single_slash_path
+description: |
+  This single-separator path is paired with a double-slash spelling. RFC path
+  syntax preserves empty segments, so normalizers must not merge the pair
+  unless an application or server configuration explicitly defines that
+  behavior.
+
+  RFC 3986 section 3.3 defines slash-delimited path segments:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.3
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: repeated-slash-path.input
+    hint: not-equal
+tags:
+  - "real-world"
+  - "url"
+  - "uri"
+  - "path"
+  - "slash"
+  - "empty-segment"
+  - "not-equal"
+  - "valid"
+---
+https://example.com/admin/panel

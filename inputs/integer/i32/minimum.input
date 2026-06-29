@@ -1,0 +1,27 @@
+name: integer_i32_minimum
+description: |
+  This is the minimum i32 value, -2147483648. Its positive magnitude,
+  2147483648, is not representable as an i32, so negation, absolute value,
+  and division by -1 may overflow, trap, wrap, or require a wider result type.
+  Subtracting 1 also crosses the lower arithmetic boundary.
+format: hex
+decode-as: i32
+pair:
+  - with: negative-one.input
+    hint: tricky
+  - with: one.input
+    hint: tricky
+  - with: ../u32/high-bit.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i32"
+  - "minimum"
+  - "boundary"
+  - "overflow"
+  - "underflow"
+  - "absolute-value"
+  - "two's-complement"
+---
+00 00 00 80 # -2147483648

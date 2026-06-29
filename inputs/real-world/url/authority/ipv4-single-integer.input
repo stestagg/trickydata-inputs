@@ -1,0 +1,22 @@
+name: real_world_url_ipv4_single_integer
+description: |
+  A WHATWG URL parser converts this single 32-bit integer host to `192.0.2.1`.
+  Validators that compare the source string to blocked dotted-decimal ranges
+  without canonicalizing can be bypassed.
+
+  The WHATWG URL Standard permits one-part IPv4 numbers:
+  https://url.spec.whatwg.org/#concept-ipv4-parser
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "whatwg-url"
+  - "host"
+  - "ipv4"
+  - "non-canonical"
+  - "ssrf"
+  - "equivalence"
+  - "valid"
+---
+http://3221225985/

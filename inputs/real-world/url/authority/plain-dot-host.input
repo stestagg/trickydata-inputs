@@ -1,0 +1,24 @@
+name: real_world_url_plain_dot_host
+description: |
+  This ordinary host is the normalized baseline for a percent-encoded dot in
+  the paired URL. Host parsing has component-specific percent-decoding rules
+  that must not be copied blindly to paths or queries.
+
+  The WHATWG host parser percent-decodes opaque host input before domain-to-
+  ASCII processing:
+  https://url.spec.whatwg.org/#host-parsing
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: percent-encoded-dot-host.input
+    hint: equal
+tags:
+  - "real-world"
+  - "url"
+  - "whatwg-url"
+  - "host"
+  - "percent-encoding"
+  - "equivalence"
+  - "valid"
+---
+https://example.com/

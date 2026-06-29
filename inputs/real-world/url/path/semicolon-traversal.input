@@ -1,0 +1,24 @@
+name: real_world_url_semicolon_traversal
+description: |
+  The segment `..;` is not an RFC dot segment, but frameworks that strip
+  semicolon path parameters before routing can turn it into `..`. Differences
+  between proxy normalization and application routing make this a useful
+  authorization and traversal regression case.
+
+  RFC 3986 sections 3.3 and 5.2.4 define path segments and exact dot-segment
+  matching:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.3
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-5.2.4
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "path"
+  - "semicolon"
+  - "path-parameters"
+  - "router-differential"
+  - "path-traversal"
+  - "context-dependent"
+---
+https://example.com/safe/..;/marker

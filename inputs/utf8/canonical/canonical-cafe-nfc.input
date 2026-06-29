@@ -1,0 +1,27 @@
+name: canonical_cafe_nfc
+description: |
+  The final character in this input is precomposed LATIN SMALL LETTER E WITH
+  ACUTE (U+00E9). It looks the same as the paired decomposed form but has a
+  different code-point sequence and UTF-8 byte representation. Together the
+  pair tests normalization-aware comparison, hashing, indexing, and storage.
+
+  Unicode Standard Annex #15 defines canonical equivalence and normalization:
+  https://www.unicode.org/reports/tr15/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 5
+  code-points: 4
+  scalar-values: 4
+  legacy-grapheme-clusters: 4
+  extended-grapheme-clusters: 4
+pair:
+  - with: canonical-cafe-nfd.input
+    hint: equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-normalization"
+  - "canonical-equivalence"
+---
+café

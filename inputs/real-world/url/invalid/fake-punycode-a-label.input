@@ -1,0 +1,21 @@
+name: real_world_invalid_url_fake_punycode_a_label
+description: |
+  `xn--a` has an A-label-shaped prefix but is not a valid Punycode encoding of
+  a U-label. WHATWG domain-to-ASCII processing must reject it rather than
+  treating it as an ordinary ASCII hostname.
+
+  RFC 5890 section 2.3.2.1 defines fake A-labels:
+  https://www.rfc-editor.org/rfc/rfc5890.html#section-2.3.2.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "host"
+  - "idna"
+  - "a-label"
+  - "punycode"
+---
+https://xn--a/

@@ -1,0 +1,23 @@
+name: effective_power
+description: |
+  This input file caused a boot-loop in iphones due to an issue handling
+  unicode combining characters.
+
+  https://en.wikipedia.org/wiki/SpringBoard#%22effective_power%22_bug
+format: utf8
+decode-as: utf8
+unicode-meta:
+  code-units: 95
+  code-points: 67
+  scalar-values: 67
+  legacy-grapheme-clusters: 55
+  extended-grapheme-clusters: 55
+tags:
+    - "utf8"
+    - "unicode"
+    - "unicode-combiners"
+---
+ effective. 
+      Power
+           لُلُصّبُلُلصّبُررً ॣ ॣh ॣ ॣ
+ 冗

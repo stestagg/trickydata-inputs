@@ -1,0 +1,22 @@
+name: real_world_invalid_email_local_part_over_64_octets
+description: |
+  The local-part is 65 ASCII octets, one beyond the SMTP maximum. Character-
+  based limits and off-by-one comparisons frequently accept this boundary.
+
+  RFC 5321 section 4.5.3.1.1 limits local-parts to 64 octets:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.5.3.1.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "invalid-email"
+  - "invalid"
+  - "local-part"
+  - "length-limit"
+  - "65-octets"
+  - "boundary"
+---
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abc@example.com

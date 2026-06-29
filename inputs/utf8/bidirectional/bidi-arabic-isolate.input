@@ -1,0 +1,24 @@
+name: bidi_arabic_isolate
+description: |
+  This input encloses Arabic text with RIGHT-TO-LEFT ISOLATE (U+2067) and POP
+  DIRECTIONAL ISOLATE (U+2069) inside left-to-right text. It tests correct
+  containment of bidirectional ordering around punctuation and surrounding
+  text, as well as preservation of invisible directional controls.
+
+  Unicode Standard Annex #9 defines directional isolates:
+  https://www.unicode.org/reports/tr9/#Explicit_Directional_Isolates
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 29
+  code-points: 20
+  scalar-values: 20
+  legacy-grapheme-clusters: 20
+  extended-grapheme-clusters: 20
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-bidi"
+  - "unicode-controls"
+---
+left [⁧مرحبا⁩] right

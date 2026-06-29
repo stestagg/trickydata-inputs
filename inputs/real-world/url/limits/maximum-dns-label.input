@@ -1,0 +1,24 @@
+name: real_world_url_maximum_dns_label
+description: |
+  The first host label is exactly 63 ASCII octets, the DNS maximum. This is a
+  valid boundary value that catches off-by-one checks and confusion between
+  Unicode input length and the post-IDNA A-label length.
+
+  RFC 1035 section 2.3.4 sets the 63-octet label limit:
+  https://www.rfc-editor.org/rfc/rfc1035.html#section-2.3.4
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: oversized-dns-label.input
+    hint: tricky
+tags:
+  - "real-world"
+  - "url"
+  - "host"
+  - "dns"
+  - "length-limit"
+  - "boundary"
+  - "63-octets"
+  - "valid"
+---
+https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example/

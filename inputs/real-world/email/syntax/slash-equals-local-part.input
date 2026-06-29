@@ -1,0 +1,26 @@
+name: real_world_email_slash_equals_local_part
+description: |
+  Slash and equals are both valid unquoted `atext` characters. This
+  routing-shaped local-part is syntactically valid but often fails simplified
+  regular expressions, URL-oriented escaping, and form-validation libraries.
+
+  RFC 5322 section 3.2.3 includes slash and equals in `atext`, which RFC 5321
+  section 4.1.2 uses for SMTP atoms:
+  https://www.rfc-editor.org/rfc/rfc5322.html#section-3.2.3
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "rfc5321"
+  - "rfc5322"
+  - "slash"
+  - "equals-sign"
+  - "atext"
+  - "valid"
+  - "interoperability"
+---
+customer/department=shipping@example.com

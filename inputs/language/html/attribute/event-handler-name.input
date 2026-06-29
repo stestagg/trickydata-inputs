@@ -1,0 +1,18 @@
+name: language_html_data_attribute_event_handler_name
+description: |
+  The value is an event-handler attribute name. Applications that accept dynamic
+  attribute names cannot make them safe with ordinary value encoding and should
+  reject event handlers through an allowlist.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "html-attribute-name"
+  - "event-handler"
+  - "dynamic-html"
+  - "allowlist"
+---
+onerror

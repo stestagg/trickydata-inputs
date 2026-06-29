@@ -1,0 +1,22 @@
+name: real_world_invalid_email_quote_inside_atom
+description: |
+  A quoted-string must constitute the complete local-part; a quote cannot
+  begin in the middle of an atom. Lenient parsers may discard the quote and
+  manufacture a different address.
+
+  RFC 5321 section 4.1.2 allows Local-part to be either Dot-string or
+  Quoted-string, not a mixture:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "local-part"
+  - "quote"
+  - "mixed-syntax"
+---
+john"doe@example.com

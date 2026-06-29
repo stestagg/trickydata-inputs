@@ -1,0 +1,25 @@
+name: real_world_email_all_atext_symbols
+description: |
+  This local-part contains every non-alphanumeric ASCII symbol allowed by the
+  RFC 5322 `atext` production. Validators built around a small
+  letters-digits-dot-hyphen character class often reject one or more of them,
+  even though the unquoted dot-string is valid SMTP mailbox syntax.
+
+  RFC 5322 section 3.2.3 defines `atext`, and RFC 5321 section 4.1.2 imports it:
+  https://www.rfc-editor.org/rfc/rfc5322.html#section-3.2.3
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "rfc5321"
+  - "rfc5322"
+  - "atext"
+  - "special-characters"
+  - "valid"
+  - "interoperability"
+---
+!#$%&'*+-/=?^_`{|}~@example.com

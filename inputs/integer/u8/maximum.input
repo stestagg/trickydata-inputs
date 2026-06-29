@@ -1,0 +1,23 @@
+name: integer_u8_maximum
+description: |
+  This is the maximum u8 value, 255, with every bit set. Adding 1 crosses the
+  unsigned upper boundary and may trap, wrap to zero, saturate, or be widened
+  before evaluation. Reinterpreting the same byte as i8 produces -1, making it
+  useful for detecting signedness mistakes in storage, comparison, and
+  conversion code.
+format: hex
+decode-as: u8
+pair:
+  - with: one.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u8"
+  - "maximum"
+  - "boundary"
+  - "overflow"
+  - "conversion"
+  - "all-bits-set"
+---
+ff # 255

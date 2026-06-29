@@ -1,0 +1,19 @@
+name: language_html_data_attribute_unquoted_tag_breakout
+description: |
+  In an unquoted attribute this value closes the current tag and introduces an
+  inert custom element. It is a non-executing canary for templates that omit
+  quotes or rely on validation instead of output encoding.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "html-attribute-context"
+  - "unquoted-attribute"
+  - "greater-than"
+  - "dom-injection"
+  - "inert-canary"
+---
+x><x-xss-canary>

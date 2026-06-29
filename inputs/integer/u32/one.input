@@ -1,0 +1,18 @@
+name: integer_u32_one
+description: |
+  One is a baseline u32 operand for boundary arithmetic. Adding it to the
+  maximum overflows, subtracting it from zero underflows, and dividing it by zero
+  exercises integer divide-by-zero handling.
+format: hex
+decode-as: u32
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u32"
+  - "one"
+  - "overflow"
+  - "underflow"
+  - "division-by-zero"
+  - "baseline"
+---
+01 00 00 00 # 1

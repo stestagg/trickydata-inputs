@@ -1,0 +1,18 @@
+name: language_sql_data_like_escaped_percent
+description: |
+  Backslash-percent is treated as a literal percent only when the query's LIKE
+  escape convention agrees. Dialects and explicit ESCAPE clauses differ, so
+  pre-escaping data can store or match the wrong bytes.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "like"
+  - "percent"
+  - "backslash"
+  - "pattern-escaping"
+  - "dialect-difference"
+---
+\%

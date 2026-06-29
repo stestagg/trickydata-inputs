@@ -1,0 +1,18 @@
+name: language_sql_data_identifier_double_quote
+description: |
+  An embedded double quote can terminate a standard delimited identifier unless
+  it is doubled correctly. It tests dynamic identifier quoting separately from
+  ordinary string-value escaping.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "identifier"
+  - "double-quote"
+  - "dynamic-sql"
+  - "identifier-quoting"
+  - "injection-canary"
+---
+column"name

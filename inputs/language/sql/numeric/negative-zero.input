@@ -1,0 +1,18 @@
+name: language_sql_data_negative_zero
+description: |
+  Negative zero may be preserved by floating-point bindings but normalized by
+  integer, decimal, JSON, or SQL layers. Round trips can therefore change its
+  text or sign-sensitive behavior.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "numeric"
+  - "negative-zero"
+  - "signed-zero"
+  - "type-conversion"
+  - "round-trip"
+---
+-0

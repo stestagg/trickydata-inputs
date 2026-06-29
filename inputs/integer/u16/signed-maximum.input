@@ -1,0 +1,22 @@
+name: integer_u16_signed_maximum
+description: |
+  This is 32767, the greatest u16 value that is also representable as i16.
+  Adding 1 sets the high bit and reaches 32768, the first u16 value outside the
+  i16 positive range. The adjacent pair targets off-by-one range checks,
+  narrowing conversions, and code that mistakes the high bit for a sign bit.
+format: hex
+decode-as: u16
+pair:
+  - with: high-bit.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u16"
+  - "signed-maximum"
+  - "boundary"
+  - "conversion"
+  - "sign-bit"
+  - "off-by-one"
+---
+ff 7f # 32767

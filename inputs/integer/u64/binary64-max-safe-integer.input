@@ -1,0 +1,27 @@
+name: integer_u64_binary64_max_safe_integer
+description: |
+  This is 2^53 - 1, the largest integer for which every integer through that
+  magnitude is distinct in binary64. The next integer is exactly representable
+  but is no longer safe because it shares a binary64 neighborhood with values
+  that cannot be distinguished.
+
+  ECMAScript specifies this value as Number.MAX_SAFE_INTEGER:
+  https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.max_safe_integer
+format: hex
+decode-as: u64
+pair:
+  - with: binary64-exact-boundary.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u64"
+  - "binary64"
+  - "float-roundtrip"
+  - "safe-integer"
+  - "precision"
+  - "serialization"
+  - "boundary"
+  - "off-by-one"
+---
+ff ff ff ff ff ff 1f 00 # 9007199254740991 (2^53 - 1)

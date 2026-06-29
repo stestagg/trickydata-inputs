@@ -1,0 +1,22 @@
+name: invalid_utf16_lone_high_surrogate
+description: |
+  An ASCII 'A' (0x0041) followed by a lone high surrogate (0xD800) in
+  little-endian UTF-16. A high surrogate must be followed by a low surrogate in
+  the range 0xDC00..=0xDFFF; on its own it is not a valid Unicode scalar value
+  and well-formed UTF-16 decoders must reject it. It is stored as raw bytes
+  because it cannot be encoded as valid UTF-16.
+
+  See the Unicode UTF-16 conformance rules (D91, well-formed UTF-16):
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf16
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf16"
+  - "invalid-utf16"
+  - "surrogate"
+  - "lone-surrogate"
+---
+41 00 00 d8 # 'A' then lone high surrogate U+D800

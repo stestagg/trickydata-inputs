@@ -1,0 +1,24 @@
+name: real_world_invalid_email_consecutive_dots_local_part
+description: |
+  Consecutive dots create an empty atom and are invalid in an unquoted
+  local-part. The paired quoted local-part is valid, so parsers must apply dot
+  rules only after recognizing whether the local-part is quoted.
+
+  RFC 5321 section 4.1.2 defines both Dot-string and Quoted-string:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: ../syntax/quoted-consecutive-dots.input
+    hint: tricky
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "local-part"
+  - "consecutive-dots"
+  - "dot-atom"
+---
+john..doe@example.com

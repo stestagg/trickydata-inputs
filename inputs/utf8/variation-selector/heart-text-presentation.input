@@ -1,0 +1,29 @@
+name: heart_text_presentation
+description: |
+  This input is BLACK HEART SUIT (U+2665) followed by VARIATION SELECTOR-15
+  (U+FE0E), requesting text-style presentation. The selector is normally
+  invisible but changes the encoded sequence and can affect rendering, search,
+  equality, cursor movement, and sanitization.
+
+  Unicode Technical Standard #51 defines text presentation sequences:
+  https://www.unicode.org/reports/tr51/#Emoji_and_Text_Presentation_Sequences
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 6
+  code-points: 2
+  scalar-values: 2
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+pair:
+  - with: heart-default-presentation.input
+    hint: not-equal
+  - with: heart-emoji-presentation.input
+    hint: not-equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-variation-selectors"
+  - "default-ignorable"
+---
+♥︎

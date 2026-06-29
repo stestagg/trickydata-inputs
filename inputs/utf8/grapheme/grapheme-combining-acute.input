@@ -1,0 +1,25 @@
+name: grapheme_combining_acute
+description: |
+  This single displayed grapheme is LATIN SMALL LETTER E (U+0065) followed by
+  COMBINING ACUTE ACCENT (U+0301). It tests code that mistakes code points or
+  UTF-8 bytes for user-perceived characters during deletion, truncation,
+  cursor movement, regular-expression matching, or length validation.
+
+  Unicode Standard Annex #29 defines extended grapheme cluster boundaries:
+  https://www.unicode.org/reports/tr29/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 3
+  code-points: 2
+  scalar-values: 2
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-segmentation"
+  - "grapheme-clusters"
+  - "unicode-combiners"
+---
+é

@@ -1,0 +1,26 @@
+name: real_world_url_backslash_authority_confusion
+description: |
+  For a WHATWG special URL, backslash is treated as a path separator, making
+  `trusted.example` the host and `@attacker.invalid` path data. RFC-oriented
+  parsers that do not treat backslash as a separator can instead interpret the
+  same suffix as authority data. Comparing this with the paired at-sign case
+  exposes parser-differential SSRF and allowlist bugs.
+
+  The WHATWG URL Standard defines backslash as a reverse solidus delimiter for
+  special URLs:
+  https://url.spec.whatwg.org/#special-scheme
+  https://url.spec.whatwg.org/#url-parsing
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "whatwg-url"
+  - "authority"
+  - "backslash"
+  - "host-confusion"
+  - "parser-differential"
+  - "ssrf"
+  - "context-dependent"
+---
+https://trusted.example\@attacker.invalid/

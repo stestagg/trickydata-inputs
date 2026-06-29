@@ -1,0 +1,21 @@
+name: invalid_utf8_extra_continuation
+description: |
+  C2 A2 is a complete encoding of CENT SIGN (U+00A2), followed by an extra
+  continuation byte. A decoder must not attach the third byte to the completed
+  character or ignore it after successfully decoding the prefix.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "continuation-byte"
+  - "extra-continuation"
+  - "valid-prefix"
+---
+c2 a2 80 # CENT SIGN followed by an unexpected continuation byte

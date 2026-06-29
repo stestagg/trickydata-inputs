@@ -1,0 +1,17 @@
+name: language_sql_data_double_quote
+description: |
+  A double quote stresses code that incorrectly uses identifier quoting for
+  values, or targets a dialect or mode where double quotes can delimit strings.
+  Bound string data should preserve it unchanged.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "string"
+  - "double-quote"
+  - "escaping"
+  - "dialect-difference"
+---
+"

@@ -1,0 +1,27 @@
+name: line_break_paragraph_separator
+description: |
+  This input separates "A" and "B" with PARAGRAPH SEPARATOR (U+2029). It can
+  display as a line or paragraph break while remaining a distinct three-byte
+  UTF-8 sequence, testing parser agreement, logging, trimming, and line counts.
+
+  Unicode Standard Annex #14 assigns U+2029 a mandatory break:
+  https://www.unicode.org/reports/tr14/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 5
+  code-points: 3
+  scalar-values: 3
+  legacy-grapheme-clusters: 3
+  extended-grapheme-clusters: 3
+pair:
+  - with: ascii-line-feed.input
+    hint: not-equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-whitespace"
+  - "line-separators"
+  - "text-parsing"
+---
+A B

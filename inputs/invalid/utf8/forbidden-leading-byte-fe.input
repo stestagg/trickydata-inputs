@@ -1,0 +1,20 @@
+name: invalid_utf8_forbidden_leading_byte_fe
+description: |
+  The byte 0xFE is never permitted in UTF-8. Older or overly permissive
+  decoders may mistake it for a sequence starter left over from obsolete
+  pre-RFC 3629 forms, while strict decoders must reject it immediately.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "invalid-leading-byte"
+  - "forbidden-byte"
+---
+fe

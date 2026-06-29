@@ -1,0 +1,19 @@
+name: language_html_data_close_textarea_canary
+description: |
+  In textarea RCDATA, this value closes the surrounding element and then adds
+  an inert custom element. Generic HTML escaping or plain text setters prevent
+  the context break; raw template interpolation changes the DOM structure.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "rcdata-context"
+  - "textarea"
+  - "end-tag"
+  - "dom-injection"
+  - "inert-canary"
+---
+</textarea><x-xss-canary>

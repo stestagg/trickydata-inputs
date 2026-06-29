@@ -1,0 +1,22 @@
+name: real_world_invalid_email_fake_idna_a_label
+description: |
+  `xn--a` has the reserved A-label prefix but is not a valid Punycode encoding
+  of a U-label. Code that recognizes only the prefix can accept a fake A-label
+  that IDNA-aware domain processing must reject.
+
+  RFC 5890 section 2.3.2.1 defines A-label validity and fake A-labels:
+  https://www.rfc-editor.org/rfc/rfc5890.html#section-2.3.2.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "domain"
+  - "idna"
+  - "a-label"
+  - "punycode"
+---
+user@xn--a.example

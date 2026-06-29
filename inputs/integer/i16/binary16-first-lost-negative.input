@@ -1,0 +1,21 @@
+name: integer_i16_binary16_first_lost_negative
+description: |
+  This is -(2^11 + 1), the first negative integer by magnitude that does not
+  survive conversion to binary16 and back. Round-to-nearest maps it to -2^11,
+  checking that signed conversion loses precision symmetrically.
+format: hex
+decode-as: i16
+pair:
+  - with: ../u16/binary16-first-lost-integer.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i16"
+  - "binary16"
+  - "float-roundtrip"
+  - "negative"
+  - "precision-loss"
+  - "boundary"
+---
+ff f7 # -2049 (-(2^11 + 1))

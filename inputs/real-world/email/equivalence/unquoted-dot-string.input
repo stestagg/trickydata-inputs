@@ -1,0 +1,24 @@
+name: real_world_email_unquoted_dot_string
+description: |
+  This minimally quoted dot-string is the baseline for the paired quoted
+  local-part. RFC 5321 requires all quoted forms of a local-part to compare
+  equivalently and recommends sending the form with the least quoting.
+
+  RFC 5321 section 4.1.2 defines quoted-form equivalence:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: quoted-dot-string.input
+    hint: equal
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "rfc5321"
+  - "quoted-local-part"
+  - "equivalence"
+  - "valid"
+---
+john.doe@example.com

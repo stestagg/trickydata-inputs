@@ -1,0 +1,18 @@
+name: language_sql_data_huge_exponent
+description: |
+  A small significand with an extreme exponent can overflow floating-point
+  bindings, become infinity, or be rejected by exact decimal types. It also
+  catches validators that cap digit count but ignore exponent magnitude.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "numeric"
+  - "exponent"
+  - "overflow"
+  - "floating-point"
+  - "type-conversion"
+---
+1e9999

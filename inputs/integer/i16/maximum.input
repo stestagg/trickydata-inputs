@@ -1,0 +1,24 @@
+name: integer_i16_maximum
+description: |
+  This is the maximum i16 value, 32767. Adding 1 produces the unrepresentable
+  value 32768 and may trap, wrap to -32768, saturate, or be evaluated in a wider
+  type. Its all-lower-bits-set encoding is also the last u16 value that can be
+  converted to i16 without changing the mathematical value.
+format: hex
+decode-as: i16
+pair:
+  - with: one.input
+    hint: tricky
+  - with: ../u16/signed-maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i16"
+  - "maximum"
+  - "boundary"
+  - "overflow"
+  - "conversion"
+  - "two's-complement"
+---
+ff 7f # 32767

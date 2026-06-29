@@ -1,0 +1,22 @@
+name: invalid_utf8_encoded_high_surrogate
+description: |
+  ED A0 80 is the direct three-byte encoding of U+D800, the first high
+  surrogate. Surrogate code points are excluded from Unicode scalar values and
+  are not permitted in well-formed UTF-8, even though the byte pattern has the
+  general shape of a three-byte sequence.
+
+  See Unicode definition D92 and Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "surrogate"
+  - "high-surrogate"
+  - "unicode-scalar-value"
+---
+ed a0 80 # Direct encoding of surrogate code point U+D800

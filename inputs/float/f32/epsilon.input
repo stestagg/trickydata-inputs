@@ -1,0 +1,17 @@
+name: float_f32_epsilon
+description: |
+  This is binary32 machine epsilon, 2^-23: the gap between 1 and the next
+  representable value above 1. It catches code that assumes a universal
+  epsilon across float widths, uses epsilon as an absolute tolerance at every
+  magnitude, or accidentally performs the calculation at a wider precision.
+format: hex
+decode-as: f32
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f32"
+  - "epsilon"
+  - "precision"
+---
+00 00 00 34 # 0x34000000: 2^-23

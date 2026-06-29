@@ -1,0 +1,21 @@
+name: float_f32_positive_zero
+description: |
+  IEEE 754 binary32 positive zero has all bits clear. It compares equal to
+  negative zero, but its sign affects division, reciprocals, copysign, and some
+  branch-cut functions. It is also paired with the smallest subnormal to expose
+  implementations that flush tiny non-zero values to zero.
+format: hex
+decode-as: f32
+pair:
+  - with: negative-zero.input
+    hint: equal
+  - with: smallest-positive-subnormal.input
+    hint: not-equal
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f32"
+  - "signed-zero"
+---
+00 00 00 00 # 0x00000000: +0

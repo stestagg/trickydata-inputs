@@ -1,0 +1,27 @@
+name: real_world_email_quoted_literal_space
+description: |
+  This quoted local-part contains an unescaped space and is the baseline for
+  the paired quoted-pair spelling. Both forms represent the same local-part;
+  the backslash in a quoted-pair is syntax rather than mailbox data.
+
+  RFC 5321 section 4.1.2 requires quoted-form equivalence, and RFC 5322 section
+  3.2.4 describes the semantic invisibility of quoted-pair backslashes:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+  https://www.rfc-editor.org/rfc/rfc5322.html#section-3.2.4
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: quoted-escaped-space.input
+    hint: equal
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "rfc5321"
+  - "quoted-local-part"
+  - "quoted-pair"
+  - "equivalence"
+  - "valid"
+---
+"john doe"@example.com

@@ -1,0 +1,27 @@
+name: fullwidth_latin_letters
+description: |
+  This is the word "HELLO" written with FULLWIDTH LATIN CAPITAL LETTERS
+  (U+FF28 U+FF25 U+FF2C U+FF2C U+FF2F). Each is a single code point and grapheme,
+  but its East Asian Width property is Fullwidth, so a monospace terminal or
+  fixed-cell grid allocates two columns per character. Code that measures the
+  string by code-point or grapheme count assumes five columns and under-counts
+  the real width by half, misaligning tables, padding, and truncation.
+
+  Unicode Standard Annex #11 defines the East Asian Width property:
+  https://www.unicode.org/reports/tr11/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 15
+  code-points: 5
+  scalar-values: 5
+  legacy-grapheme-clusters: 5
+  extended-grapheme-clusters: 5
+tags:
+  - "utf8"
+  - "unicode"
+  - "rendering"
+  - "rendering-width"
+  - "east-asian-width"
+---
+ＨＥＬＬＯ

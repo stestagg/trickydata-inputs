@@ -1,0 +1,24 @@
+name: language_sql_data_zero_width_space_keyword
+description: |
+  U+200B ZERO WIDTH SPACE splits the visible word UNION without adding visible
+  width. Filters, logs, and normalizers may disagree about whether it is present,
+  especially if validation and SQL construction occur in different layers.
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 8
+  code-points: 6
+  scalar-values: 6
+  legacy-grapheme-clusters: 6
+  extended-grapheme-clusters: 6
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "utf8"
+  - "zero-width-space"
+  - "keyword"
+  - "normalization"
+  - "text-spoofing"
+---
+UN​ION

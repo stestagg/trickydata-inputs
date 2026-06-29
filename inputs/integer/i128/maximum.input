@@ -1,0 +1,24 @@
+name: integer_i128_maximum
+description: |
+  This is the maximum i128 value, 170141183460469231731687303715884105727. Adding 1 produces the
+  unrepresentable value 170141183460469231731687303715884105728 and may trap, wrap to -170141183460469231731687303715884105728, saturate,
+  or be evaluated in a wider type. The same bit pattern is the last u128
+  value that converts to i128 without changing the mathematical value.
+format: hex
+decode-as: i128
+pair:
+  - with: one.input
+    hint: tricky
+  - with: ../u128/signed-maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i128"
+  - "maximum"
+  - "boundary"
+  - "overflow"
+  - "conversion"
+  - "two's-complement"
+---
+ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 7f # 170141183460469231731687303715884105727

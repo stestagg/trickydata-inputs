@@ -1,0 +1,16 @@
+name: language_sql_data_block_comment_closer
+description: |
+  Star-slash can unexpectedly close a surrounding SQL comment or confuse a
+  comment-stripping layer. Correct value binding stores it verbatim.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "string"
+  - "block-comment"
+  - "escaping"
+  - "injection-canary"
+---
+*/

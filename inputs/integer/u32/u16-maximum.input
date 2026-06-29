@@ -1,0 +1,23 @@
+name: integer_u32_u16_maximum
+description: |
+  This is u16 maximum represented as u32. It is the last value that
+  survives narrowing to u16; the paired next value requires bit 16
+  and exposes truncation, masking, and arithmetic performed at the wrong width.
+format: hex
+decode-as: u32
+pair:
+  - with: ../u16/maximum.input
+    hint: equal
+  - with: above-u16-maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u32"
+  - "lower-width"
+  - "maximum"
+  - "boundary"
+  - "narrowing"
+  - "truncation"
+---
+ff ff 00 00 # 65535

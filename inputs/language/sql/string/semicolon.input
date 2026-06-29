@@ -1,0 +1,16 @@
+name: language_sql_data_semicolon
+description: |
+  A semicolon is harmless string data when bound correctly but can become a
+  statement separator when interpolated or passed through a naive SQL splitter.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "string"
+  - "semicolon"
+  - "statement-splitting"
+  - "parameter-binding"
+---
+;

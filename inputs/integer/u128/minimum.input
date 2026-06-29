@@ -1,0 +1,24 @@
+name: integer_u128_minimum
+description: |
+  This is the minimum u128 value, 0. Subtracting 1 crosses the unsigned
+  lower boundary and may trap, wrap to 340282366920938463463374607431768211455, saturate, or be widened.
+  It is also an invalid divisor for integer division and remainder.
+format: hex
+decode-as: u128
+pair:
+  - with: one.input
+    hint: tricky
+  - with: ../i128/zero.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u128"
+  - "minimum"
+  - "zero"
+  - "boundary"
+  - "underflow"
+  - "division-by-zero"
+  - "remainder-by-zero"
+---
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 # 0

@@ -1,0 +1,22 @@
+name: real_world_invalid_email_trailing_hyphen_domain_label
+description: |
+  An SMTP domain label must end in a letter or digit. A trailing hyphen often
+  slips through validators that use an unrestricted letters-digits-hyphens
+  character class.
+
+  RFC 5321 section 4.1.2 requires `Ldh-str` to end in Let-dig:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "invalid-email"
+  - "invalid"
+  - "domain"
+  - "hyphen"
+  - "label"
+---
+user@example-.com

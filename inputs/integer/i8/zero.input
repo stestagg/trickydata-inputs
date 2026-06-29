@@ -1,0 +1,21 @@
+name: integer_i8_zero
+description: |
+  Zero is the i8 additive identity and the critical invalid divisor for integer
+  division and remainder. Pairing it with one exercises divide-by-zero handling,
+  which may trap, raise an exception, return an error, or be undefined depending
+  on the language and execution environment.
+format: hex
+decode-as: i8
+pair:
+  - with: one.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i8"
+  - "zero"
+  - "division-by-zero"
+  - "remainder-by-zero"
+  - "baseline"
+---
+00 # 0

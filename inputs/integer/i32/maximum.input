@@ -1,0 +1,24 @@
+name: integer_i32_maximum
+description: |
+  This is the maximum i32 value, 2147483647. Adding 1 produces the
+  unrepresentable value 2147483648 and may trap, wrap to -2147483648, saturate,
+  or be evaluated in a wider type. The same bit pattern is the last u32
+  value that converts to i32 without changing the mathematical value.
+format: hex
+decode-as: i32
+pair:
+  - with: one.input
+    hint: tricky
+  - with: ../u32/signed-maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i32"
+  - "maximum"
+  - "boundary"
+  - "overflow"
+  - "conversion"
+  - "two's-complement"
+---
+ff ff ff 7f # 2147483647

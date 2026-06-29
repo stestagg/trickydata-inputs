@@ -1,0 +1,31 @@
+name: float_parsing_json_long_pi
+description: |
+  This valid JSON number carries substantially more precision than binary64.
+  It exercises correct decimal rounding, arbitrary-precision handoff, and
+  implementations that truncate the significand before conversion. RFC 8259
+  uses this exact value as an example of a potential interoperability problem.
+
+  RFC 8259 section 6 discusses precision beyond binary64:
+  https://www.rfc-editor.org/rfc/rfc8259.html#section-6
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 32
+  code-points: 32
+  scalar-values: 32
+  legacy-grapheme-clusters: 32
+  extended-grapheme-clusters: 32
+tags:
+  - "float"
+  - "utf8"
+  - "floating-point-parsing"
+  - "json"
+  - "rfc-8259"
+  - "decimal"
+  - "precision"
+  - "rounding"
+  - "f16"
+  - "f32"
+  - "f64"
+---
+3.141592653589793238462643383279

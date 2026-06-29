@@ -1,0 +1,28 @@
+name: casing_dotted_i_default_lower
+description: |
+  This input is LATIN SMALL LETTER I (U+0069) followed by COMBINING DOT ABOVE
+  (U+0307). It is the default full lowercase mapping of the paired precomposed
+  capital dotted I (U+0130), demonstrating that case conversion can change both
+  normalization shape and code-point count.
+
+  SpecialCasing.txt records this unconditional full lowercase mapping:
+  https://www.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 3
+  code-points: 2
+  scalar-values: 2
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+pair:
+  - with: turkic-capital-dotted-i.input
+    hint: equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-casing"
+  - "unicode-combiners"
+  - "length-changing"
+---
+i̇

@@ -1,0 +1,22 @@
+name: real_world_url_backslash_traversal
+description: |
+  WHATWG special URLs treat backslash as a path separator, and Windows
+  filesystems do too. An RFC-only filter may see ordinary path data while a
+  browser, proxy, or filesystem resolves `..\` as a parent segment.
+
+  The WHATWG URL parser treats reverse solidus like slash for special schemes:
+  https://url.spec.whatwg.org/#url-path-state
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "whatwg-url"
+  - "path"
+  - "backslash"
+  - "windows"
+  - "parser-differential"
+  - "path-traversal"
+  - "security"
+---
+https://example.com/safe/..\marker

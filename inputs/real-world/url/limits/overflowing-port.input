@@ -1,0 +1,22 @@
+name: real_world_url_overflowing_port
+description: |
+  Port 65536 is one above the maximum and must fail WHATWG URL parsing.
+  Implementations that store the value in 16 bits before range checking can
+  wrap it to zero, while lenient parsers may leave it as uninterpreted text.
+
+  The WHATWG URL port state defines the range check:
+  https://url.spec.whatwg.org/#port-state
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "authority"
+  - "port"
+  - "integer-overflow"
+  - "boundary"
+  - "65536"
+  - "invalid-url"
+  - "invalid"
+---
+https://example.com:65536/

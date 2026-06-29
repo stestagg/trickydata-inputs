@@ -1,0 +1,21 @@
+name: integer_i64_binary64_first_lost_negative
+description: |
+  This is -(2^53 + 1), the first negative integer by magnitude that does not
+  survive conversion to binary64 and back. Round-to-nearest maps it to -2^53,
+  checking that signed conversion loses precision symmetrically.
+format: hex
+decode-as: i64
+pair:
+  - with: ../u64/binary64-first-lost-integer.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i64"
+  - "binary64"
+  - "float-roundtrip"
+  - "negative"
+  - "precision-loss"
+  - "boundary"
+---
+ff ff ff ff ff ff df ff # -9007199254740993 (-(2^53 + 1))

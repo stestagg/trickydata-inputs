@@ -1,0 +1,23 @@
+name: language_sql_data_utf8_bom
+description: |
+  U+FEFF appears at the start of an otherwise ordinary value. Some decoders
+  strip it as a byte-order mark even when it is application data, causing stored
+  and queried values to differ.
+format: hex
+decode-as: utf8
+unicode-meta:
+  code-units: 8
+  code-points: 6
+  scalar-values: 6
+  legacy-grapheme-clusters: 6
+  extended-grapheme-clusters: 6
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "utf8"
+  - "byte-order-mark"
+  - "normalization"
+  - "round-trip"
+---
+ef bb bf "value"

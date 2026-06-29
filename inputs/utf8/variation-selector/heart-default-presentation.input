@@ -1,0 +1,29 @@
+name: heart_default_presentation
+description: |
+  This input is BLACK HEART SUIT (U+2665) with no variation selector. Its
+  presentation is therefore determined by Unicode defaults and the renderer.
+  Compare it with the paired text- and emoji-presentation sequences, which may
+  look different despite sharing the same base character.
+
+  Unicode Technical Standard #51 describes presentation style:
+  https://www.unicode.org/reports/tr51/#Presentation_Style
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 3
+  code-points: 1
+  scalar-values: 1
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+pair:
+  - with: heart-text-presentation.input
+    hint: not-equal
+  - with: heart-emoji-presentation.input
+    hint: not-equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-variation-selectors"
+  - "emoji"
+---
+♥

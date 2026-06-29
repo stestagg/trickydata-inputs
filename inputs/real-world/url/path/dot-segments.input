@@ -1,0 +1,26 @@
+name: real_world_url_dot_segments
+description: |
+  Literal `.` and `..` path segments are removed by syntax-based
+  normalization, so this URL is equivalent to the paired normalized path.
+  Implementations should run a defined algorithm rather than repeatedly
+  replacing substrings.
+
+  RFC 3986 sections 5.2.4 and 6.2.2.3 define dot-segment removal:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-5.2.4
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: dot-segments-normalized.input
+    hint: equal
+tags:
+  - "real-world"
+  - "url"
+  - "uri"
+  - "rfc3986"
+  - "path"
+  - "dot-segments"
+  - "normalization"
+  - "equivalence"
+  - "valid"
+---
+https://example.com/a/b/./c/../marker

@@ -1,0 +1,23 @@
+name: real_world_invalid_email_domain_label_over_63_octets
+description: |
+  The first domain label contains 64 ASCII octets. It has otherwise ordinary
+  LDH characters, making it a useful boundary case for validators that check
+  total address length but not individual DNS labels.
+
+  RFC 1035 section 2.3.4 limits labels to 63 octets:
+  https://www.rfc-editor.org/rfc/rfc1035.html#section-2.3.4
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "domain"
+  - "dns"
+  - "length-limit"
+  - "64-octets"
+  - "boundary"
+---
+user@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example

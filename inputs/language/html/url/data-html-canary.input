@@ -1,0 +1,19 @@
+name: language_html_data_url_data_html_canary
+description: |
+  This data URL contains only an inert custom element, but navigation or iframe
+  sinks will parse it as a new HTML document. URL allowlists should distinguish
+  data-bearing schemes from ordinary network URLs.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "url-context"
+  - "data-url"
+  - "html-document"
+  - "scheme-validation"
+  - "inert-canary"
+---
+data:text/html,<x-xss-canary>

@@ -1,0 +1,23 @@
+name: real_world_url_oversized_dns_label
+description: |
+  The first host label is 64 ASCII octets, one over the DNS limit. Parsers may
+  accept and serialize it as host text even though strict DNS validation or
+  resolution must fail, so URL parser acceptance and usable web-host validity
+  can diverge.
+
+  RFC 1035 section 2.3.4 sets the label limit:
+  https://www.rfc-editor.org/rfc/rfc1035.html#section-2.3.4
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "host"
+  - "dns"
+  - "length-limit"
+  - "boundary"
+  - "64-octets"
+  - "invalid-url"
+  - "invalid-domain"
+---
+https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example/

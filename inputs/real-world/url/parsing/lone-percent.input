@@ -1,0 +1,25 @@
+name: real_world_url_lone_percent
+description: |
+  The path ends in a percent sign without two hexadecimal digits. RFC 3986 does
+  not permit this as a `pct-encoded` token, while WHATWG parsing records a
+  validation error but preserves the URL for serialization. Strict and
+  browser-compatible validators therefore disagree.
+
+  RFC 3986 section 2.1 and the WHATWG percent-encoded-byte definition show the
+  differing error models:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-2.1
+  https://url.spec.whatwg.org/#percent-encoded-bytes
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "path"
+  - "percent-encoding"
+  - "malformed"
+  - "parser-differential"
+  - "invalid-url"
+  - "repair"
+  - "context-dependent"
+---
+https://example.com/marker%

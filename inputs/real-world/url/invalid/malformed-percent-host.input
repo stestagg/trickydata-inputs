@@ -1,0 +1,22 @@
+name: real_world_invalid_url_malformed_percent_host
+description: |
+  The percent sign in the host is not followed by two hexadecimal digits.
+  Unlike malformed percent text in a path, host parsing percent-decodes before
+  domain processing and this input must fail.
+
+  RFC 3986 section 2.1 defines percent-encoding, and the WHATWG host parser
+  applies percent-decoding:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-2.1
+  https://url.spec.whatwg.org/#host-parsing
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "host"
+  - "percent-encoding"
+  - "malformed"
+---
+https://exa%mple.com/

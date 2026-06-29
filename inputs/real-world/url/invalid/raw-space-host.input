@@ -1,0 +1,20 @@
+name: real_world_invalid_url_raw_space_host
+description: |
+  ASCII space is forbidden inside a special URL host. Splitting on whitespace
+  or deleting it before parsing can manufacture the different host
+  `example.com`.
+
+  The WHATWG host parser rejects forbidden host code points:
+  https://url.spec.whatwg.org/#forbidden-host-code-point
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "host"
+  - "whitespace"
+  - "forbidden-code-point"
+---
+https://exa mple.com/

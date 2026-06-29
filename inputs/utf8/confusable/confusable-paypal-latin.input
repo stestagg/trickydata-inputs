@@ -1,0 +1,26 @@
+name: confusable_paypal_latin
+description: |
+  This all-Latin ASCII identifier is the baseline for the paired mixed-script
+  lookalike. Although the two may appear nearly identical in some fonts, this
+  input uses only U+0070, U+0061, U+0079, U+0070, U+0061, and U+006C.
+
+  Unicode Technical Standard #39 defines confusable detection:
+  https://www.unicode.org/reports/tr39/#Confusable_Detection
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 6
+  code-points: 6
+  scalar-values: 6
+  legacy-grapheme-clusters: 6
+  extended-grapheme-clusters: 6
+pair:
+  - with: confusable-paypal-cyrillic.input
+    hint: not-equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-confusables"
+  - "baseline"
+---
+paypal

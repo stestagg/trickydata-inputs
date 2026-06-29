@@ -1,0 +1,17 @@
+name: float_f64_epsilon
+description: |
+  This is binary64 machine epsilon, 2^-52: the gap between 1 and the next
+  representable value above 1. It catches code that assumes a universal
+  epsilon across float widths or uses epsilon as an absolute tolerance at every
+  magnitude.
+format: hex
+decode-as: f64
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f64"
+  - "epsilon"
+  - "precision"
+---
+00 00 00 00 00 00 b0 3c # 0x3cb0000000000000: 2^-52

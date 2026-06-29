@@ -1,0 +1,23 @@
+name: integer_u64_u32_maximum
+description: |
+  This is u32 maximum represented as u64. It is the last value that
+  survives narrowing to u32; the paired next value requires bit 32
+  and exposes truncation, masking, and arithmetic performed at the wrong width.
+format: hex
+decode-as: u64
+pair:
+  - with: ../u32/maximum.input
+    hint: equal
+  - with: above-u32-maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u64"
+  - "lower-width"
+  - "maximum"
+  - "boundary"
+  - "narrowing"
+  - "truncation"
+---
+ff ff ff ff 00 00 00 00 # 4294967295

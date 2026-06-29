@@ -1,0 +1,26 @@
+name: real_world_email_local_part_lowercase
+description: |
+  This is paired with a local-part that differs only in case. SMTP requires
+  implementations to preserve and treat local-part case as significant, even
+  though exploiting that distinction is discouraged and many providers choose
+  case-insensitive local policy.
+
+  RFC 5321 section 2.3.11 defines local-part case sensitivity:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-2.3.11
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: local-part-uppercase.input
+    hint: not-equal
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "rfc5321"
+  - "local-part"
+  - "case-sensitive"
+  - "not-equal"
+  - "valid"
+---
+case@example.com

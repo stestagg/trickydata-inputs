@@ -1,0 +1,18 @@
+name: language_sql_data_nan
+description: |
+  NaN is accepted by some SQL floating and numeric types and rejected or stored
+  as text by others. Equality, ordering, uniqueness, and round-trip behavior can
+  also differ from host-language IEEE expectations.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "numeric"
+  - "nan"
+  - "floating-point"
+  - "type-conversion"
+  - "dialect-difference"
+---
+NaN

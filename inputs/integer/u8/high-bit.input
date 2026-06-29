@@ -1,0 +1,20 @@
+name: integer_u8_high_bit
+description: |
+  This is 128, the smallest u8 value with the high bit set and the first value
+  that cannot be represented as i8. Reinterpreting the same byte as i8 produces
+  -128, while narrowing or checked conversion may reject it. The value also
+  exposes accidental sign extension and signed comparisons in byte-oriented
+  code.
+format: hex
+decode-as: u8
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u8"
+  - "high-bit"
+  - "boundary"
+  - "conversion"
+  - "sign-extension"
+  - "two's-complement"
+---
+80 # 128

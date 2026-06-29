@@ -1,0 +1,21 @@
+name: real_world_url_query_duplicate_admin_first
+description: |
+  This reverses the duplicate values from the paired URL. Sorting query pairs
+  or storing them in a single-value map changes semantics for applications that
+  use first-value or last-value precedence.
+
+  The WHATWG `URLSearchParams` model preserves pair order and duplicate names:
+  https://url.spec.whatwg.org/#interface-urlsearchparams
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "query"
+  - "duplicate-parameter"
+  - "parameter-pollution"
+  - "ordering"
+  - "not-equal"
+  - "valid"
+---
+https://example.com/check?role=admin&role=user

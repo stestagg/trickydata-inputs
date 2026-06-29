@@ -1,0 +1,23 @@
+name: integer_u16_maximum
+description: |
+  This is the maximum u16 value, 65535, with every bit set. Adding 1 crosses the
+  unsigned upper boundary and may trap, wrap to zero, saturate, or be widened
+  before evaluation. Reinterpreting the same bytes as i16 produces -1, making it
+  useful for detecting signedness mistakes in storage, comparison, and
+  conversion code.
+format: hex
+decode-as: u16
+pair:
+  - with: one.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u16"
+  - "maximum"
+  - "boundary"
+  - "overflow"
+  - "conversion"
+  - "all-bits-set"
+---
+ff ff # 65535

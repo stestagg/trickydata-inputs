@@ -1,0 +1,27 @@
+name: real_world_url_leading_space
+description: |
+  The first byte is ASCII space before an otherwise absolute HTTPS URL.
+  WHATWG parsing strips leading C0 controls and spaces, while older CPython
+  `urllib.parse` behavior could classify this as a relative URL and let it
+  bypass checks that only inspected absolute URLs.
+
+  CPython tracked the security issue as CVE-2023-24329:
+  https://github.com/python/cpython/issues/102153
+  The WHATWG preprocessing rule is defined here:
+  https://url.spec.whatwg.org/#concept-basic-url-parser
+format: hex
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "parser"
+  - "leading-whitespace"
+  - "parser-differential"
+  - "allowlist"
+  - "ssrf"
+  - "cve-2023-24329"
+  - "invalid-url"
+  - "repair"
+  - "security"
+---
+20 "https://trusted.example/path"

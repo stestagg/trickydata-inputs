@@ -1,0 +1,26 @@
+name: casing_greek_final_sigma
+description: |
+  This uppercase Greek word ends in CAPITAL SIGMA (U+03A3). Lowercasing must
+  use FINAL SIGMA (U+03C2) in this context. The paired word places sigma before
+  another cased letter, requiring ordinary SMALL SIGMA (U+03C3) instead.
+
+  SpecialCasing.txt records the context-sensitive Final_Sigma rule:
+  https://www.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 4
+  code-points: 2
+  scalar-values: 2
+  legacy-grapheme-clusters: 2
+  extended-grapheme-clusters: 2
+pair:
+  - with: greek-nonfinal-sigma.input
+    hint: tricky
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-casing"
+  - "context-sensitive"
+---
+ΟΣ

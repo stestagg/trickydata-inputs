@@ -1,0 +1,22 @@
+name: real_world_email_domain_uppercase
+description: |
+  The domain differs in ASCII case from the paired address but is equivalent
+  under DNS and SMTP mailbox-domain comparison. Systems that lowercase the
+  entire address go too far because the local-part has different rules.
+
+  RFC 5321 section 2.3.11 states that mailbox domains are not case-sensitive:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-2.3.11
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "rfc5321"
+  - "domain"
+  - "case-folding"
+  - "equivalence"
+  - "valid"
+---
+user@EXAMPLE.COM

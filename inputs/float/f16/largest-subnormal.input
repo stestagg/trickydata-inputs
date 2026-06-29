@@ -1,0 +1,21 @@
+name: float_f16_largest_subnormal
+description: |
+  This is the largest binary16 subnormal, immediately below the smallest
+  positive normal. The adjacent pair crosses the encoding boundary where the
+  implicit leading significand bit appears, exposing normalization, conversion,
+  rounding, and off-by-one errors near gradual underflow.
+format: hex
+decode-as: f16
+pair:
+  - with: smallest-positive-normal.input
+    hint: tricky
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f16"
+  - "subnormal"
+  - "underflow"
+  - "boundary"
+---
+ff 03 # 0x03ff: largest subnormal

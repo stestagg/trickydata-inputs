@@ -1,0 +1,21 @@
+name: real_world_invalid_url_space_before_scheme_colon
+description: |
+  Space is not permitted between the scheme name and colon. Tokenizers that
+  trim each side of punctuation independently can silently repair this into a
+  different HTTPS URL.
+
+  RFC 3986 section 3.1 defines the scheme as immediately followed by `:`:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "scheme"
+  - "whitespace"
+  - "colon"
+  - "absolute-url"
+---
+https ://example.com/

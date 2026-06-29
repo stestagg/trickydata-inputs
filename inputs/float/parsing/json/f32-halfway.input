@@ -1,0 +1,29 @@
+name: float_parsing_json_f32_halfway
+description: |
+  This valid JSON decimal is exactly halfway between binary32 1.0 and the next
+  representable value, 1.00000011920928955078125. Correct round-to-nearest,
+  ties-to-even selects 1.0, making the input useful for detecting incorrect
+  tie handling and double rounding.
+
+  RFC 8259 defines the JSON number syntax:
+  https://www.rfc-editor.org/rfc/rfc8259.html#section-6
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 26
+  code-points: 26
+  scalar-values: 26
+  legacy-grapheme-clusters: 26
+  extended-grapheme-clusters: 26
+tags:
+  - "float"
+  - "utf8"
+  - "floating-point-parsing"
+  - "json"
+  - "rfc-8259"
+  - "decimal"
+  - "rounding"
+  - "halfway"
+  - "f32"
+---
+1.000000059604644775390625

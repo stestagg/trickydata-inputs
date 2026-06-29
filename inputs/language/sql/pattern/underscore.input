@@ -1,0 +1,17 @@
+name: language_sql_data_like_underscore
+description: |
+  Underscore matches one character in an SQL LIKE pattern. Treating user input
+  as a literal search term without pattern escaping can therefore match values
+  the user did not request.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "like"
+  - "wildcard"
+  - "underscore"
+  - "pattern-escaping"
+---
+_

@@ -1,0 +1,23 @@
+name: integer_i8_negative_one
+description: |
+  This is -1, represented with every bit set in two's-complement i8. It is the
+  divisor that makes i8 minimum division overflow, and it commonly exposes
+  differences between arithmetic and logical right shifts, sign extension,
+  and signed-to-unsigned conversion. The same byte represents u8 maximum.
+format: hex
+decode-as: i8
+pair:
+  - with: ../u8/maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i8"
+  - "negative"
+  - "division"
+  - "sign-extension"
+  - "conversion"
+  - "two's-complement"
+  - "all-bits-set"
+---
+ff # -1

@@ -1,0 +1,19 @@
+name: language_html_data_attribute_unquoted_space_breakout
+description: |
+  In an unquoted attribute value, ASCII space ends the value and the remaining
+  bytes create a harmless data-xss-canary attribute. Quoted attributes or DOM
+  property assignment preserve the complete string as data.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "html-attribute-context"
+  - "unquoted-attribute"
+  - "whitespace"
+  - "attribute-injection"
+  - "inert-canary"
+---
+x data-xss-canary=y

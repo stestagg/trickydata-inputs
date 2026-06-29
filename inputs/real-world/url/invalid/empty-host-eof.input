@@ -1,0 +1,21 @@
+name: real_world_invalid_url_empty_host_eof
+description: |
+  The HTTPS authority ends without a host. Although generic URI grammar can be
+  permissive about empty reg-name text, the WHATWG special-host parser must
+  fail because an HTTP-family URL requires a host.
+
+  The WHATWG host state rejects an empty special host:
+  https://url.spec.whatwg.org/#host-state
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "https"
+  - "host"
+  - "empty-string"
+  - "unexpected-eof"
+---
+https://

@@ -1,0 +1,18 @@
+name: language_sql_data_hex_looking
+description: |
+  The text resembles a hexadecimal SQL literal, but string-to-number conversion
+  rules differ from source-code literal parsing across engines. Binding it as
+  text, integer, or unquoted SQL can yield different values or errors.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "numeric"
+  - "hexadecimal"
+  - "type-confusion"
+  - "type-conversion"
+  - "dialect-difference"
+---
+0x10

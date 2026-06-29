@@ -1,0 +1,23 @@
+name: integer_i64_negative_one
+description: |
+  This is -1, represented with every bit set in two's-complement i64. It
+  is the divisor that makes i64 minimum division overflow and exposes
+  arithmetic-versus-logical shifts, sign extension, and signed-to-unsigned
+  conversion. The same bytes represent u64 maximum.
+format: hex
+decode-as: i64
+pair:
+  - with: ../u64/maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i64"
+  - "negative"
+  - "division"
+  - "sign-extension"
+  - "conversion"
+  - "two's-complement"
+  - "all-bits-set"
+---
+ff ff ff ff ff ff ff ff # -1

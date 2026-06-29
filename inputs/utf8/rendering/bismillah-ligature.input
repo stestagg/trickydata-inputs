@@ -1,0 +1,28 @@
+name: arabic_bismillah_ligature
+description: |
+  This input is ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM (U+FDFD), a
+  single code point encoding the whole phrase "بسم الله الرحمن الرحيم". It is
+  one code point and one grapheme cluster, yet renderers draw it with an
+  enormous advance width, so it stresses any code that assumes display width is
+  bounded by code-point or grapheme count (column layout, truncation, fixed
+  buffers, terminal/table rendering). Its East Asian Width property is Neutral,
+  so width tables that key off that property mispredict its footprint.
+
+  Unicode charts the code point in the Arabic Presentation Forms-A block:
+  https://www.unicode.org/charts/PDF/UFB50.pdf
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 3
+  code-points: 1
+  scalar-values: 1
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+tags:
+  - "utf8"
+  - "unicode"
+  - "rendering"
+  - "rendering-width"
+  - "display-width"
+---
+﷽

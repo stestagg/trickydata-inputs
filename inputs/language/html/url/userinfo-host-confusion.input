@@ -1,0 +1,17 @@
+name: language_html_data_url_userinfo_host_confusion
+description: |
+  The trusted-looking hostname appears in the userinfo portion; the actual host
+  is example.invalid after the at sign. String-prefix checks and human review can
+  therefore disagree with the parsed URL.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss-data"
+  - "url-context"
+  - "userinfo"
+  - "host-confusion"
+  - "url-validation"
+---
+https://trusted.invalid@example.invalid/xss-canary

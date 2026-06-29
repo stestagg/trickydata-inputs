@@ -1,0 +1,24 @@
+name: real_world_url_query_missing_equals
+description: |
+  The field `flag` has no equals sign. `URLSearchParams`-style form parsing
+  yields an empty value, but raw-query consumers can distinguish presence-only
+  flags from explicitly empty values, making equality application-dependent.
+
+  The WHATWG form-urlencoded parser defines splitting names and values:
+  https://url.spec.whatwg.org/#urlencoded-parsing
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: empty-value.input
+    hint: tricky
+tags:
+  - "real-world"
+  - "url"
+  - "query"
+  - "missing-delimiter"
+  - "empty-value"
+  - "form-urlencoded"
+  - "context-dependent"
+  - "valid"
+---
+https://example.com/options?flag

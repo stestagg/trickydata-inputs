@@ -1,0 +1,20 @@
+name: language_sql_data_block_comment_opener
+description: |
+  Slash-star can open an SQL block comment if a value escapes its intended
+  literal or identifier context. It also catches sanitizers that strip
+  comment-looking text from legitimate data.
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: block-comment-closer.input
+    hint: tricky
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "string"
+  - "block-comment"
+  - "escaping"
+  - "injection-canary"
+---
+/*

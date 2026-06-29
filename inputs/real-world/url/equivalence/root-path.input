@@ -1,0 +1,21 @@
+name: real_world_url_root_path
+description: |
+  This explicit root path is the normalized HTTP-family form of the paired URL
+  whose path is empty. Serializers commonly add this slash even when it was
+  absent from the input.
+
+  RFC 3986 section 6.2.3 specifies the equivalence:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-6.2.3
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "http"
+  - "rfc3986"
+  - "path"
+  - "root-path"
+  - "equivalence"
+  - "valid"
+---
+https://example.com/

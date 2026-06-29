@@ -1,0 +1,28 @@
+name: canonical_hangul_jamo_gak
+description: |
+  This input contains HANGUL CHOSEONG KIYEOK (U+1100), JUNGSEONG A (U+1161),
+  and JONGSEONG KIYEOK (U+11A8). The three-code-point sequence is canonically
+  equivalent to the paired precomposed Hangul syllable but has different bytes
+  and naive length.
+
+  Unicode Standard Annex #15 specifies algorithmic Hangul composition:
+  https://www.unicode.org/reports/tr15/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 9
+  code-points: 3
+  scalar-values: 3
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+pair:
+  - with: canonical-hangul-syllable-gak.input
+    hint: equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-normalization"
+  - "canonical-equivalence"
+  - "hangul"
+---
+각

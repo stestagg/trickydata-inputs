@@ -1,0 +1,21 @@
+name: invalid_utf8_truncated_four_byte_sequence
+description: |
+  These are the first three bytes of the UTF-8 encoding of PILE OF POO
+  (U+1F4A9); the final continuation byte is missing. It targets decoders that
+  mishandle end-of-buffer state for four-byte supplementary-plane characters.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "truncated"
+  - "four-byte-sequence"
+  - "buffer-boundary"
+---
+f0 9f 92 # PILE OF POO without its final A9 continuation byte

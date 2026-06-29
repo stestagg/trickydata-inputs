@@ -1,0 +1,21 @@
+name: real_world_url_unreserved_percent_encoded
+description: |
+  `%7E` encodes the unreserved tilde character and is equivalent to the paired
+  literal spelling. Canonicalizers may decode it without changing the path's
+  delimiter structure.
+
+  RFC 3986 section 6.2.2.2 permits decoding percent-encoded unreserved octets:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-6.2.2.2
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "uri"
+  - "rfc3986"
+  - "percent-encoding"
+  - "unreserved"
+  - "equivalence"
+  - "valid"
+---
+https://example.com/%7Euser

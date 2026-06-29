@@ -1,0 +1,18 @@
+name: language_sql_data_infinity
+description: |
+  Infinity may be accepted by floating-point or unconstrained numeric columns,
+  rejected by exact types, or preserved only as text. It tests conversion errors
+  and non-finite values crossing application and database boundaries.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "numeric"
+  - "infinity"
+  - "floating-point"
+  - "type-conversion"
+  - "dialect-difference"
+---
+Infinity

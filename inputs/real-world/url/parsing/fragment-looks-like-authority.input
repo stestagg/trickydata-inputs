@@ -1,0 +1,22 @@
+name: real_world_url_fragment_looks_like_authority
+description: |
+  Everything after `#` is a fragment and is not part of the authority or HTTP
+  request target. UI truncation or display reordering can make the
+  attacker-shaped text look significant even though the actual host remains
+  `trusted.example`.
+
+  RFC 3986 sections 3.5 and 7.6 discuss fragments and semantic attacks:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3.5
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-7.6
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "fragment"
+  - "authority"
+  - "display-confusion"
+  - "phishing"
+  - "valid"
+---
+https://trusted.example/#@attacker.invalid/

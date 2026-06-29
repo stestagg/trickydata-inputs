@@ -1,0 +1,17 @@
+name: language_html_data_url_protocol_relative
+description: |
+  A leading double slash is a scheme-relative network URL, not an application
+  path. Code that permits values beginning with slash but checks only the first
+  character can unintentionally navigate to another origin.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "html"
+  - "xss-data"
+  - "url-context"
+  - "protocol-relative-url"
+  - "origin"
+  - "url-validation"
+---
+//example.invalid/xss-canary

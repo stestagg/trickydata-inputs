@@ -1,0 +1,21 @@
+name: invalid_utf8_truncated_two_byte_sequence
+description: |
+  The 0xC2 starter requires one continuation byte, but the input ends
+  immediately. Streaming and buffer-oriented decoders must report an incomplete
+  sequence rather than reading beyond the buffer or accepting a partial value.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "truncated"
+  - "two-byte-sequence"
+  - "buffer-boundary"
+---
+c2

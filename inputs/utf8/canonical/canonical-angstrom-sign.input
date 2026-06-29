@@ -1,0 +1,27 @@
+name: canonical_angstrom_sign
+description: |
+  This input is ANGSTROM SIGN (U+212B). Unicode gives it a canonical
+  decomposition to LATIN CAPITAL LETTER A WITH RING ABOVE, so it is
+  canonically equivalent to the paired input despite having a different code
+  point and UTF-8 encoding.
+
+  Unicode Standard Annex #15 documents singleton canonical equivalence:
+  https://www.unicode.org/reports/tr15/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 3
+  code-points: 1
+  scalar-values: 1
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+pair:
+  - with: canonical-a-with-ring.input
+    hint: equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-normalization"
+  - "canonical-equivalence"
+---
+Å

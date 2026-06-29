@@ -1,0 +1,16 @@
+name: float_f32_negative_zero
+description: |
+  IEEE 754 binary32 negative zero has only the sign bit set. Numeric equality
+  normally treats it as equal to positive zero, while 1 / -0 produces negative
+  infinity under the default IEEE rules. Serialization, hashing, formatting,
+  and sign-sensitive algorithms may therefore expose its distinct bit pattern.
+format: hex
+decode-as: f32
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f32"
+  - "signed-zero"
+---
+00 00 00 80 # 0x80000000: -0

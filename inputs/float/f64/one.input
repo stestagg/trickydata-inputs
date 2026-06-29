@@ -1,0 +1,25 @@
+name: float_f64_one
+description: |
+  This exact binary64 value is a baseline operand paired with both signed
+  zeros. Dividing it by those inputs tests divide-by-zero handling: IEEE 754
+  default arithmetic returns signed infinity, while runtimes, validators, or
+  enabled traps may instead report an error. It is also paired with the next
+  representable value above one to test precision-sensitive comparisons.
+format: hex
+decode-as: f64
+pair:
+  - with: positive-zero.input
+    hint: tricky
+  - with: negative-zero.input
+    hint: tricky
+  - with: one-plus-epsilon.input
+    hint: not-equal
+tags:
+  - "float"
+  - "floating-point"
+  - "ieee-754"
+  - "f64"
+  - "division-by-zero"
+  - "baseline"
+---
+00 00 00 00 00 00 f0 3f # 0x3ff0000000000000: 1

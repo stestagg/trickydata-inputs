@@ -1,0 +1,24 @@
+name: real_world_url_special_scheme_without_slashes
+description: |
+  A WHATWG parser treats this as `http://example.com/path` even though `//` is
+  absent after the scheme. RFC 3986 parsing instead permits an
+  authority-less path beginning with `example.com`, so component extraction is
+  parser-dialect dependent.
+
+  Compare RFC 3986 hierarchical syntax with the WHATWG special authority
+  states:
+  https://www.rfc-editor.org/rfc/rfc3986.html#section-3
+  https://url.spec.whatwg.org/#special-authority-slashes-state
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "http"
+  - "whatwg-url"
+  - "missing-slashes"
+  - "authority"
+  - "parser-differential"
+  - "context-dependent"
+---
+http:example.com/path

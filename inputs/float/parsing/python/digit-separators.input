@@ -1,0 +1,28 @@
+name: float_parsing_python_digit_separators
+description: |
+  Python float() permits single underscores between decimal digits in both the
+  integer and fractional parts. This valid value exercises parsers that confuse
+  Python's string grammar with JSON or C strtod, strip separators too broadly,
+  or accept malformed repeated and edge-position underscores.
+
+  Python documents the floatvalue grammar here:
+  https://docs.python.org/3/library/functions.html#float
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 23
+  code-points: 23
+  scalar-values: 23
+  legacy-grapheme-clusters: 23
+  extended-grapheme-clusters: 23
+tags:
+  - "float"
+  - "utf8"
+  - "floating-point-parsing"
+  - "python"
+  - "python-3"
+  - "digit-separator"
+  - "decimal"
+  - "f64"
+---
+1_000_000.000_976_562_5

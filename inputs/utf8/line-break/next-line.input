@@ -1,0 +1,27 @@
+name: line_break_next_line
+description: |
+  This input separates "A" and "B" with NEXT LINE (U+0085). It is a Unicode
+  whitespace and line-boundary character encoded as two UTF-8 bytes, but many
+  line-oriented APIs recognize only ASCII LF or CRLF.
+
+  Unicode Standard Annex #14 assigns U+0085 the Next Line line-break class:
+  https://www.unicode.org/reports/tr14/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 4
+  code-points: 3
+  scalar-values: 3
+  legacy-grapheme-clusters: 3
+  extended-grapheme-clusters: 3
+pair:
+  - with: ascii-line-feed.input
+    hint: not-equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-whitespace"
+  - "line-separators"
+  - "text-parsing"
+---
+AB

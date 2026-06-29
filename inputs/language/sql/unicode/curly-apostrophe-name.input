@@ -1,0 +1,24 @@
+name: language_sql_data_curly_apostrophe_name
+description: |
+  U+2019 RIGHT SINGLE QUOTATION MARK resembles an ASCII apostrophe but is not an
+  SQL quote delimiter. Smart-quote conversion or normalization performed after
+  validation can turn safe data into syntax-significant data.
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 10
+  code-points: 8
+  scalar-values: 8
+  legacy-grapheme-clusters: 8
+  extended-grapheme-clusters: 8
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "utf8"
+  - "apostrophe"
+  - "smart-quote"
+  - "normalization"
+  - "text-spoofing"
+---
+O’Reilly

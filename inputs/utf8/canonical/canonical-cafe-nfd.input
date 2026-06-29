@@ -1,0 +1,28 @@
+name: canonical_cafe_nfd
+description: |
+  The final visible character in this input is encoded as LATIN SMALL LETTER E
+  (U+0065) followed by COMBINING ACUTE ACCENT (U+0301). It is canonically
+  equivalent to the paired precomposed form but differs in code points, bytes,
+  and naive length calculations.
+
+  Unicode Standard Annex #15 defines canonical equivalence and normalization:
+  https://www.unicode.org/reports/tr15/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 6
+  code-points: 5
+  scalar-values: 5
+  legacy-grapheme-clusters: 4
+  extended-grapheme-clusters: 4
+pair:
+  - with: canonical-cafe-nfc.input
+    hint: equal
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-normalization"
+  - "canonical-equivalence"
+  - "unicode-combiners"
+---
+café

@@ -1,0 +1,19 @@
+name: integer_u128_above_u64_maximum
+description: |
+  This is one above u64 maximum, represented as u128. Narrowing it to
+  u64 may reject, saturate, or wrap to zero. It also catches serializers,
+  FFI layers, and intermediate expressions that silently retain only the lower
+  64 bits.
+format: hex
+decode-as: u128
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u128"
+  - "lower-width"
+  - "boundary"
+  - "overflow"
+  - "narrowing"
+  - "truncation"
+---
+00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 # 18446744073709551616

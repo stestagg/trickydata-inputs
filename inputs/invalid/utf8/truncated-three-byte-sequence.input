@@ -1,0 +1,26 @@
+name: invalid_utf8_truncated_three_byte_sequence
+description: |
+  These are the first two bytes of the UTF-8 encoding of EURO SIGN (U+20AC);
+  the final continuation byte is missing. The paired ASCII chunk is valid by
+  itself, but concatenating it after this prefix produces E2 82 41, which is
+  still invalid because 0x41 cannot complete the sequence.
+
+  See the Unicode well-formed UTF-8 byte sequences in Table 3-7:
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+pair:
+  - with: ../../utf8/chunk-boundary/ascii-a.input
+    hint: tricky
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "truncated"
+  - "three-byte-sequence"
+  - "chunk-boundary"
+  - "concatenation"
+---
+e2 82 # EURO SIGN without its final AC continuation byte

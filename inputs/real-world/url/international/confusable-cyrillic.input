@@ -1,0 +1,30 @@
+name: real_world_url_confusable_cyrillic
+description: |
+  The apparent `paypal` label uses Cyrillic U+0440, U+0430, U+0443, U+0440,
+  U+0430 followed by Latin `l`. It serializes as
+  `xn--l-7sba6dbr.example` and is not the paired Latin host, despite their
+  visual similarity in many fonts.
+
+  UTS #39 documents confusable and mixed-script spoofing risks:
+  https://www.unicode.org/reports/tr39/
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 33
+  code-points: 28
+  scalar-values: 28
+  legacy-grapheme-clusters: 28
+  extended-grapheme-clusters: 28
+tags:
+  - "real-world"
+  - "url"
+  - "host"
+  - "idn"
+  - "unicode-confusables"
+  - "mixed-script"
+  - "homograph"
+  - "text-spoofing"
+  - "not-equal"
+  - "valid"
+---
+https://раураl.example/login

@@ -1,0 +1,32 @@
+name: real_world_email_local_part_nfd
+description: |
+  The visible `é` in the local-part is U+0065 followed by U+0301. RFC 6530
+  explicitly says unnormalized local-part strings are valid but may not work
+  reliably, making this a trap for validators, account lookup, and systems that
+  normalize identifiers without the destination's authority.
+
+  RFC 6530 section 10.1 discusses valid unnormalized mailbox names:
+  https://www.rfc-editor.org/rfc/rfc6530.html#section-10.1
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 18
+  code-points: 17
+  scalar-values: 17
+  legacy-grapheme-clusters: 16
+  extended-grapheme-clusters: 16
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "smtp"
+  - "smtputf8"
+  - "rfc6530"
+  - "unicode-normalization"
+  - "nfd"
+  - "unicode-combiners"
+  - "local-part"
+  - "context-dependent"
+  - "valid"
+---
+café@example.com

@@ -1,0 +1,21 @@
+name: real_world_invalid_url_empty_punycode_a_label
+description: |
+  The host label consists only of the `xn--` ACE prefix and has no encoded
+  payload. Prefix checks alone can mistake it for an internationalized domain,
+  but domain-to-ASCII validation must fail.
+
+  RFC 5890 section 2.3.2.1 defines valid A-labels and fake A-labels:
+  https://www.rfc-editor.org/rfc/rfc5890.html#section-2.3.2.1
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "real-world"
+  - "url"
+  - "invalid-url"
+  - "invalid"
+  - "host"
+  - "idna"
+  - "a-label"
+  - "punycode"
+---
+https://xn--/

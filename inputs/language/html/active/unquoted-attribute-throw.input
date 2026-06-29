@@ -1,0 +1,24 @@
+name: language_html_data_active_unquoted_attribute_throw
+description: |
+  In an unquoted attribute value, this closes the current tag and inserts an SVG
+  load handler that throws the standard canary error. It gives automated browser
+  tests a high-signal failure for templates that omit attribute quotes.
+
+  Correct quoting or DOM property assignment keeps it inert.
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: ../attribute/unquoted-tag-breakout.input
+    hint: tricky
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "active-xss-canary"
+  - "html-attribute-context"
+  - "unquoted-attribute"
+  - "attribute-injection"
+  - "throws-error"
+---
+x><svg onload="throw new Error('trickydata-xss-canary')"></svg><x x=

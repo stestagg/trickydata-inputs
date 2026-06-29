@@ -1,0 +1,19 @@
+name: integer_u16_binary16_first_lost_integer
+description: |
+  This is 2^11 + 1, the first positive integer that does not survive conversion
+  to binary16 and back. Round-to-nearest maps it to 2^11, exposing silent
+  precision loss in reduced-precision storage, accelerators, and interchange
+  formats.
+format: hex
+decode-as: u16
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u16"
+  - "binary16"
+  - "float-roundtrip"
+  - "unsafe-integer"
+  - "precision-loss"
+  - "boundary"
+---
+01 08 # 2049 (2^11 + 1)

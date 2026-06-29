@@ -1,0 +1,26 @@
+name: real_world_url_ipv4_dotted_decimal
+description: |
+  This conventional TEST-NET-1 address is the baseline for non-canonical
+  integer and octal host spellings. The WHATWG IPv4 parser maps all three to
+  the same address, while RFC-oriented and IP-validation libraries may disagree.
+
+  The WHATWG URL Standard defines non-decimal IPv4 number parsing:
+  https://url.spec.whatwg.org/#concept-ipv4-parser
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: ipv4-single-integer.input
+    hint: equal
+  - with: ipv4-octal.input
+    hint: equal
+tags:
+  - "real-world"
+  - "url"
+  - "whatwg-url"
+  - "host"
+  - "ipv4"
+  - "test-net"
+  - "equivalence"
+  - "valid"
+---
+http://192.0.2.1/

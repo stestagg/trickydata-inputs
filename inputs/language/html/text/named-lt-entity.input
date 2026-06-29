@@ -1,0 +1,21 @@
+name: language_html_data_named_lt_entity
+description: |
+  This source text decodes to a literal less-than character in the DOM. It does
+  not create a tag during a single HTML parse, but a second decode or an
+  encode-then-decode pipeline can turn it into raw markup before insertion.
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: double-encoded-lt.input
+    hint: tricky
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "character-reference"
+  - "named-entity"
+  - "less-than"
+  - "double-decoding"
+---
+&lt;

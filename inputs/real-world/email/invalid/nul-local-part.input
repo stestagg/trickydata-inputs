@@ -1,0 +1,21 @@
+name: real_world_invalid_email_nul_local_part
+description: |
+  A NUL byte appears inside the local-part. It is excluded from both atom and
+  quoted-string syntax, and passing the bytes through a C string API can
+  truncate the visible address before the at-sign.
+
+  RFC 5321 section 4.1.2 limits local-part characters:
+  https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+format: hex
+decode-as: ascii
+tags:
+  - "real-world"
+  - "email"
+  - "email-address"
+  - "invalid-email"
+  - "invalid"
+  - "nul"
+  - "control-character"
+  - "string-truncation"
+---
+"user" 00 "@example.com"

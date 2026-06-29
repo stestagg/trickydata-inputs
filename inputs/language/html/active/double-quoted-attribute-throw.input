@@ -1,0 +1,26 @@
+name: language_html_data_active_double_quoted_attribute_throw
+description: |
+  When interpolated inside a double-quoted attribute, the leading quote and
+  greater-than close the original context, an SVG load handler throws the
+  recognizable canary error, and the trailing fragment reopens an attribute to
+  reduce unrelated parse noise.
+
+  Correct attribute encoding keeps the entire value inert. The active branch
+  performs no network or persistent side effects.
+format: utf8-strip
+decode-as: ascii
+pair:
+  - with: ../attribute/quoted-breakout.input
+    hint: tricky
+tags:
+  - "language"
+  - "html"
+  - "xss"
+  - "xss-data"
+  - "active-xss-canary"
+  - "html-attribute-context"
+  - "double-quote"
+  - "attribute-injection"
+  - "throws-error"
+---
+"><svg onload="throw new Error('trickydata-xss-canary')"></svg><x x="

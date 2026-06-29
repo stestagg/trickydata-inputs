@@ -1,0 +1,24 @@
+name: integer_i8_maximum
+description: |
+  This is the maximum i8 value, 127. Adding 1 produces the unrepresentable value
+  128 and may trap, wrap to -128, saturate, or be evaluated in a wider type.
+  Its all-lower-bits-set encoding is also the last u8 value that can be converted
+  to i8 without changing the mathematical value.
+format: hex
+decode-as: i8
+pair:
+  - with: one.input
+    hint: tricky
+  - with: ../u8/signed-maximum.input
+    hint: tricky
+tags:
+  - "integer"
+  - "signed-integer"
+  - "i8"
+  - "maximum"
+  - "boundary"
+  - "overflow"
+  - "conversion"
+  - "two's-complement"
+---
+7f # 127

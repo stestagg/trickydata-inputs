@@ -1,0 +1,22 @@
+name: integer_u16_binary16_exact_boundary
+description: |
+  This is 2^11. Binary16 represents it exactly, but the spacing between
+  adjacent representable values becomes 2 at this magnitude. It is therefore
+  exact itself but is the first positive integer beyond the all-integers-exact
+  range.
+format: hex
+decode-as: u16
+pair:
+  - with: binary16-first-lost-integer.input
+    hint: tricky
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u16"
+  - "binary16"
+  - "float-roundtrip"
+  - "unsafe-integer"
+  - "precision"
+  - "boundary"
+---
+00 08 # 2048 (2^11)

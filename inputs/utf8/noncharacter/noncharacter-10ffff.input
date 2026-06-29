@@ -1,0 +1,26 @@
+name: noncharacter_10ffff
+description: |
+  This input is the single noncharacter U+10FFFF, the highest Unicode scalar
+  value. It is validly encoded as four-byte UTF-8 and exercises inclusive
+  upper-bound checks, scalar-value handling, noncharacter policy, and systems
+  that accidentally reject the legal endpoint of Unicode's code space.
+
+  The Unicode Consortium FAQ explains plane-ending noncharacters:
+  https://www.unicode.org/faq/private_use.html#nonchar1
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 4
+  code-points: 1
+  scalar-values: 1
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-noncharacters"
+  - "unicode-boundaries"
+  - "supplementary-plane"
+  - "text-validation"
+---
+􏿿

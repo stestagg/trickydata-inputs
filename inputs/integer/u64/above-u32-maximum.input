@@ -1,0 +1,19 @@
+name: integer_u64_above_u32_maximum
+description: |
+  This is one above u32 maximum, represented as u64. Narrowing it to
+  u32 may reject, saturate, or wrap to zero. It also catches serializers,
+  FFI layers, and intermediate expressions that silently retain only the lower
+  32 bits.
+format: hex
+decode-as: u64
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u64"
+  - "lower-width"
+  - "boundary"
+  - "overflow"
+  - "narrowing"
+  - "truncation"
+---
+00 00 00 00 01 00 00 00 # 4294967296

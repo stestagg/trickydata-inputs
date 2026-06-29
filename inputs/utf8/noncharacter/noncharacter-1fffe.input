@@ -1,0 +1,26 @@
+name: noncharacter_1fffe
+description: |
+  This input is the single supplementary-plane noncharacter U+1FFFE. Its
+  well-formed UTF-8 encoding requires four bytes, exercising code paths that
+  combine noncharacter policy with supplementary-plane decoding and length
+  calculations.
+
+  The Unicode Consortium FAQ explains plane-ending noncharacters:
+  https://www.unicode.org/faq/private_use.html#nonchar1
+format: utf8-strip
+decode-as: utf8
+unicode-meta:
+  code-units: 4
+  code-points: 1
+  scalar-values: 1
+  legacy-grapheme-clusters: 1
+  extended-grapheme-clusters: 1
+tags:
+  - "utf8"
+  - "unicode"
+  - "unicode-noncharacters"
+  - "unicode-boundaries"
+  - "supplementary-plane"
+  - "text-validation"
+---
+🿾

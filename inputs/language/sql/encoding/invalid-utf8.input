@@ -1,0 +1,18 @@
+name: language_sql_data_invalid_utf8
+description: |
+  The value contains a lone 0xff byte between ASCII prefixes. Text-mode drivers
+  should reject it predictably, while binary bindings should preserve it without
+  replacement, truncation, or disagreement about error offsets.
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "invalid-utf8"
+  - "encoding"
+  - "parameter-binding"
+  - "api-boundary"
+---
+"valid" ff "tail"

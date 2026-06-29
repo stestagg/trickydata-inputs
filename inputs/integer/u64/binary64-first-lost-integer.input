@@ -1,0 +1,19 @@
+name: integer_u64_binary64_first_lost_integer
+description: |
+  This is 2^53 + 1, the first positive integer that cannot be represented
+  exactly as binary64; conversion rounds it to 2^53 under round-to-nearest. It
+  catches silent precision loss in JSON, JavaScript, database, and FFI paths.
+format: hex
+decode-as: u64
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u64"
+  - "binary64"
+  - "float-roundtrip"
+  - "unsafe-integer"
+  - "precision-loss"
+  - "serialization"
+  - "boundary"
+---
+01 00 00 00 00 00 20 00 # 9007199254740993 (2^53 + 1)

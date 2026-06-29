@@ -1,0 +1,17 @@
+name: language_sql_data_identifier_reserved_word
+description: |
+  The value is a common reserved SQL keyword. Applications that insert user
+  supplied table, column, alias, or sort names cannot use value parameters and
+  must apply dialect-correct identifier allowlisting and quoting.
+format: utf8-strip
+decode-as: ascii
+tags:
+  - "language"
+  - "sql"
+  - "sql-data"
+  - "identifier"
+  - "reserved-word"
+  - "dynamic-sql"
+  - "allowlist"
+---
+select

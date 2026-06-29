@@ -1,0 +1,19 @@
+name: integer_u16_high_bit
+description: |
+  This is 32768, the smallest u16 value with the high bit set and the first
+  value that cannot be represented as i16. Reinterpreting the same bytes as i16
+  produces -32768, while narrowing or checked conversion may reject it. The
+  value also exposes accidental sign extension and signed comparisons.
+format: hex
+decode-as: u16
+tags:
+  - "integer"
+  - "unsigned-integer"
+  - "u16"
+  - "high-bit"
+  - "boundary"
+  - "conversion"
+  - "sign-extension"
+  - "two's-complement"
+---
+00 80 # 32768
