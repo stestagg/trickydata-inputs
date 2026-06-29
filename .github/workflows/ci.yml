@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: compiler
+
+      - name: Run compiler tests
+        run: cargo test --manifest-path compiler/Cargo.toml
+
+      - name: Compile corpus
+        run: cargo run --manifest-path compiler/Cargo.toml --bin make-index -- dist
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Smoke-render report
+        run: uv run report/main.py --index dist/trickydata-index.json --out report-site

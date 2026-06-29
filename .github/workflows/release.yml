@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Derive version from tag
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: compiler
+
+      - name: Compile corpus
+        run: cargo run --manifest-path compiler/Cargo.toml --bin make-index -- --version "$VERSION" dist
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Render report
+        run: uv run report/main.py --index dist/trickydata-index.json --out report-site
+
+      - name: Zip report
+        run: (cd report-site && zip -r "../trickydata-report-$VERSION.zip" .)
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/trickydata-index.json
+            dist/trickydata.bin
+            trickydata-report-${{ env.VERSION }}.zip

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}{{ inp.name }} &middot; trickydata report{% endblock %}
+{% block content %}
+<p class="crumb"><a href="{{ root }}index.html">Inputs</a> / {{ inp.name }}</p>
+<h1 class="mono">{{ inp.name }}</h1>
+
+<section class="meta">
+  {% if inp.description %}
+  <div class="description">{{ inp.description }}</div>
+  {% endif %}
+
+  <dl class="fields">
+    {% for row in meta_rows %}
+    <dt{% if row.description %} title="{{ row.description }}"{% endif %}>{{ row.title }}</dt>
+    <dd>{% if row.name == 'format' or row.name == 'decode-as' %}<span class="badge">{{ row.value }}</span>{% else %}{{ row.value }}{% endif %}</dd>
+    {% endfor %}
+
+    <dt>Size</dt>
+    <dd>{{ inp.size | humansize }} ({{ inp.size }} bytes)</dd>
+
+    {% if inp.path %}
+    <dt>Source</dt>
+    <dd class="mono">{{ inp.path }}</dd>
+    {% endif %}
+  </dl>
+
+  {% if inp.tags %}
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      {% for tag in inp.tags %}
+      <a class="tag" href="{{ root }}tags.html#tag-{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if inp.pairs %}
+  <div class="meta-block">
+    <h2>Paired with</h2>
+    <ul class="pairs">
+      {% for pair in inp.pairs %}
+      <li><a href="{{ pair.name }}.html" class="mono">{{ pair.name }}</a> <span class="badge hint">{{ pair.hint }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if inp.meta['unicode-meta'] %}
+  <div class="meta-block">
+    <h2>Unicode metadata</h2>
+    <table class="kv">
+      {% for key, value in inp.meta['unicode-meta'].items() %}
+      <tr><th>{{ key.replace('-', ' ') | capitalize }}</th><td class="num">{{ value }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endif %}
+</section>
+
+<section class="payload" data-default-tab="{{ view.default_tab }}">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">{{ view.utf8 }}</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex">{% for r in view.hex_rows %}<span class="off">{{ r.offset }}</span>  {% for cell in r.cells %}{{ cell or '  ' }}{% if not loop.last %} {% endif %}{% if loop.index0 % view.group == view.group - 1 and not loop.last %} {% endif %}{% endfor %}  |{{ r.ascii }}|
+{% endfor %}</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact {{ inp.size }} payload byte(s).</p>
+    <a class="download" download="{{ inp.name }}" href="{{ view.data_url }}">Download payload</a>
+  </div>
+</section>
+{% endblock %}

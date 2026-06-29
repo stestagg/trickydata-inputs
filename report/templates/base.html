@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}trickydata report{% endblock %}</title>
+  <link rel="stylesheet" href="{{ root }}static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="{{ root }}index.html">trickydata</a>
+      <a href="{{ root }}index.html"{% if page == 'home' %} class="active"{% endif %}>Inputs</a>
+      <a href="{{ root }}tags.html"{% if page == 'tags' %} class="active"{% endif %}>Tags</a>
+    </nav>
+    <span class="version">v{{ corpus.version }} &middot; {{ corpus.inputs | length }} inputs</span>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <script src="{{ root }}static/app.js"></script>
+</body>
+</html>

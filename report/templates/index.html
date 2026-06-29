@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Inputs &middot; trickydata report{% endblock %}
+{% block content %}
+<h1>Inputs</h1>
+
+<div class="toolbar">
+  <input type="search" id="filter" placeholder="Filter by name, tag, format&hellip;"
+         autocomplete="off" aria-label="Filter inputs">
+  <span class="count" id="row-count">{{ corpus.inputs | length }} inputs</span>
+</div>
+
+<table class="inputs" id="inputs-table">
+  <thead>
+    <tr>
+      <th data-sort="name" class="sortable">Name</th>
+      <th data-sort="decode" class="sortable">Decode as</th>
+      <th data-sort="tags">Tags</th>
+      <th data-sort="size" data-type="number" class="sortable num">Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for inp in corpus.inputs %}
+    <tr data-name="{{ inp.name }}"
+        data-format="{{ inp.format }}"
+        data-decode="{{ inp.meta['decode-as'] | default('', true) }}"
+        data-tags="{{ inp.tags | join(' ') }}"
+        data-size="{{ inp.size }}"
+        data-haystack="{{ inp.name }} {{ inp.format }} {{ inp.meta['decode-as'] | default('', true) }} {{ inp.tags | join(' ') }}">
+      <td><a href="inputs/{{ inp.name }}.html">{{ inp.name }}</a></td>
+      <td>{{ inp.meta['decode-as'] | default('—', true) }}</td>
+      <td class="tags-cell">
+        {% for tag in inp.tags %}
+        <a class="tag" href="tags.html#tag-{{ tag }}">{{ tag }}</a>
+        {% endfor %}
+      </td>
+      <td class="num">{{ inp.size | humansize }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Tags &middot; trickydata report{% endblock %}
+{% block content %}
+<h1>Tags</h1>
+<p class="muted">{{ tags | length }} tags across {{ corpus.inputs | length }} inputs. Counts in parentheses; expand to drill down.</p>
+
+<div class="tag-list">
+  {% for tag, count in tags %}
+  <details class="tag-entry" id="tag-{{ tag }}">
+    <summary>
+      <span class="tag">{{ tag }}</span>
+      <span class="count">{{ count }}</span>
+    </summary>
+    <ul>
+      {% for name in corpus.tag_index[tag] %}
+      <li><a href="inputs/{{ name }}.html">{{ name }}</a></li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endfor %}
+</div>
+{% endblock %}
