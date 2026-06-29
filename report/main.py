@@ -6,7 +6,7 @@
 """``trickydata-report`` — render a compiled input corpus into a static site.
 
 Consumes a compiled ``trickydata-index.json`` + ``trickydata.bin`` pair (produced
-by the Rust ``make-index`` tool) plus ``frontmatter-schema.yaml``, and writes a
+by the Rust ``compile`` tool) plus ``frontmatter-schema.yaml``, and writes a
 self-contained HTML+JS report. Run with uv (deps are declared inline above):
 
     uv run report/main.py --out report-site/

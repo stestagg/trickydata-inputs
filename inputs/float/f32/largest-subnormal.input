@@ -5,7 +5,7 @@ description: |
   implicit leading significand bit appears, exposing normalization, conversion,
   rounding, and off-by-one errors near gradual underflow.
 format: hex
-decode-as: f32
+decode-as: f32-le
 pair:
   - with: smallest-positive-normal.input
     hint: tricky

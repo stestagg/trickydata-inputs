@@ -27,8 +27,8 @@ Then open `report-site/index.html` in a browser (no server needed).
 | `--schema` | `frontmatter-schema.yaml`          | Drives metadata labels/order.                |
 | `--out`    | `report-site/`                     | Output directory.                            |
 
-The index + bin pair is produced by the Rust `make-index` tool
-(`cargo run --bin make-index`).
+The index + bin pair is produced by the Rust `compile` tool
+(`cargo run --bin compile`).
 
 ## Layout
 

@@ -5,7 +5,7 @@ description: |
   differences between arithmetic and logical right shifts, sign extension,
   and signed-to-unsigned conversion. The same bytes represent u16 maximum.
 format: hex
-decode-as: i16
+decode-as: i16-le
 pair:
   - with: ../u16/maximum.input
     hint: tricky

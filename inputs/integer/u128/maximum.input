@@ -5,7 +5,7 @@ description: |
   saturate, or be widened. Reinterpreting the same bytes as i128 produces
   -1, exposing signedness mistakes in storage, comparison, and conversion.
 format: hex
-decode-as: u128
+decode-as: u128-le
 pair:
   - with: one.input
     hint: tricky

@@ -4,7 +4,7 @@ description: |
   survive conversion to binary64 and back. Round-to-nearest maps it to -2^53,
   checking that signed conversion loses precision symmetrically.
 format: hex
-decode-as: i64
+decode-as: i64-le
 pair:
   - with: ../u64/binary64-first-lost-integer.input
     hint: tricky

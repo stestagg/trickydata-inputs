@@ -57,35 +57,38 @@ properties:
     description: >-
       The logical type the decoded input data should be interpreted as. Covers
       fixed-size Rust-style numeric types as well as string/byte encodings.
+      Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus
+      currently only stores little-endian encodings.
       Required unless a mime-type is given, in which case it is optional and
-      defaults to `bytes`. When a mime-type is given, decode-as may only be one
-      of the string/byte types (bytes, ascii, utf8, utf16, utf32, latin1).
+      defaults to `bytes`. When a mime-type is given, decode-as may only be
+      one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le,
+      latin1).
     default: bytes
     enum:
       # Unsigned integers
       - u8
-      - u16
-      - u32
-      - u64
-      - u128
+      - u16-le
+      - u32-le
+      - u64-le
+      - u128-le
       # Signed integers
       - i8
-      - i16
-      - i32
-      - i64
-      - i128
+      - i16-le
+      - i32-le
+      - i64-le
+      - i128-le
       # Floating point
-      - f16
-      - f32
-      - f64
+      - f16-le
+      - f32-le
+      - f64-le
       # Boolean
       - bool
       # String / byte types
       - bytes
       - ascii
       - utf8
-      - utf16
-      - utf32
+      - utf16-le
+      - utf32-le
       - latin1
 
   invalid-as:
@@ -100,27 +103,27 @@ properties:
     enum:
       # Unsigned integers
       - u8
-      - u16
-      - u32
-      - u64
-      - u128
+      - u16-le
+      - u32-le
+      - u64-le
+      - u128-le
       # Signed integers
       - i8
-      - i16
-      - i32
-      - i64
-      - i128
+      - i16-le
+      - i32-le
+      - i64-le
+      - i128-le
       # Floating point
-      - f16
-      - f32
-      - f64
+      - f16-le
+      - f32-le
+      - f64-le
       # Boolean
       - bool
       # String / byte types (bytes excluded)
       - ascii
       - utf8
-      - utf16
-      - utf32
+      - utf16-le
+      - utf32-le
       - latin1
 
   file-source:
@@ -180,8 +183,9 @@ properties:
     type: object
     description: >-
       Counts of the Unicode segmentation units in the decoded text. Required
-      when decode-as is a Unicode encoding (utf8, utf16, utf32) so downstream
-      clients can validate their own segmentation against known-good totals.
+      when decode-as is a Unicode encoding (utf8, utf16-le, utf32-le) so
+      downstream clients can validate their own segmentation against known-good
+      totals.
     additionalProperties: false
     required:
       - code-units
@@ -248,8 +252,8 @@ allOf:
             - bytes
             - ascii
             - utf8
-            - utf16
-            - utf32
+            - utf16-le
+            - utf32-le
             - latin1
 
   # invalid-as marks a deliberately-invalid instance of another type, so the
@@ -269,8 +273,8 @@ allOf:
         decode-as:
           enum:
             - utf8
-            - utf16
-            - utf32
+            - utf16-le
+            - utf32-le
       required:
         - decode-as
     then:

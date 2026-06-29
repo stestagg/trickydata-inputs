@@ -5,7 +5,7 @@ description: |
   comparisons, hashing, sorting, deduplication, and serialization frequently
   mishandle that rule or canonicalize its representation.
 format: hex
-decode-as: f16
+decode-as: f16-le
 pair:
   - with: signaling-nan.input
     hint: tricky

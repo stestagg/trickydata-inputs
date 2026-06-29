@@ -5,7 +5,7 @@ description: |
   zero exercises integer divide-by-zero handling. It also provides a simple
   value for detecting accidental signed decoding.
 format: hex
-decode-as: u16
+decode-as: u16-le
 tags:
   - "integer"
   - "unsigned-integer"

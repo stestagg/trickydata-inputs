@@ -6,7 +6,7 @@ description: |
   useful for detecting signedness mistakes in storage, comparison, and
   conversion code.
 format: hex
-decode-as: u16
+decode-as: u16-le
 pair:
   - with: one.input
     hint: tricky

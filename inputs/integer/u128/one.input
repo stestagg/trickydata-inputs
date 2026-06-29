@@ -4,7 +4,7 @@ description: |
   maximum overflows, subtracting it from zero underflows, and dividing it by zero
   exercises integer divide-by-zero handling.
 format: hex
-decode-as: u128
+decode-as: u128-le
 tags:
   - "integer"
   - "unsigned-integer"

@@ -5,7 +5,7 @@ description: |
   precision loss in reduced-precision storage, accelerators, and interchange
   formats.
 format: hex
-decode-as: u16
+decode-as: u16-le
 tags:
   - "integer"
   - "unsigned-integer"

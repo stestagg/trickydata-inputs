@@ -5,7 +5,7 @@ description: |
   type. Its all-lower-bits-set encoding is also the last u16 value that can be
   converted to i16 without changing the mathematical value.
 format: hex
-decode-as: i16
+decode-as: i16-le
 pair:
   - with: one.input
     hint: tricky

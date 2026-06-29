@@ -1,69 +1,55 @@
-//! `make-index` — compile the input corpus into `trickydata.bin` and a
-//! pretty-printed `trickydata-index.json`.
+//! Assembling compiled inputs into the corpus index document + binary blob.
+//!
+//! This is the in-memory data model and the [`build`] that produces it from the
+//! input corpus. How that [`Built`] is laid out on disk — and read back — lives
+//! in [`crate::corpus`], so the binaries share one source of truth for the index
+//! regardless of which container format they read or write.
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Component, Path, PathBuf};
 
-use anyhow::{bail, Context, Result};
-use clap::Parser;
-use serde::Serialize;
-use trickydata_compiler::{compile, discover, Metadata, Pair, PairHint};
+use anyhow::{bail, Result};
+use serde::{Deserialize, Serialize};
 
-const BIN_NAME: &str = "trickydata.bin";
-const INDEX_NAME: &str = "trickydata-index.json";
+use crate::{compile, discover, Metadata, Pair, PairHint};
 
-/// Compile the trickydata input corpus into `trickydata.bin` and
-/// `trickydata-index.json`.
-#[derive(Parser)]
-#[command(name = "make-index", about)]
-struct Args {
-    /// Directory to write trickydata.bin and trickydata-index.json into.
-    #[arg(default_value = ".")]
-    output_dir: PathBuf,
-
-    /// Directory to scan recursively for `*.input` files.
-    #[arg(long, default_value = "inputs")]
-    inputs: PathBuf,
-
-    /// Version string recorded at the top of the generated index.
-    #[arg(long, default_value = "dev")]
-    version: String,
-}
-
-/// One input's metadata plus its source path and location within `trickydata.bin`.
-#[derive(Serialize)]
-struct IndexEntry {
+/// One input's metadata plus its source path and location within the blob.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct IndexEntry {
     #[serde(flatten)]
-    metadata: Metadata,
-    /// Source `.input` file path, relative to the working directory.
-    path: String,
-    offset: usize,
-    length: usize,
+    pub metadata: Metadata,
+    /// Source `.input` file path, relative to the inputs root (forward slashes).
+    pub path: String,
+    pub offset: usize,
+    pub length: usize,
 }
 
 /// The top-level index document.
-#[derive(Serialize)]
-struct Index {
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Index {
     /// Version of this compiled corpus (defaults to "dev").
-    version: String,
-    /// Name of the companion binary blob the offsets/lengths index into.
-    bin: String,
-    inputs: Vec<IndexEntry>,
+    pub version: String,
+    /// Name of the companion binary blob, recorded only by the json-bin format
+    /// (where the blob is a separate sidecar file). The single-file formats embed
+    /// the blob, so they leave this unset and it is omitted from their index.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub bin: Option<String>,
+    pub inputs: Vec<IndexEntry>,
 }
 
-fn main() -> Result<()> {
-    let args = Args::parse();
+/// A compiled corpus held in memory: the index document and the blob its
+/// entries index into.
+pub struct Built {
+    pub index: Index,
+    pub blob: Vec<u8>,
+}
 
-    if !args.inputs.is_dir() {
-        bail!(
-            "inputs directory '{}' not found; pass --inputs <dir> or run from the repository root",
-            args.inputs.display()
-        );
-    }
-
+/// Compile every `*.input` file under `inputs_dir` into an in-memory corpus:
+/// the index document plus the binary blob it references.
+pub fn build(inputs_dir: &Path, version: &str) -> Result<Built> {
     // Compile every input, keeping its source path alongside.
     let mut compiled = Vec::new();
-    for path in discover(&args.inputs)? {
+    for path in discover(inputs_dir)? {
         let input = compile(&path)?;
         compiled.push((path, input));
     }
@@ -145,39 +131,22 @@ fn main() -> Result<()> {
 
         inputs.push(IndexEntry {
             metadata,
-            path: path.to_string_lossy().into_owned(),
+            // Recorded relative to the inputs root (with forward slashes) so the
+            // index is independent of where the corpus was compiled from.
+            path: path_string(path.strip_prefix(inputs_dir).unwrap_or(path.as_path())),
             offset,
             length,
         });
     }
-    let count = inputs.len();
 
     let index = Index {
-        version: args.version,
-        bin: BIN_NAME.to_string(),
+        version: version.to_string(),
+        // Format-agnostic: the json-bin writer stamps the sidecar name on write.
+        bin: None,
         inputs,
     };
 
-    // Write artifacts.
-    std::fs::create_dir_all(&args.output_dir)
-        .with_context(|| format!("creating output directory {}", args.output_dir.display()))?;
-
-    let bin_path = args.output_dir.join(BIN_NAME);
-    std::fs::write(&bin_path, &blob).with_context(|| format!("writing {}", bin_path.display()))?;
-
-    let index_path = args.output_dir.join(INDEX_NAME);
-    let mut json = serde_json::to_string_pretty(&index).context("serializing index")?;
-    json.push('\n');
-    std::fs::write(&index_path, json)
-        .with_context(|| format!("writing {}", index_path.display()))?;
-
-    println!(
-        "Compiled {count} input(s): {} bytes -> {} and {}",
-        blob.len(),
-        bin_path.display(),
-        index_path.display()
-    );
-    Ok(())
+    Ok(Built { index, blob })
 }
 
 /// Lexically normalize a path, resolving `.` and `..` without touching the

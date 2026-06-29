@@ -5,7 +5,7 @@ description: |
   i16 positive range. The adjacent pair targets off-by-one range checks,
   narrowing conversions, and code that mistakes the high bit for a sign bit.
 format: hex
-decode-as: u16
+decode-as: u16-le
 pair:
   - with: high-bit.input
     hint: tricky

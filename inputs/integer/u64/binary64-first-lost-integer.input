@@ -4,7 +4,7 @@ description: |
   exactly as binary64; conversion rounds it to 2^53 under round-to-nearest. It
   catches silent precision loss in JSON, JavaScript, database, and FFI paths.
 format: hex
-decode-as: u64
+decode-as: u64-le
 tags:
   - "integer"
   - "unsigned-integer"

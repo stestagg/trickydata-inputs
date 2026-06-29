@@ -4,7 +4,7 @@ description: |
   lower boundary and may trap, wrap to 4294967295, saturate, or be widened.
   It is also an invalid divisor for integer division and remainder.
 format: hex
-decode-as: u32
+decode-as: u32-le
 pair:
   - with: one.input
     hint: tricky

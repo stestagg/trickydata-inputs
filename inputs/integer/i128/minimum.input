@@ -5,7 +5,7 @@ description: |
   and division by -1 may overflow, trap, wrap, or require a wider result type.
   Subtracting 1 also crosses the lower arithmetic boundary.
 format: hex
-decode-as: i128
+decode-as: i128-le
 pair:
   - with: negative-one.input
     hint: tricky

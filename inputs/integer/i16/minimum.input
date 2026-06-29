@@ -6,7 +6,7 @@ description: |
   has the mathematically correct but unrepresentable quotient 32768, while
   subtracting 1 crosses the lower arithmetic boundary.
 format: hex
-decode-as: i16
+decode-as: i16-le
 pair:
   - with: negative-one.input
     hint: tricky

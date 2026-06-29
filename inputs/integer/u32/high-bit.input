@@ -4,7 +4,7 @@ description: |
   first value not representable as i32. Reinterpreting the same bytes as
   i32 produces -2147483648; checked conversion may reject it.
 format: hex
-decode-as: u32
+decode-as: u32-le
 tags:
   - "integer"
   - "unsigned-integer"

@@ -4,7 +4,7 @@ description: |
   therefore visibly ordered and catches whole-value byte reversal, swapped
   16/32/64-bit words, partial loads, and accidental truncation.
 format: hex
-decode-as: u64
+decode-as: u64-le
 tags:
   - "integer"
   - "unsigned-integer"

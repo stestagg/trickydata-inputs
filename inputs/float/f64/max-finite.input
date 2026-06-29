@@ -5,7 +5,7 @@ description: |
   extended precision before rounding. Pairing it with infinity targets overflow
   checks that rely on ordinary finite comparisons.
 format: hex
-decode-as: f64
+decode-as: f64-le
 pair:
   - with: positive-infinity.input
     hint: tricky

@@ -4,7 +4,7 @@ description: |
   first value not representable as i64. Reinterpreting the same bytes as
   i64 produces -9223372036854775808; checked conversion may reject it.
 format: hex
-decode-as: u64
+decode-as: u64-le
 tags:
   - "integer"
   - "unsigned-integer"

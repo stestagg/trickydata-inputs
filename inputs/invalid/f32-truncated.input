@@ -7,7 +7,7 @@ description: |
   stored as raw bytes because it is not a well-formed f32.
 format: hex
 decode-as: bytes
-invalid-as: f32
+invalid-as: f32-le
 tags:
   - "float"
   - "floating-point"

@@ -5,7 +5,7 @@ description: |
   infinity under the default IEEE rules. Serialization, hashing, formatting,
   and sign-sensitive algorithms may therefore expose its distinct bit pattern.
 format: hex
-decode-as: f32
+decode-as: f32-le
 tags:
   - "float"
   - "floating-point"

@@ -5,7 +5,7 @@ description: |
   evaluation. It is also an invalid divisor for integer division and remainder,
   making the pair with one useful for both underflow and divide-by-zero handling.
 format: hex
-decode-as: u16
+decode-as: u16-le
 pair:
   - with: one.input
     hint: tricky

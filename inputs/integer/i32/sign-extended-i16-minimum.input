@@ -5,7 +5,7 @@ description: |
   partial-register, and widening-conversion bugs while preserving the value
   -32768.
 format: hex
-decode-as: i32
+decode-as: i32-le
 pair:
   - with: ../i16/minimum.input
     hint: equal

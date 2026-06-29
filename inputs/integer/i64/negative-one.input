@@ -5,7 +5,7 @@ description: |
   arithmetic-versus-logical shifts, sign extension, and signed-to-unsigned
   conversion. The same bytes represent u64 maximum.
 format: hex
-decode-as: i64
+decode-as: i64-le
 pair:
   - with: ../u64/maximum.input
     hint: tricky

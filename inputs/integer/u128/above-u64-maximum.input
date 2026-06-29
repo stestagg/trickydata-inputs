@@ -5,7 +5,7 @@ description: |
   FFI layers, and intermediate expressions that silently retain only the lower
   64 bits.
 format: hex
-decode-as: u128
+decode-as: u128-le
 tags:
   - "integer"
   - "unsigned-integer"

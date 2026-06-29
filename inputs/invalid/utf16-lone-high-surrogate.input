@@ -10,7 +10,7 @@ description: |
   https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
 format: hex
 decode-as: bytes
-invalid-as: utf16
+invalid-as: utf16-le
 tags:
   - "encoding"
   - "unicode"

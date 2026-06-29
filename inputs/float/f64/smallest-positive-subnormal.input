@@ -5,7 +5,7 @@ description: |
   flush-to-zero may turn it into positive zero, changing equality, loop
   termination, underflow behavior, and division results.
 format: hex
-decode-as: f64
+decode-as: f64-le
 tags:
   - "float"
   - "floating-point"

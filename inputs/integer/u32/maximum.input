@@ -5,7 +5,7 @@ description: |
   saturate, or be widened. Reinterpreting the same bytes as i32 produces
   -1, exposing signedness mistakes in storage, comparison, and conversion.
 format: hex
-decode-as: u32
+decode-as: u32-le
 pair:
   - with: one.input
     hint: tricky

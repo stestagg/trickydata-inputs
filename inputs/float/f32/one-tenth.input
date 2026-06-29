@@ -5,7 +5,7 @@ description: |
   different approximations of the same decimal literal, exposing cross-width
   equality, promotion, serialization, and tolerance assumptions.
 format: hex
-decode-as: f32
+decode-as: f32-le
 pair:
   - with: ../f64/one-tenth.input
     hint: not-equal

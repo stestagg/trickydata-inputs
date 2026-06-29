@@ -4,7 +4,7 @@ description: |
   value and has the sign bit set. Together with its complement it catches stuck
   bits, incorrect masks, shift errors, and signed intermediates.
 format: hex
-decode-as: u32
+decode-as: u32-le
 pair:
   - with: alternating-zeroes.input
     hint: tricky

@@ -4,7 +4,7 @@ description: |
   to binary32 and back. Round-to-nearest maps it to 2^24, exposing silent
   precision loss in graphics, machine-learning, database, and FFI paths.
 format: hex
-decode-as: u32
+decode-as: u32-le
 tags:
   - "integer"
   - "unsigned-integer"

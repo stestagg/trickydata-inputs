@@ -6,7 +6,7 @@ description: |
   enabled traps may instead report an error. It is also paired with the next
   representable value above one to test precision-sensitive comparisons.
 format: hex
-decode-as: f64
+decode-as: f64-le
 pair:
   - with: positive-zero.input
     hint: tricky

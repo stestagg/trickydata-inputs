@@ -5,7 +5,7 @@ description: |
   value outside the i64 positive range. The pair targets off-by-one range
   checks, narrowing conversions, and sign-bit confusion.
 format: hex
-decode-as: u64
+decode-as: u64-le
 pair:
   - with: high-bit.input
     hint: tricky

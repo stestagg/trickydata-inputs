@@ -5,7 +5,7 @@ description: |
   thresholds, lossy serialization, and displays that round both values to the
   same short decimal string.
 format: hex
-decode-as: f32
+decode-as: f32-le
 tags:
   - "float"
   - "floating-point"

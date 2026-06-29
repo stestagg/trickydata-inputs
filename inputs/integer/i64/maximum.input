@@ -5,7 +5,7 @@ description: |
   or be evaluated in a wider type. The same bit pattern is the last u64
   value that converts to i64 without changing the mathematical value.
 format: hex
-decode-as: i64
+decode-as: i64-le
 pair:
   - with: one.input
     hint: tricky

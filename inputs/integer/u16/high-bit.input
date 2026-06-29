@@ -5,7 +5,7 @@ description: |
   produces -32768, while narrowing or checked conversion may reject it. The
   value also exposes accidental sign extension and signed comparisons.
 format: hex
-decode-as: u16
+decode-as: u16-le
 tags:
   - "integer"
   - "unsigned-integer"

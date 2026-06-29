@@ -5,7 +5,7 @@ description: |
   which may trap, raise an exception, return an error, or be undefined depending
   on the language and execution environment.
 format: hex
-decode-as: i16
+decode-as: i16-le
 pair:
   - with: one.input
     hint: tricky

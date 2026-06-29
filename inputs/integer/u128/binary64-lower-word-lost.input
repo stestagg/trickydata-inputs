@@ -5,7 +5,7 @@ description: |
   It is a compact canary for routing 128-bit identifiers, counters, or database
   values through a double-precision intermediate.
 format: hex
-decode-as: u128
+decode-as: u128-le
 pair:
   - with: above-u64-maximum.input
     hint: tricky

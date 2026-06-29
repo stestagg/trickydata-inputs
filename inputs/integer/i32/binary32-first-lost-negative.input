@@ -4,7 +4,7 @@ description: |
   survive conversion to binary32 and back. Round-to-nearest maps it to -2^24,
   checking that signed conversion loses precision symmetrically.
 format: hex
-decode-as: i32
+decode-as: i32-le
 pair:
   - with: ../u32/binary32-first-lost-integer.input
     hint: tricky

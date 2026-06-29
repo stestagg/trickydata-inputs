@@ -5,7 +5,7 @@ description: |
   representable but no longer safe because binary32 has 24 bits of significand
   precision.
 format: hex
-decode-as: u32
+decode-as: u32-le
 pair:
   - with: binary32-exact-boundary.input
     hint: tricky

@@ -4,7 +4,7 @@ description: |
   integer division and remainder. Pairing it with one exercises divide-by-zero
   handling across fixed-width integer implementations.
 format: hex
-decode-as: i128
+decode-as: i128-le
 pair:
   - with: one.input
     hint: tricky

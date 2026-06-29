@@ -4,7 +4,7 @@ description: |
   survive conversion to binary16 and back. Round-to-nearest maps it to -2^11,
   checking that signed conversion loses precision symmetrically.
 format: hex
-decode-as: i16
+decode-as: i16-le
 pair:
   - with: ../u16/binary16-first-lost-integer.input
     hint: tricky

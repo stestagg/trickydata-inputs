@@ -5,7 +5,7 @@ description: |
   epsilon across float widths or uses epsilon as an absolute tolerance at every
   magnitude.
 format: hex
-decode-as: f64
+decode-as: f64-le
 tags:
   - "float"
   - "floating-point"

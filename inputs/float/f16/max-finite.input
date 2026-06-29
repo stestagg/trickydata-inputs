@@ -5,7 +5,7 @@ description: |
   implementation before rounding. Pairing it with infinity targets overflow
   checks that rely on ordinary finite comparisons.
 format: hex
-decode-as: f16
+decode-as: f16-le
 pair:
   - with: positive-infinity.input
     hint: tricky

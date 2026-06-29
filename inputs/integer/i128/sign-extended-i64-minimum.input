@@ -5,7 +5,7 @@ description: |
   partial-register, and widening-conversion bugs while preserving the value
   -9223372036854775808.
 format: hex
-decode-as: i128
+decode-as: i128-le
 pair:
   - with: ../i64/minimum.input
     hint: equal

@@ -4,7 +4,7 @@ description: |
   survives narrowing to u64; the paired next value requires bit 64
   and exposes truncation, masking, and arithmetic performed at the wrong width.
 format: hex
-decode-as: u128
+decode-as: u128-le
 pair:
   - with: ../u64/maximum.input
     hint: equal

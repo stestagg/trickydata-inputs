@@ -4,7 +4,7 @@ description: |
   maximum overflows, subtracting it from the minimum underflows, and dividing it
   by zero exercises integer divide-by-zero handling.
 format: hex
-decode-as: i32
+decode-as: i32-le
 tags:
   - "integer"
   - "signed-integer"

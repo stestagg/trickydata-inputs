@@ -8,7 +8,7 @@ description: |
   ECMAScript specifies this value as Number.MAX_SAFE_INTEGER:
   https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.max_safe_integer
 format: hex
-decode-as: u64
+decode-as: u64-le
 pair:
   - with: binary64-exact-boundary.input
     hint: tricky

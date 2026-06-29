@@ -5,7 +5,7 @@ description: |
   interpretation, making the pair useful for testing decoders, nextafter,
   ordering, and underflow thresholds.
 format: hex
-decode-as: f32
+decode-as: f32-le
 tags:
   - "float"
   - "floating-point"

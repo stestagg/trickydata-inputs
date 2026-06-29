@@ -5,7 +5,7 @@ description: |
   positive zero, changing equality, loop termination, underflow behavior, and
   division results. Its encoding also exercises gradual underflow.
 format: hex
-decode-as: f32
+decode-as: f32-le
 tags:
   - "float"
   - "floating-point"

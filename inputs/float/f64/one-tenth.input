@@ -5,7 +5,7 @@ description: |
   paired f16 and f32 encodings are different approximations of the same decimal
   literal, exposing cross-width equality, promotion, and serialization issues.
 format: hex
-decode-as: f64
+decode-as: f64-le
 tags:
   - "float"
   - "floating-point"

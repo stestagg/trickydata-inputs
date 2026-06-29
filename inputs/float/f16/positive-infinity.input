@@ -5,7 +5,7 @@ description: |
   values, range checks that only compare against a maximum, and arithmetic such
   as infinity minus infinity that produces NaN.
 format: hex
-decode-as: f16
+decode-as: f16-le
 tags:
   - "float"
   - "floating-point"

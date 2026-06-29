@@ -5,7 +5,7 @@ description: |
   representable but no longer safe because binary16 has only 11 bits of
   significand precision.
 format: hex
-decode-as: u16
+decode-as: u16-le
 pair:
   - with: binary16-exact-boundary.input
     hint: tricky

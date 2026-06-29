@@ -21,7 +21,7 @@ jobs:
         run: cargo test --manifest-path compiler/Cargo.toml
 
       - name: Compile corpus
-        run: cargo run --manifest-path compiler/Cargo.toml --bin make-index -- dist
+        run: cargo run --manifest-path compiler/Cargo.toml --bin compile -- dist
 
       - uses: astral-sh/setup-uv@v5
 

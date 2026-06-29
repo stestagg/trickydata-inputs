@@ -5,7 +5,7 @@ description: |
   the NaN, so the original bits are not guaranteed to survive a round trip
   through a floating-point register or higher-level numeric API.
 format: hex
-decode-as: f16
+decode-as: f16-le
 tags:
   - "float"
   - "floating-point"

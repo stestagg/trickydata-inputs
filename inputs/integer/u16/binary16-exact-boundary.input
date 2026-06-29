@@ -5,7 +5,7 @@ description: |
   exact itself but is the first positive integer beyond the all-integers-exact
   range.
 format: hex
-decode-as: u16
+decode-as: u16-le
 pair:
   - with: binary16-first-lost-integer.input
     hint: tricky

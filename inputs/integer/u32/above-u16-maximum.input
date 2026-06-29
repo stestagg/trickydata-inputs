@@ -5,7 +5,7 @@ description: |
   FFI layers, and intermediate expressions that silently retain only the lower
   16 bits.
 format: hex
-decode-as: u32
+decode-as: u32-le
 tags:
   - "integer"
   - "unsigned-integer"

@@ -73,7 +73,7 @@ def load(index_path: str, bin_path: str | None = None) -> Corpus:
     """Read the index + bin pair and build a :class:`Corpus`.
 
     ``bin_path`` defaults to the index's own ``bin`` field, resolved next to the
-    index file (matching how ``make-index`` writes the pair side by side).
+    index file (matching how ``compile`` writes the pair side by side).
     """
     index_file = Path(index_path)
     with index_file.open(encoding="utf-8") as fh:
@@ -113,7 +113,7 @@ def _resolve_pairs(inputs: list[Input]) -> None:
     linking entry's own ``path``) to the target input's name, for cross-linking.
 
     Paths in the index may be prefixed differently depending on where
-    ``make-index`` ran (``inputs/...`` vs ``../inputs/...``), so we match on the
+    ``compile`` ran (``inputs/...`` vs ``../inputs/...``), so we match on the
     lexically-normalized path rather than anything absolute.
     """
     name_by_path: dict[str, str] = {}

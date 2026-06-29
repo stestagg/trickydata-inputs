@@ -5,7 +5,7 @@ description: |
   or be evaluated in a wider type. The same bit pattern is the last u128
   value that converts to i128 without changing the mathematical value.
 format: hex
-decode-as: i128
+decode-as: i128-le
 pair:
   - with: one.input
     hint: tricky

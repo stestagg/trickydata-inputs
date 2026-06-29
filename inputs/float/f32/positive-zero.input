@@ -5,7 +5,7 @@ description: |
   branch-cut functions. It is also paired with the smallest subnormal to expose
   implementations that flush tiny non-zero values to zero.
 format: hex
-decode-as: f32
+decode-as: f32-le
 pair:
   - with: negative-zero.input
     hint: equal

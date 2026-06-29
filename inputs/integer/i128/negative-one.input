@@ -5,7 +5,7 @@ description: |
   arithmetic-versus-logical shifts, sign extension, and signed-to-unsigned
   conversion. The same bytes represent u128 maximum.
 format: hex
-decode-as: i128
+decode-as: i128-le
 pair:
   - with: ../u128/maximum.input
     hint: tricky
