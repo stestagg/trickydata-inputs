@@ -19,4 +19,4 @@ tags:
   - "freed-memory"
   - "use-after-free"
 ---
-dd dd dd dd # 0xdddddddd
+dd dd dd dd   # 0xdddddddd

@@ -15,4 +15,4 @@ tags:
   - "signaling-nan"
   - "non-finite"
 ---
-01 00 80 7f # 0x7f800001: signaling NaN, payload 1
+01 00 80 7f   # 0x7f800001: signaling NaN, payload 1

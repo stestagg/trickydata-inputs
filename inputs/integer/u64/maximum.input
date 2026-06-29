@@ -19,4 +19,4 @@ tags:
   - "conversion"
   - "all-bits-set"
 ---
-ff ff ff ff ff ff ff ff # 18446744073709551615
+ff ff ff ff ff ff ff ff   # 18446744073709551615

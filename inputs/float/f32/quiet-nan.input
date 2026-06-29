@@ -17,4 +17,4 @@ tags:
   - "nan"
   - "non-finite"
 ---
-00 00 c0 7f # 0x7fc00000: quiet NaN
+00 00 c0 7f   # 0x7fc00000: quiet NaN

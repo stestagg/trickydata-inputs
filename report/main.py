@@ -31,7 +31,7 @@ _REPO = _HERE.parent
     "--index",
     "index_path",
     type=click.Path(exists=True, dir_okay=False, path_type=Path),
-    default=_REPO / "compiler" / "trickydata-index.json",
+    default=_REPO / "trickydata-index.json",
     show_default=True,
     help="Compiled input index (trickydata-index.json).",
 )

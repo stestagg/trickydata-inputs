@@ -20,4 +20,4 @@ tags:
   - "boundary"
   - "off-by-one"
 ---
-ff ff ff 00 # 16777215 (2^24 - 1)
+ff ff ff 00   # 16777215 (2^24 - 1)

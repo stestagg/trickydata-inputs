@@ -26,4 +26,4 @@ tags:
   - "concatenation"
   - "valid-prefix"
 ---
-c2 a2 # CENT SIGN U+00A2
+c2 a2   # CENT SIGN U+00A2

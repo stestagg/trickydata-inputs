@@ -19,4 +19,4 @@ tags:
   - "surrogate"
   - "lone-surrogate"
 ---
-41 00 00 d8 # 'A' then lone high surrogate U+D800
+41 00 00 d8   # 'A' then lone high surrogate U+D800

@@ -22,4 +22,4 @@ tags:
   - "unexpected-continuation"
   - "chunk-boundary"
 ---
-80 # Continuation byte with no sequence starter
+80   # Continuation byte with no sequence starter

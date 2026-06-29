@@ -19,4 +19,4 @@ tags:
   - "guard-region"
   - "buffer-overflow"
 ---
-fd fd fd fd # 0xfdfdfdfd
+fd fd fd fd   # 0xfdfdfdfd

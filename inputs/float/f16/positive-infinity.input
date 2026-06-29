@@ -14,4 +14,4 @@ tags:
   - "infinity"
   - "non-finite"
 ---
-00 7c # 0x7c00: +infinity
+00 7c   # 0x7c00: +infinity

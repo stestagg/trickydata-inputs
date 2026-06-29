@@ -21,4 +21,4 @@ tags:
   - "conversion"
   - "two's-complement"
 ---
-ff ff ff 7f # 2147483647
+ff ff ff 7f   # 2147483647

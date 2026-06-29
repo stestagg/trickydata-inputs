@@ -23,4 +23,4 @@ tags:
   - "chunk-boundary"
   - "concatenation"
 ---
-e2 82 # EURO SIGN without its final AC continuation byte
+e2 82   # EURO SIGN without its final AC continuation byte

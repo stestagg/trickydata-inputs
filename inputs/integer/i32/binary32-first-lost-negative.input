@@ -18,4 +18,4 @@ tags:
   - "precision-loss"
   - "boundary"
 ---
-ff ff ff fe # -16777217 (-(2^24 + 1))
+ff ff ff fe   # -16777217 (-(2^24 + 1))

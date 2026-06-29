@@ -18,4 +18,4 @@ tags:
   - "four-byte-sequence"
   - "buffer-boundary"
 ---
-f0 9f 92 # PILE OF POO without its final A9 continuation byte
+f0 9f 92   # PILE OF POO without its final A9 continuation byte

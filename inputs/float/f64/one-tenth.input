@@ -14,4 +14,4 @@ tags:
   - "decimal-conversion"
   - "precision"
 ---
-9a 99 99 99 99 99 b9 3f # 0x3fb999999999999a: nearest binary64 value to 0.1
+9a 99 99 99 99 99 b9 3f   # 0x3fb999999999999a: nearest binary64 value to 0.1

@@ -17,4 +17,4 @@ tags:
   - "overflow"
   - "boundary"
 ---
-ff 7b # 0x7bff: 65504
+ff 7b   # 0x7bff: 65504

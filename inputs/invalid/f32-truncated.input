@@ -16,4 +16,4 @@ tags:
   - "invalid-f32"
   - "truncated"
 ---
-00 00 80 # f32 1.0 (00 00 80 3f) with the last byte dropped
+00 00 80   # f32 1.0 (00 00 80 3f) with the last byte dropped

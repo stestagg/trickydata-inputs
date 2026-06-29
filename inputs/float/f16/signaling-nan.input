@@ -15,4 +15,4 @@ tags:
   - "signaling-nan"
   - "non-finite"
 ---
-01 7c # 0x7c01: signaling NaN, payload 1
+01 7c   # 0x7c01: signaling NaN, payload 1

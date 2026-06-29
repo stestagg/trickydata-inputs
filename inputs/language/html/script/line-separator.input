@@ -21,4 +21,4 @@ tags:
   - "line-separator"
   - "unicode"
 ---
-e2 80 a8 # U+2028 LINE SEPARATOR
+e2 80 a8   # U+2028 LINE SEPARATOR

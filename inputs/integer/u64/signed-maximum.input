@@ -19,4 +19,4 @@ tags:
   - "sign-bit"
   - "off-by-one"
 ---
-ff ff ff ff ff ff ff 7f # 9223372036854775807
+ff ff ff ff ff ff ff 7f   # 9223372036854775807

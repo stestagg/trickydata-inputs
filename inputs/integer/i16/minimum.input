@@ -25,4 +25,4 @@ tags:
   - "absolute-value"
   - "two's-complement"
 ---
-00 80 # -32768
+00 80   # -32768

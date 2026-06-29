@@ -19,4 +19,4 @@ tags:
   - "new-memory"
   - "uninitialized"
 ---
-cd cd cd cd # 0xcdcdcdcd
+cd cd cd cd   # 0xcdcdcdcd

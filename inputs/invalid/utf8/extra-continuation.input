@@ -18,4 +18,4 @@ tags:
   - "extra-continuation"
   - "valid-prefix"
 ---
-c2 a2 80 # CENT SIGN followed by an unexpected continuation byte
+c2 a2 80   # CENT SIGN followed by an unexpected continuation byte

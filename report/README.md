@@ -22,7 +22,7 @@ Then open `report-site/index.html` in a browser (no server needed).
 
 | Option     | Default                            | Purpose                                      |
 |------------|------------------------------------|----------------------------------------------|
-| `--index`  | `compiler/trickydata-index.json`   | Compiled input index.                        |
+| `--index`  | `trickydata-index.json`            | Compiled input index.                        |
 | `--bin`    | the index's own `bin` field        | Payload blob (resolved next to the index).   |
 | `--schema` | `frontmatter-schema.yaml`          | Drives metadata labels/order.                |
 | `--out`    | `report-site/`                     | Output directory.                            |

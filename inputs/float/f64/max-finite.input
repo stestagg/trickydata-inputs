@@ -17,4 +17,4 @@ tags:
   - "overflow"
   - "boundary"
 ---
-ff ff ff ff ff ff ef 7f # 0x7fefffffffffffff: maximum finite binary64
+ff ff ff ff ff ff ef 7f   # 0x7fefffffffffffff: maximum finite binary64

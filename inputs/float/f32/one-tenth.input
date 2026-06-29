@@ -17,4 +17,4 @@ tags:
   - "decimal-conversion"
   - "precision"
 ---
-cd cc cc 3d # 0x3dcccccd: nearest binary32 value to 0.1
+cd cc cc 3d   # 0x3dcccccd: nearest binary32 value to 0.1

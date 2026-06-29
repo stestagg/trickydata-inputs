@@ -19,4 +19,4 @@ tags:
   - "decimal-conversion"
   - "precision"
 ---
-66 2e # 0x2e66: nearest binary16 value to 0.1
+66 2e   # 0x2e66: nearest binary16 value to 0.1

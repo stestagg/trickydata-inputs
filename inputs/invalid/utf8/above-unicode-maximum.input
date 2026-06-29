@@ -18,4 +18,4 @@ tags:
   - "unicode-maximum"
   - "boundary"
 ---
-f4 90 80 80 # U+110000, immediately above U+10FFFF
+f4 90 80 80   # U+110000, immediately above U+10FFFF

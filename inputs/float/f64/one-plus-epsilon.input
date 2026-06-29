@@ -15,4 +15,4 @@ tags:
   - "ulp"
   - "precision"
 ---
-01 00 00 00 00 00 f0 3f # 0x3ff0000000000001: next value above 1
+01 00 00 00 00 00 f0 3f   # 0x3ff0000000000001: next value above 1

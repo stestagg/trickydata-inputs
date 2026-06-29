@@ -18,4 +18,4 @@ tags:
   - "lower-width"
   - "two's-complement"
 ---
-00 00 00 80 ff ff ff ff # -2147483648
+00 00 00 80 ff ff ff ff   # -2147483648

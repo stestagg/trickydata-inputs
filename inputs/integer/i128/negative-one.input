@@ -20,4 +20,4 @@ tags:
   - "two's-complement"
   - "all-bits-set"
 ---
-ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff # -1
+ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff   # -1

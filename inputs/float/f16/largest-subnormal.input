@@ -18,4 +18,4 @@ tags:
   - "underflow"
   - "boundary"
 ---
-ff 03 # 0x03ff: largest subnormal
+ff 03   # 0x03ff: largest subnormal

@@ -21,4 +21,4 @@ tags:
   - "paragraph-separator"
   - "unicode"
 ---
-e2 80 a9 # U+2029 PARAGRAPH SEPARATOR
+e2 80 a9   # U+2029 PARAGRAPH SEPARATOR

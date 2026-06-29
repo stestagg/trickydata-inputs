@@ -17,4 +17,4 @@ tags:
   - "overflow"
   - "boundary"
 ---
-ff ff 7f 7f # 0x7f7fffff: maximum finite binary32
+ff ff 7f 7f   # 0x7f7fffff: maximum finite binary32

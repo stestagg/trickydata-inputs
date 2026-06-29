@@ -19,4 +19,4 @@ tags:
   - "high-surrogate"
   - "unicode-scalar-value"
 ---
-ed a0 80 # Direct encoding of surrogate code point U+D800
+ed a0 80   # Direct encoding of surrogate code point U+D800

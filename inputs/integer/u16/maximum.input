@@ -20,4 +20,4 @@ tags:
   - "conversion"
   - "all-bits-set"
 ---
-ff ff # 65535
+ff ff   # 65535
