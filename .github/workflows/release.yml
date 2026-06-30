@@ -22,8 +22,11 @@ jobs:
         with:
           workspaces: compiler
 
+      - name: Verify committed corpus is up to date
+        run: cargo run --locked --manifest-path compiler/Cargo.toml --bin compare -- ./trickydata
+
       - name: Compile corpus
-        run: cargo run --manifest-path compiler/Cargo.toml --bin compile -- --version "$VERSION" dist
+        run: cargo run --locked --manifest-path compiler/Cargo.toml --bin compile -- --version "$VERSION" dist
 
       - uses: astral-sh/setup-uv@v5
 

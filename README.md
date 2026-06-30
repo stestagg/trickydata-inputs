@@ -15,6 +15,31 @@ The file is processed such that everything before the first '\n---\n' is conside
 
 Depending on the format value, the actual input data is either then included verbatim in the input file, as bytes after the first '\n---\n', or in a separate file (for example, for binary inputs, in which case, any non-whitespace after the frontmatter is treated as an error).
 
+# Building
+
+The `compiler/` crate turns the `inputs/` tree into the distributable corpus artifacts committed at the repo-root `trickydata` prefix:
+
+- `trickydata.trickydata` — the preferred single-file format
+- `trickydata.zip`
+- `trickydata-index.json` + `trickydata.bin`
+
+Recompile them with:
+
+```sh
+cargo run --manifest-path compiler/Cargo.toml --bin compile -- .
+```
+
+These artifacts are kept in sync with the inputs automatically:
+
+- **Pre-commit hook** — run `scripts/install-hooks.sh` once after cloning (it sets `core.hooksPath` to the versioned `.githooks/` directory). The hook recompiles and stages the artifacts whenever a commit touches `inputs/`, `frontmatter-schema.yaml` or `compiler/`.
+- **CI** — every pull request and release tag runs `compare`, which rebuilds the corpus in memory from `inputs/` and fails if the committed artifacts have drifted:
+
+  ```sh
+  cargo run --manifest-path compiler/Cargo.toml --bin compare -- ./trickydata
+  ```
+
+If `compare` fails, recompile with `compile` (or let the pre-commit hook do it) and commit the result.
+
 # Inputs
 
 Each input in this corpus must be justified as being an input that may trigger corner-cases, or is otherwise interesting to test against.  The Description field **must** justify why the input has been included, including hyperlinks where relevant to external references.

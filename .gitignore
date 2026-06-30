@@ -22,3 +22,9 @@ compiler/target/
 
 /report/report-site/
 __pycache__/
+
+# CI scratch outputs (the committed corpus lives at the repo-root `trickydata`
+# prefix; CI recompiles into dist/ and renders the report into report-site/).
+/dist/
+/report-site/
+/trickydata-report-*.zip

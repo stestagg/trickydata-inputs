@@ -18,10 +18,13 @@ jobs:
           workspaces: compiler
 
       - name: Run compiler tests
-        run: cargo test --manifest-path compiler/Cargo.toml
+        run: cargo test --locked --manifest-path compiler/Cargo.toml
+
+      - name: Verify committed corpus is up to date
+        run: cargo run --locked --manifest-path compiler/Cargo.toml --bin compare -- ./trickydata
 
       - name: Compile corpus
-        run: cargo run --manifest-path compiler/Cargo.toml --bin compile -- dist
+        run: cargo run --locked --manifest-path compiler/Cargo.toml --bin compile -- dist
 
       - uses: astral-sh/setup-uv@v5
 

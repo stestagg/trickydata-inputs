@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Pre-commit hook: keep the committed corpus artifacts in sync with the inputs.
+#
+# When a commit touches anything that can change the compiled corpus (the input
+# tree, the frontmatter schema, or the compiler itself), this recompiles the
+# inputs into the repo-root `trickydata` prefix and stages the resulting
+# artifacts so they travel with the same commit.
+#
+# This is a convenience only — the authoritative check is the `compare` step in
+# CI, which fails the build if the committed artifacts ever drift from the
+# inputs. Install with `scripts/install-hooks.sh` (sets core.hooksPath).
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+# The artifacts compiled at the root `trickydata` prefix.
+artifacts=(
+	trickydata.trickydata
+	trickydata.zip
+	trickydata-index.json
+	trickydata.bin
+)
+
+# Only recompile when the staged change can actually affect the corpus, so most
+# commits stay fast. Paths are matched against the staged file list.
+if ! git diff --cached --name-only --diff-filter=ACMRD \
+	| grep -Eq '^(inputs/|frontmatter-schema\.yaml$|compiler/)'; then
+	exit 0
+fi
+
+echo "pre-commit: recompiling trickydata corpus…"
+cargo run --quiet --manifest-path compiler/Cargo.toml --bin compile -- .
+
+git add -- "${artifacts[@]}"
+echo "pre-commit: staged ${artifacts[*]}"
