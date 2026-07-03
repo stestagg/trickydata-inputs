@@ -40,6 +40,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
+            dist/trickydata.trickydata
+            dist/trickydata.zip
             dist/trickydata-index.json
             dist/trickydata.bin
             trickydata-report-${{ env.VERSION }}.zip
