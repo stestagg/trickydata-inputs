@@ -13,7 +13,11 @@
       <a href="{{ root }}index.html"{% if page == 'home' %} class="active"{% endif %}>Inputs</a>
       <a href="{{ root }}tags.html"{% if page == 'tags' %} class="active"{% endif %}>Tags</a>
     </nav>
+    {% if versions_url %}
+    <a class="version" href="{{ root }}{{ versions_url }}">v{{ corpus.version }} &middot; {{ corpus.inputs | length }} inputs</a>
+    {% else %}
     <span class="version">v{{ corpus.version }} &middot; {{ corpus.inputs | length }} inputs</span>
+    {% endif %}
   </header>
   <main>
     {% block content %}{% endblock %}

@@ -58,7 +58,19 @@ _REPO = _HERE.parent
     show_default=True,
     help="Output directory for the generated site.",
 )
-def main(index_path: Path, bin_path: Path | None, schema_path: Path, out_dir: Path) -> None:
+@click.option(
+    "--versions-url",
+    type=str,
+    default=None,
+    help="Optional relative URL for a published versions index.",
+)
+def main(
+    index_path: Path,
+    bin_path: Path | None,
+    schema_path: Path,
+    out_dir: Path,
+    versions_url: str | None,
+) -> None:
     """Render the corpus at INDEX into a static site under OUT."""
     corpus = load(str(index_path), str(bin_path) if bin_path else None)
     schema = load_schema(str(schema_path))
@@ -69,6 +81,7 @@ def main(index_path: Path, bin_path: Path | None, schema_path: Path, out_dir: Pa
         out_dir,
         template_dir=_HERE / "templates",
         static_dir=_HERE / "static",
+        versions_url=versions_url,
     )
 
     click.echo(

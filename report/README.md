@@ -26,6 +26,7 @@ Then open `report-site/index.html` in a browser (no server needed).
 | `--bin`    | the index's own `bin` field        | Payload blob (resolved next to the index).   |
 | `--schema` | `frontmatter-schema.yaml`          | Drives metadata labels/order.                |
 | `--out`    | `report-site/`                     | Output directory.                            |
+| `--versions-url` | unset                       | Optional relative URL for a published versions index. |
 
 The index + bin pair is produced by the Rust `compile` tool
 (`cargo run --bin compile`).

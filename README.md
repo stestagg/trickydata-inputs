@@ -40,6 +40,12 @@ These artifacts are kept in sync with the inputs automatically:
 
 If `compare` fails, recompile with `compile` (or let the pre-commit hook do it) and commit the result.
 
+# Release documentation
+
+Release tags publish the generated report to the `gh-pages` branch under a
+directory named for the tag, for example `v1.2.3/`. The Pages root
+`index.html` lists the published versions and links to the latest release.
+
 # Inputs
 
 Each input in this corpus must be justified as being an input that may trigger corner-cases, or is otherwise interesting to test against.  The Description field **must** justify why the input has been included, including hyperlinks where relevant to external references.

@@ -29,6 +29,7 @@ def render_site(
     *,
     template_dir: Path,
     static_dir: Path,
+    versions_url: str | None = None,
 ) -> int:
     """Render every page into ``out_dir`` and copy static assets. Returns the
     number of input pages written."""
@@ -39,7 +40,11 @@ def render_site(
     _write(
         out_dir / "index.html",
         env.get_template("index.html").render(
-            root="", corpus=corpus, schema=schema, page="home"
+            root="",
+            corpus=corpus,
+            schema=schema,
+            page="home",
+            versions_url=versions_url,
         ),
     )
     _write(
@@ -49,6 +54,7 @@ def render_site(
             corpus=corpus,
             tags=sorted(corpus.tag_counts.items(), key=lambda kv: (-kv[1], kv[0])),
             page="tags",
+            versions_url=versions_url,
         ),
     )
 
@@ -67,6 +73,7 @@ def render_site(
                 page="input",
                 meta_rows=_meta_rows(inp, schema),
                 view=_payload_view(inp),
+                versions_url=versions_url,
             ),
         )
 
