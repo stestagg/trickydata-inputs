@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>combining_mark_overflow &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.3 &middot; 450 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / combining_mark_overflow</p>
+<h1 class="mono">combining_mark_overflow</h1>
+
+<section class="meta">
+  <div class="description">This is a single base letter &#34;e&#34; (U+0065) followed by thirty COMBINING
+DIACRITICAL MARKS drawn from the U+0300 block, alternating above and below the
+baseline. All thirty-one code points form one grapheme cluster, yet the stacked
+marks grow far taller than the font&#39;s line box and bleed into the lines above
+and below — the &#34;Zalgo&#34; effect — so naive layout that assumes a glyph stays
+within its em box will overlap neighbouring rows. It also stresses cluster
+segmentation, cursor movement, and combining-mark normalisation.
+
+Unicode Standard Annex #29 keeps a base and its trailing combining marks in a
+single grapheme cluster: https://www.unicode.org/reports/tr29/
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">utf8</span></dd>
+
+    <dt>Size</dt>
+    <dd>61 B (61 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">utf8/rendering/combining-mark-overflow.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-utf8">utf8</a>
+      <a class="tag" href="../tags.html#tag-unicode">unicode</a>
+      <a class="tag" href="../tags.html#tag-rendering">rendering</a>
+      <a class="tag" href="../tags.html#tag-unicode-combiners">unicode-combiners</a>
+      <a class="tag" href="../tags.html#tag-grapheme-clusters">grapheme-clusters</a>
+      <a class="tag" href="../tags.html#tag-unicode-segmentation">unicode-segmentation</a>
+    </div>
+  </div>
+
+
+  <div class="meta-block">
+    <h2>Unicode metadata</h2>
+    <table class="kv">
+      <tr><th>Code units</th><td class="num">61</td></tr>
+      <tr><th>Code points</th><td class="num">31</td></tr>
+      <tr><th>Scalar values</th><td class="num">31</td></tr>
+      <tr><th>Legacy grapheme clusters</th><td class="num">1</td></tr>
+      <tr><th>Extended grapheme clusters</th><td class="num">1</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">ȩ̨̖̗̘̙̜̝̣̤̥̦̩̭̮̰̱́̀̂̃̄̅̆̇̈̉̊̋̌</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  65 cc 81 cc 80 cc 82 cc  83 cc 84 cc 85 cc 86 cc  |e...............|
+<span class="off">00000010</span>  87 cc 88 cc 89 cc 8a cc  8b cc 8c cc 96 cc 97 cc  |................|
+<span class="off">00000020</span>  98 cc 99 cc 9c cc 9d cc  a3 cc a4 cc a5 cc a6 cc  |................|
+<span class="off">00000030</span>  a7 cc a8 cc a9 cc ad cc  ae cc b0 cc b1           |.............|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 61 payload byte(s).</p>
+    <a class="download" download="combining_mark_overflow" href="data:application/octet-stream;base64,ZcyBzIDMgsyDzITMhcyGzIfMiMyJzIrMi8yMzJbMl8yYzJnMnMydzKPMpMylzKbMp8yozKnMrcyuzLDMsQ==">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

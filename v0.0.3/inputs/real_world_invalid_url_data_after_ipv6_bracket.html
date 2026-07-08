@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>real_world_invalid_url_data_after_ipv6_bracket &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.3 &middot; 450 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / real_world_invalid_url_data_after_ipv6_bracket</p>
+<h1 class="mono">real_world_invalid_url_data_after_ipv6_bracket</h1>
+
+<section class="meta">
+  <div class="description">Characters follow a complete bracketed IPv6 host without a colon introducing
+a port. Ignoring the suffix would change the source authority and can make
+allowlist display disagree with connection behavior.
+
+The WHATWG host state accepts only a port or path delimiter after `]`:
+https://url.spec.whatwg.org/#host-state
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">ascii</span></dd>
+
+    <dt>Size</dt>
+    <dd>26 B (26 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">real-world/url/invalid/data-after-ipv6-bracket.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-real-world">real-world</a>
+      <a class="tag" href="../tags.html#tag-url">url</a>
+      <a class="tag" href="../tags.html#tag-invalid-url">invalid-url</a>
+      <a class="tag" href="../tags.html#tag-invalid">invalid</a>
+      <a class="tag" href="../tags.html#tag-host">host</a>
+      <a class="tag" href="../tags.html#tag-ipv6">ipv6</a>
+      <a class="tag" href="../tags.html#tag-trailing-data">trailing-data</a>
+      <a class="tag" href="../tags.html#tag-delimiter-confusion">delimiter-confusion</a>
+    </div>
+  </div>
+
+
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">http://[2001:db8::1]extra/</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  68 74 74 70 3a 2f 2f 5b  32 30 30 31 3a 64 62 38  |http://[2001:db8|
+<span class="off">00000010</span>  3a 3a 31 5d 65 78 74 72  61 2f                    |::1]extra/|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 26 payload byte(s).</p>
+    <a class="download" download="real_world_invalid_url_data_after_ipv6_bracket" href="data:application/octet-stream;base64,aHR0cDovL1syMDAxOmRiODo6MV1leHRyYS8=">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

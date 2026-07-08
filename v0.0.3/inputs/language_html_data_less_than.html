@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>language_html_data_less_than &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.3 &middot; 450 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / language_html_data_less_than</p>
+<h1 class="mono">language_html_data_less_than</h1>
+
+<section class="meta">
+  <div class="description">Less-than begins HTML markup in text contexts. A correctly escaped value
+should remain visible text; raw interpolation can instead enter the tag-open
+tokenizer state or combine with surrounding data to create an element.
+
+The HTML tokenizer states are defined here:
+https://html.spec.whatwg.org/multipage/parsing.html#tokenization
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">ascii</span></dd>
+
+    <dt>Size</dt>
+    <dd>1 B (1 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">language/html/text/less-than.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-language">language</a>
+      <a class="tag" href="../tags.html#tag-html">html</a>
+      <a class="tag" href="../tags.html#tag-xss">xss</a>
+      <a class="tag" href="../tags.html#tag-xss-data">xss-data</a>
+      <a class="tag" href="../tags.html#tag-html-text-context">html-text-context</a>
+      <a class="tag" href="../tags.html#tag-less-than">less-than</a>
+      <a class="tag" href="../tags.html#tag-escaping">escaping</a>
+      <a class="tag" href="../tags.html#tag-injection-canary">injection-canary</a>
+    </div>
+  </div>
+
+  <div class="meta-block">
+    <h2>Paired with</h2>
+    <ul class="pairs">
+      <li><a href="language_html_data_named_lt_entity.html" class="mono">language_html_data_named_lt_entity</a> <span class="badge hint">tricky</span></li>
+      <li><a href="language_html_data_numeric_lt_entity.html" class="mono">language_html_data_numeric_lt_entity</a> <span class="badge hint">tricky</span></li>
+    </ul>
+  </div>
+
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">&lt;</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  3c                                                |&lt;|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 1 payload byte(s).</p>
+    <a class="download" download="language_html_data_less_than" href="data:application/octet-stream;base64,PA==">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

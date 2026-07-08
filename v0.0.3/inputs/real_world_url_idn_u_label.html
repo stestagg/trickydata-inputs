@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>real_world_url_idn_u_label &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.3 &middot; 450 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / real_world_url_idn_u_label</p>
+<h1 class="mono">real_world_url_idn_u_label</h1>
+
+<section class="meta">
+  <div class="description">The Unicode U-label host serializes to the A-label in the paired URL. ASCII-
+only validators may reject this presentation, while displaying Unicode
+without spoofing protections can hide the canonical host.
+
+RFC 5890 and the WHATWG URL Standard define the conversion:
+https://www.rfc-editor.org/rfc/rfc5890.html#section-2.3.2.4
+https://url.spec.whatwg.org/#concept-domain-to-ascii
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">utf8</span></dd>
+
+    <dt>Size</dt>
+    <dd>29 B (29 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">real-world/url/international/idn-u-label.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-real-world">real-world</a>
+      <a class="tag" href="../tags.html#tag-url">url</a>
+      <a class="tag" href="../tags.html#tag-host">host</a>
+      <a class="tag" href="../tags.html#tag-idn">idn</a>
+      <a class="tag" href="../tags.html#tag-idna">idna</a>
+      <a class="tag" href="../tags.html#tag-u-label">u-label</a>
+      <a class="tag" href="../tags.html#tag-punycode">punycode</a>
+      <a class="tag" href="../tags.html#tag-equivalence">equivalence</a>
+      <a class="tag" href="../tags.html#tag-valid">valid</a>
+    </div>
+  </div>
+
+  <div class="meta-block">
+    <h2>Paired with</h2>
+    <ul class="pairs">
+      <li><a href="real_world_url_idn_a_label.html" class="mono">real_world_url_idn_a_label</a> <span class="badge hint">equal</span></li>
+    </ul>
+  </div>
+
+  <div class="meta-block">
+    <h2>Unicode metadata</h2>
+    <table class="kv">
+      <tr><th>Code units</th><td class="num">29</td></tr>
+      <tr><th>Code points</th><td class="num">19</td></tr>
+      <tr><th>Scalar values</th><td class="num">19</td></tr>
+      <tr><th>Legacy grapheme clusters</th><td class="num">19</td></tr>
+      <tr><th>Extended grapheme clusters</th><td class="num">19</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">https://例え.テスト/path</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  68 74 74 70 73 3a 2f 2f  e4 be 8b e3 81 88 2e e3  |https://........|
+<span class="off">00000010</span>  83 86 e3 82 b9 e3 83 88  2f 70 61 74 68           |......../path|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 29 payload byte(s).</p>
+    <a class="download" download="real_world_url_idn_u_label" href="data:application/octet-stream;base64,aHR0cHM6Ly/kvovjgYgu44OG44K544OIL3BhdGg=">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>
