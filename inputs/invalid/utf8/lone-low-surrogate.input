@@ -1,0 +1,25 @@
+name: invalid_utf8_lone_low_surrogate
+description: |
+  This is the three-byte sequence ED B0 80, the direct UTF-8 encoding that a
+  permissive encoder might emit for the lone low surrogate U+DC00. Surrogate
+  code points are not Unicode scalar values and are excluded from well-formed
+  UTF-8, so a conforming encoder must fail rather than produce these bytes.
+
+  The low-surrogate case complements U+D800: rejecting only high surrogates
+  leaves a range-checking bug in encoders and decoders.
+
+  See the Unicode definition of well-formed UTF-8 (D92 and Table 3-7):
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "surrogate"
+  - "lone-surrogate"
+  - "low-surrogate"
+---
+ed b0 80   # Invalid direct UTF-8 encoding of U+DC00

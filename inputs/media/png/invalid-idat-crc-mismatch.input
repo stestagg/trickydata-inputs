@@ -1,0 +1,30 @@
+name: media_png_invalid_idat_crc_mismatch
+description: |
+  A deliberately invalid PNG whose image data is otherwise a valid 1x1 RGBA
+  image, but the IDAT chunk CRC has one bit flipped. This catches decoders that
+  trust compressed image data without verifying chunk integrity. The IHDR and
+  IEND CRCs are correct, so the failure is isolated to IDAT integrity checking.
+
+  This file is independently constructed for this corpus and is MIT licensed.
+  The PNG specification defines the per-chunk CRC:
+  https://www.w3.org/TR/png-3/#5CRC-algorithm
+format: hex
+decode-as: bytes
+mime-type: image/png
+licence: MIT
+pair:
+  - with: valid-minimal-rgba-1x1.input
+    hint: tricky
+tags:
+  - "media"
+  - "image"
+  - "png"
+  - "invalid-png"
+  - "crc"
+  - "idat"
+  - "integrity"
+---
+89 50 4e 47 0d 0a 1a 0a
+00 00 00 0d 49 48 44 52 00 00 00 01 00 00 00 01 08 06 00 00 00 1f 15 c4 89
+00 00 00 0b 49 44 41 54 78 da 63 60 00 02 00 00 05 00 01 e9 fa dc d9
+00 00 00 00 49 45 4e 44 ae 42 60 82

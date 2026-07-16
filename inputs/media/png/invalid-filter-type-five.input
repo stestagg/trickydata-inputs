@@ -1,0 +1,31 @@
+name: media_png_invalid_filter_type_five
+description: |
+  A deliberately invalid PNG whose chunks, CRCs, and zlib stream are valid, but
+  the decompressed scanline begins with filter type 5. For PNG filter method 0,
+  only filter types 0 through 4 are defined. This case catches decoders that
+  validate the container and zlib layers but forget to validate the per-scanline
+  filter byte before reconstructing pixels.
+
+  This file is independently constructed for this corpus and is MIT licensed.
+  The PNG specification defines filter method 0 and its filter types:
+  https://www.w3.org/TR/png-3/#9Filters
+format: hex
+decode-as: bytes
+mime-type: image/png
+licence: MIT
+pair:
+  - with: valid-minimal-rgba-1x1.input
+    hint: tricky
+tags:
+  - "media"
+  - "image"
+  - "png"
+  - "invalid-png"
+  - "filter"
+  - "scanline"
+  - "decompression"
+---
+89 50 4e 47 0d 0a 1a 0a
+00 00 00 0d 49 48 44 52 00 00 00 01 00 00 00 01 08 06 00 00 00 1f 15 c4 89
+00 00 00 0b 49 44 41 54 78 da 63 65 00 02 00 00 1e 00 06 2f 0d 0b 8e
+00 00 00 00 49 45 4e 44 ae 42 60 82

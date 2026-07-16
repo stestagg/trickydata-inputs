@@ -1,0 +1,34 @@
+name: media_png_valid_zero_length_idat_before_data
+description: |
+  A valid 1x1 RGBA PNG with an empty IDAT chunk immediately before the IDAT
+  chunk that carries the zlib stream. PNG image data is the concatenation of the
+  data fields of consecutive IDAT chunks, so a zero-length IDAT contributes no
+  bytes but is still a legal chunk with its own CRC. Decoders that assume every
+  IDAT must contain compressed bytes may reject this valid stream.
+
+  This file is independently constructed for this corpus and is MIT licensed.
+  The PNG Suite documents "different numbers and sizes of IDAT chunks" as a
+  decoder test class, and the PNG specification defines IDAT chunking:
+  https://www.libpng.org/pub/png/pngsuite.html
+  https://www.w3.org/TR/png-3/#11IDAT
+format: hex
+decode-as: bytes
+mime-type: image/png
+licence: MIT
+pair:
+  - with: valid-minimal-rgba-1x1.input
+    hint: tricky
+tags:
+  - "media"
+  - "image"
+  - "png"
+  - "valid-png"
+  - "idat"
+  - "chunking"
+  - "zero-length"
+---
+89 50 4e 47 0d 0a 1a 0a
+00 00 00 0d 49 48 44 52 00 00 00 01 00 00 00 01 08 06 00 00 00 1f 15 c4 89
+00 00 00 00 49 44 41 54 35 af 06 1e
+00 00 00 0b 49 44 41 54 78 da 63 60 00 02 00 00 05 00 01 e9 fa dc d8
+00 00 00 00 49 45 4e 44 ae 42 60 82

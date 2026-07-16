@@ -1,0 +1,32 @@
+name: media_png_invalid_zero_dimensions
+description: |
+  A deliberately invalid PNG with a valid signature and valid IHDR CRC, but
+  IHDR declares both width and height as zero. PNG image dimensions are unsigned
+  31-bit integers, but zero is forbidden. This should fail at IHDR validation
+  before any pixel allocation or decompression work is attempted.
+
+  This file is independently constructed for this corpus and is MIT licensed.
+  PNG Suite documents an invalid 0x0 grayscale file as x00n0g01; this input is
+  not copied from PNG Suite, but targets the same known-problematic class:
+  https://www.libpng.org/pub/png/pngsuite.html
+  https://www.w3.org/TR/png-3/#11IHDR
+format: hex
+decode-as: bytes
+mime-type: image/png
+licence: MIT
+pair:
+  - with: valid-minimal-rgba-1x1.input
+    hint: tricky
+tags:
+  - "media"
+  - "image"
+  - "png"
+  - "invalid-png"
+  - "known-problematic"
+  - "png-suite-inspired"
+  - "ihdr"
+  - "dimensions"
+---
+89 50 4e 47 0d 0a 1a 0a
+00 00 00 0d 49 48 44 52 00 00 00 00 00 00 00 00 01 00 00 00 00 13 f0 41 bf
+00 00 00 00 49 45 4e 44 ae 42 60 82

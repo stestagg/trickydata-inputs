@@ -1,0 +1,25 @@
+name: invalid_utf8_lone_high_surrogate
+description: |
+  This is the three-byte sequence ED A0 80, the direct UTF-8 encoding that a
+  permissive encoder might emit for the lone high surrogate U+D800. Surrogate
+  code points are not Unicode scalar values and are excluded from well-formed
+  UTF-8, so a conforming encoder must fail rather than produce these bytes.
+
+  This fixture corresponds to a string value such as `"\\ud800"` in runtimes
+  that permit unpaired UTF-16 surrogates in their string representation.
+
+  See the Unicode definition of well-formed UTF-8 (D92 and Table 3-7):
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf8
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf8"
+  - "invalid-utf8"
+  - "surrogate"
+  - "lone-surrogate"
+  - "high-surrogate"
+---
+ed a0 80   # Invalid direct UTF-8 encoding of U+D800

@@ -4998,6 +4998,25 @@
       "length": 4
     },
     {
+      "name": "invalid_utf16_lone_low_surrogate",
+      "description": "An ASCII 'A' (0x0041) followed by a lone low surrogate (0xDC00) in\nlittle-endian UTF-16. A low surrogate must be preceded by a high surrogate\nin the range 0xD800..=0xDBFF; on its own it is not a valid Unicode scalar\nvalue and well-formed UTF-16 decoders must reject it.\n\nThis complements the existing lone-high-surrogate case, since accepting an\nunpaired low surrogate is a distinct validation failure.\n\nSee the Unicode UTF-16 conformance rules (D91, well-formed UTF-16):\nhttps://www.unicode.org/versions/Unicode15.0.0/ch03.pdf\n",
+      "tags": [
+        "encoding",
+        "unicode",
+        "utf16",
+        "invalid-utf16",
+        "surrogate",
+        "lone-surrogate",
+        "low-surrogate"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "invalid-as": "utf16-le",
+      "path": "invalid/utf16-lone-low-surrogate.input",
+      "offset": 1499,
+      "length": 4
+    },
+    {
       "name": "invalid_utf8_above_unicode_maximum",
       "description": "F4 90 80 80 would represent U+110000, one code point above Unicode's maximum\nU+10FFFF. For an 0xF4 starter the second byte may be at most 0x8F; this input\ntests the exact upper-bound check without using an otherwise malformed byte.\n\nSee the Unicode well-formed UTF-8 byte sequences in Table 3-7:\nhttps://www.unicode.org/versions/Unicode15.0.0/ch03.pdf\n",
       "tags": [
@@ -5013,7 +5032,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/above-unicode-maximum.input",
-      "offset": 1499,
+      "offset": 1503,
       "length": 4
     },
     {
@@ -5033,7 +5052,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/cesu8-surrogate-pair.input",
-      "offset": 1503,
+      "offset": 1507,
       "length": 6
     },
     {
@@ -5060,7 +5079,7 @@
         }
       ],
       "path": "invalid/utf8/chunk-above-maximum-prefix.input",
-      "offset": 1509,
+      "offset": 1513,
       "length": 2
     },
     {
@@ -5087,7 +5106,7 @@
         }
       ],
       "path": "invalid/utf8/chunk-overlong-nul-prefix.input",
-      "offset": 1511,
+      "offset": 1515,
       "length": 1
     },
     {
@@ -5113,7 +5132,7 @@
         }
       ],
       "path": "invalid/utf8/chunk-surrogate-prefix.input",
-      "offset": 1512,
+      "offset": 1516,
       "length": 2
     },
     {
@@ -5139,7 +5158,7 @@
         }
       ],
       "path": "invalid/utf8/chunk-two-continuations.input",
-      "offset": 1514,
+      "offset": 1518,
       "length": 2
     },
     {
@@ -5159,7 +5178,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/continuation-between-ascii.input",
-      "offset": 1516,
+      "offset": 1520,
       "length": 3
     },
     {
@@ -5178,7 +5197,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/encoded-high-surrogate.input",
-      "offset": 1519,
+      "offset": 1523,
       "length": 3
     },
     {
@@ -5197,7 +5216,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/extra-continuation.input",
-      "offset": 1522,
+      "offset": 1526,
       "length": 3
     },
     {
@@ -5215,8 +5234,46 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/forbidden-leading-byte-fe.input",
-      "offset": 1525,
+      "offset": 1529,
       "length": 1
+    },
+    {
+      "name": "invalid_utf8_lone_high_surrogate",
+      "description": "This is the three-byte sequence ED A0 80, the direct UTF-8 encoding that a\npermissive encoder might emit for the lone high surrogate U+D800. Surrogate\ncode points are not Unicode scalar values and are excluded from well-formed\nUTF-8, so a conforming encoder must fail rather than produce these bytes.\n\nThis fixture corresponds to a string value such as `\"\\\\ud800\"` in runtimes\nthat permit unpaired UTF-16 surrogates in their string representation.\n\nSee the Unicode definition of well-formed UTF-8 (D92 and Table 3-7):\nhttps://www.unicode.org/versions/Unicode15.0.0/ch03.pdf\n",
+      "tags": [
+        "encoding",
+        "unicode",
+        "utf8",
+        "invalid-utf8",
+        "surrogate",
+        "lone-surrogate",
+        "high-surrogate"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "invalid-as": "utf8",
+      "path": "invalid/utf8/lone-high-surrogate.input",
+      "offset": 1530,
+      "length": 3
+    },
+    {
+      "name": "invalid_utf8_lone_low_surrogate",
+      "description": "This is the three-byte sequence ED B0 80, the direct UTF-8 encoding that a\npermissive encoder might emit for the lone low surrogate U+DC00. Surrogate\ncode points are not Unicode scalar values and are excluded from well-formed\nUTF-8, so a conforming encoder must fail rather than produce these bytes.\n\nThe low-surrogate case complements U+D800: rejecting only high surrogates\nleaves a range-checking bug in encoders and decoders.\n\nSee the Unicode definition of well-formed UTF-8 (D92 and Table 3-7):\nhttps://www.unicode.org/versions/Unicode15.0.0/ch03.pdf\n",
+      "tags": [
+        "encoding",
+        "unicode",
+        "utf8",
+        "invalid-utf8",
+        "surrogate",
+        "lone-surrogate",
+        "low-surrogate"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "invalid-as": "utf8",
+      "path": "invalid/utf8/lone-low-surrogate.input",
+      "offset": 1533,
+      "length": 3
     },
     {
       "name": "invalid_utf8_non_continuation_fourth_byte",
@@ -5233,7 +5290,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/non-continuation-fourth-byte.input",
-      "offset": 1526,
+      "offset": 1536,
       "length": 4
     },
     {
@@ -5251,7 +5308,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/non-continuation-second-byte.input",
-      "offset": 1530,
+      "offset": 1540,
       "length": 3
     },
     {
@@ -5269,7 +5326,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/non-continuation-third-byte.input",
-      "offset": 1533,
+      "offset": 1543,
       "length": 3
     },
     {
@@ -5288,7 +5345,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/obsolete-five-byte-sequence.input",
-      "offset": 1536,
+      "offset": 1546,
       "length": 5
     },
     {
@@ -5307,7 +5364,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/overlong-four-byte-boundary.input",
-      "offset": 1541,
+      "offset": 1551,
       "length": 4
     },
     {
@@ -5327,7 +5384,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/overlong-nul.input",
-      "offset": 1545,
+      "offset": 1555,
       "length": 2
     },
     {
@@ -5346,7 +5403,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/overlong-three-byte-boundary.input",
-      "offset": 1547,
+      "offset": 1557,
       "length": 3
     },
     {
@@ -5365,7 +5422,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/truncated-four-byte-sequence.input",
-      "offset": 1550,
+      "offset": 1560,
       "length": 3
     },
     {
@@ -5391,7 +5448,7 @@
         }
       ],
       "path": "invalid/utf8/truncated-three-byte-sequence.input",
-      "offset": 1553,
+      "offset": 1563,
       "length": 2
     },
     {
@@ -5410,7 +5467,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "invalid/utf8/truncated-two-byte-sequence.input",
-      "offset": 1555,
+      "offset": 1565,
       "length": 1
     },
     {
@@ -5443,7 +5500,7 @@
         }
       ],
       "path": "invalid/utf8/unexpected-continuation.input",
-      "offset": 1556,
+      "offset": 1566,
       "length": 1
     },
     {
@@ -5469,7 +5526,7 @@
         }
       ],
       "path": "language/html/active/close-script-throw.input",
-      "offset": 1557,
+      "offset": 1567,
       "length": 78
     },
     {
@@ -5495,7 +5552,7 @@
         }
       ],
       "path": "language/html/active/double-quoted-attribute-throw.input",
-      "offset": 1635,
+      "offset": 1645,
       "length": 69
     },
     {
@@ -5521,7 +5578,7 @@
         }
       ],
       "path": "language/html/active/element-load-throw.input",
-      "offset": 1704,
+      "offset": 1714,
       "length": 61
     },
     {
@@ -5540,7 +5597,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/active/event-handler-body-throw.input",
-      "offset": 1765,
+      "offset": 1775,
       "length": 40
     },
     {
@@ -5566,7 +5623,7 @@
         }
       ],
       "path": "language/html/active/javascript-url-throw.input",
-      "offset": 1805,
+      "offset": 1815,
       "length": 51
     },
     {
@@ -5592,7 +5649,7 @@
         }
       ],
       "path": "language/html/active/single-quoted-attribute-throw.input",
-      "offset": 1856,
+      "offset": 1866,
       "length": 69
     },
     {
@@ -5618,7 +5675,7 @@
         }
       ],
       "path": "language/html/active/srcdoc-throw.input",
-      "offset": 1925,
+      "offset": 1935,
       "length": 57
     },
     {
@@ -5644,7 +5701,7 @@
         }
       ],
       "path": "language/html/active/unquoted-attribute-throw.input",
-      "offset": 1982,
+      "offset": 1992,
       "length": 68
     },
     {
@@ -5663,7 +5720,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/text/ampersand.input",
-      "offset": 2050,
+      "offset": 2060,
       "length": 1
     },
     {
@@ -5682,7 +5739,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/attribute/backtick.input",
-      "offset": 2051,
+      "offset": 2061,
       "length": 1
     },
     {
@@ -5707,7 +5764,7 @@
         }
       ],
       "path": "language/html/attribute/double-quote.input",
-      "offset": 2052,
+      "offset": 2062,
       "length": 1
     },
     {
@@ -5732,7 +5789,7 @@
         }
       ],
       "path": "language/html/attribute/entity-double-quote.input",
-      "offset": 2053,
+      "offset": 2063,
       "length": 6
     },
     {
@@ -5751,7 +5808,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/attribute/event-handler-name.input",
-      "offset": 2059,
+      "offset": 2069,
       "length": 7
     },
     {
@@ -5776,7 +5833,7 @@
         }
       ],
       "path": "language/html/attribute/quoted-breakout.input",
-      "offset": 2066,
+      "offset": 2076,
       "length": 19
     },
     {
@@ -5801,7 +5858,7 @@
         }
       ],
       "path": "language/html/attribute/single-quote.input",
-      "offset": 2085,
+      "offset": 2095,
       "length": 1
     },
     {
@@ -5826,7 +5883,7 @@
         }
       ],
       "path": "language/html/attribute/srcdoc-name.input",
-      "offset": 2086,
+      "offset": 2096,
       "length": 6
     },
     {
@@ -5846,7 +5903,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/attribute/style-name.input",
-      "offset": 2092,
+      "offset": 2102,
       "length": 5
     },
     {
@@ -5866,7 +5923,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/attribute/unquoted-space-breakout.input",
-      "offset": 2097,
+      "offset": 2107,
       "length": 19
     },
     {
@@ -5892,7 +5949,7 @@
         }
       ],
       "path": "language/html/attribute/unquoted-tag-breakout.input",
-      "offset": 2116,
+      "offset": 2126,
       "length": 16
     },
     {
@@ -5918,7 +5975,7 @@
         }
       ],
       "path": "language/html/script/close-script-canary.input",
-      "offset": 2132,
+      "offset": 2142,
       "length": 23
     },
     {
@@ -5938,7 +5995,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/style/close-style-canary.input",
-      "offset": 2155,
+      "offset": 2165,
       "length": 22
     },
     {
@@ -5958,7 +6015,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/text/close-textarea-canary.input",
-      "offset": 2177,
+      "offset": 2187,
       "length": 25
     },
     {
@@ -5978,7 +6035,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/text/close-title-canary.input",
-      "offset": 2202,
+      "offset": 2212,
       "length": 22
     },
     {
@@ -6003,7 +6060,7 @@
         }
       ],
       "path": "language/html/text/comment-closer.input",
-      "offset": 2224,
+      "offset": 2234,
       "length": 3
     },
     {
@@ -6028,7 +6085,7 @@
         }
       ],
       "path": "language/html/text/comment-opener.input",
-      "offset": 2227,
+      "offset": 2237,
       "length": 4
     },
     {
@@ -6053,7 +6110,7 @@
         }
       ],
       "path": "language/html/text/double-encoded-lt.input",
-      "offset": 2231,
+      "offset": 2241,
       "length": 8
     },
     {
@@ -6073,7 +6130,7 @@
       "format": "hex",
       "decode-as": "bytes",
       "path": "language/html/encoding/embedded-nul.input",
-      "offset": 2239,
+      "offset": 2249,
       "length": 19
     },
     {
@@ -6107,7 +6164,7 @@
         "extended-grapheme-clusters": 14
       },
       "path": "language/html/unicode/fullwidth-angle-element.input",
-      "offset": 2258,
+      "offset": 2268,
       "length": 18
     },
     {
@@ -6125,7 +6182,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/text/greater-than.input",
-      "offset": 2276,
+      "offset": 2286,
       "length": 1
     },
     {
@@ -6158,7 +6215,7 @@
         }
       ],
       "path": "language/html/text/harmless-element.input",
-      "offset": 2277,
+      "offset": 2287,
       "length": 14
     },
     {
@@ -6178,7 +6235,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "language/html/encoding/invalid-utf8.input",
-      "offset": 2291,
+      "offset": 2301,
       "length": 19
     },
     {
@@ -6207,7 +6264,7 @@
         }
       ],
       "path": "language/html/text/less-than.input",
-      "offset": 2310,
+      "offset": 2320,
       "length": 1
     },
     {
@@ -6236,7 +6293,7 @@
         }
       ],
       "path": "language/html/text/named-lt-entity.input",
-      "offset": 2311,
+      "offset": 2321,
       "length": 4
     },
     {
@@ -6261,7 +6318,7 @@
         }
       ],
       "path": "language/html/text/numeric-lt-entity.input",
-      "offset": 2315,
+      "offset": 2325,
       "length": 6
     },
     {
@@ -6280,7 +6337,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/script/backslash.input",
-      "offset": 2321,
+      "offset": 2331,
       "length": 1
     },
     {
@@ -6305,7 +6362,7 @@
         }
       ],
       "path": "language/html/script/backtick.input",
-      "offset": 2322,
+      "offset": 2332,
       "length": 1
     },
     {
@@ -6324,7 +6381,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/script/double-quote.input",
-      "offset": 2323,
+      "offset": 2333,
       "length": 1
     },
     {
@@ -6350,7 +6407,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "language/html/script/line-separator.input",
-      "offset": 2324,
+      "offset": 2334,
       "length": 3
     },
     {
@@ -6376,7 +6433,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "language/html/script/paragraph-separator.input",
-      "offset": 2327,
+      "offset": 2337,
       "length": 3
     },
     {
@@ -6395,7 +6452,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/script/single-quote.input",
-      "offset": 2330,
+      "offset": 2340,
       "length": 1
     },
     {
@@ -6420,7 +6477,7 @@
         }
       ],
       "path": "language/html/script/template-expression.input",
-      "offset": 2331,
+      "offset": 2341,
       "length": 12
     },
     {
@@ -6454,7 +6511,7 @@
         "extended-grapheme-clusters": 14
       },
       "path": "language/html/unicode/small-angle-element.input",
-      "offset": 2343,
+      "offset": 2353,
       "length": 18
     },
     {
@@ -6473,7 +6530,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/style/closing-parenthesis.input",
-      "offset": 2361,
+      "offset": 2371,
       "length": 1
     },
     {
@@ -6492,7 +6549,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/style/comment-closer.input",
-      "offset": 2362,
+      "offset": 2372,
       "length": 2
     },
     {
@@ -6511,7 +6568,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/style/semicolon.input",
-      "offset": 2364,
+      "offset": 2374,
       "length": 1
     },
     {
@@ -6531,7 +6588,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/url/data-html-canary.input",
-      "offset": 2365,
+      "offset": 2375,
       "length": 29
     },
     {
@@ -6557,7 +6614,7 @@
         }
       ],
       "path": "language/html/url/entity-javascript-scheme.input",
-      "offset": 2394,
+      "offset": 2404,
       "length": 16
     },
     {
@@ -6590,7 +6647,7 @@
         }
       ],
       "path": "language/html/url/javascript-scheme.input",
-      "offset": 2410,
+      "offset": 2420,
       "length": 11
     },
     {
@@ -6608,7 +6665,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/url/protocol-relative.input",
-      "offset": 2421,
+      "offset": 2431,
       "length": 28
     },
     {
@@ -6634,7 +6691,7 @@
         }
       ],
       "path": "language/html/url/tabbed-javascript-scheme.input",
-      "offset": 2449,
+      "offset": 2459,
       "length": 12
     },
     {
@@ -6652,7 +6709,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/html/url/userinfo-host-confusion.input",
-      "offset": 2461,
+      "offset": 2471,
       "length": 50
     },
     {
@@ -6679,7 +6736,7 @@
         "extended-grapheme-clusters": 15
       },
       "path": "language/html/encoding/utf8-bom-element.input",
-      "offset": 2511,
+      "offset": 2521,
       "length": 17
     },
     {
@@ -6707,7 +6764,7 @@
         "extended-grapheme-clusters": 12
       },
       "path": "language/html/unicode/zero-width-space-javascript.input",
-      "offset": 2528,
+      "offset": 2538,
       "length": 14
     },
     {
@@ -6726,7 +6783,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/numeric/above-u64-max.input",
-      "offset": 2542,
+      "offset": 2552,
       "length": 20
     },
     {
@@ -6755,7 +6812,7 @@
         }
       ],
       "path": "language/sql/string/apostrophe-name.input",
-      "offset": 2562,
+      "offset": 2572,
       "length": 8
     },
     {
@@ -6773,7 +6830,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/backslash.input",
-      "offset": 2570,
+      "offset": 2580,
       "length": 1
     },
     {
@@ -6792,7 +6849,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/numeric/below-i64-min.input",
-      "offset": 2571,
+      "offset": 2581,
       "length": 20
     },
     {
@@ -6816,7 +6873,7 @@
         }
       ],
       "path": "language/sql/string/block-comment-closer.input",
-      "offset": 2591,
+      "offset": 2601,
       "length": 2
     },
     {
@@ -6840,7 +6897,7 @@
         }
       ],
       "path": "language/sql/string/block-comment-opener.input",
-      "offset": 2593,
+      "offset": 2603,
       "length": 2
     },
     {
@@ -6859,7 +6916,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "language/sql/string/crlf.input",
-      "offset": 2595,
+      "offset": 2605,
       "length": 12
     },
     {
@@ -6891,7 +6948,7 @@
         "extended-grapheme-clusters": 8
       },
       "path": "language/sql/unicode/curly-apostrophe-name.input",
-      "offset": 2607,
+      "offset": 2617,
       "length": 10
     },
     {
@@ -6910,7 +6967,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/current-timestamp-keyword.input",
-      "offset": 2617,
+      "offset": 2627,
       "length": 17
     },
     {
@@ -6929,7 +6986,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/default-keyword.input",
-      "offset": 2634,
+      "offset": 2644,
       "length": 7
     },
     {
@@ -6947,7 +7004,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/double-quote.input",
-      "offset": 2641,
+      "offset": 2651,
       "length": 1
     },
     {
@@ -6971,7 +7028,7 @@
         }
       ],
       "path": "language/sql/string/doubled-single-quote.input",
-      "offset": 2642,
+      "offset": 2652,
       "length": 2
     },
     {
@@ -6990,7 +7047,7 @@
       "format": "hex",
       "decode-as": "bytes",
       "path": "language/sql/string/embedded-nul.input",
-      "offset": 2644,
+      "offset": 2654,
       "length": 13
     },
     {
@@ -7007,7 +7064,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "language/sql/string/empty.input",
-      "offset": 2657,
+      "offset": 2667,
       "length": 0
     },
     {
@@ -7040,7 +7097,7 @@
         "extended-grapheme-clusters": 8
       },
       "path": "language/sql/unicode/fullwidth-apostrophe-name.input",
-      "offset": 2657,
+      "offset": 2667,
       "length": 10
     },
     {
@@ -7059,7 +7116,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/numeric/hex-looking.input",
-      "offset": 2667,
+      "offset": 2677,
       "length": 4
     },
     {
@@ -7078,7 +7135,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/numeric/huge-exponent.input",
-      "offset": 2671,
+      "offset": 2681,
       "length": 6
     },
     {
@@ -7097,7 +7154,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/identifier/backtick.input",
-      "offset": 2677,
+      "offset": 2687,
       "length": 11
     },
     {
@@ -7116,7 +7173,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/identifier/close-bracket.input",
-      "offset": 2688,
+      "offset": 2698,
       "length": 11
     },
     {
@@ -7135,7 +7192,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/identifier/comma-list.input",
-      "offset": 2699,
+      "offset": 2709,
       "length": 10
     },
     {
@@ -7154,7 +7211,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/identifier/double-quote.input",
-      "offset": 2709,
+      "offset": 2719,
       "length": 11
     },
     {
@@ -7173,7 +7230,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/identifier/qualified-name.input",
-      "offset": 2720,
+      "offset": 2730,
       "length": 12
     },
     {
@@ -7191,7 +7248,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/identifier/reserved-word.input",
-      "offset": 2732,
+      "offset": 2742,
       "length": 6
     },
     {
@@ -7210,7 +7267,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/identifier/wildcard.input",
-      "offset": 2738,
+      "offset": 2748,
       "length": 1
     },
     {
@@ -7229,7 +7286,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/numeric/infinity.input",
-      "offset": 2739,
+      "offset": 2749,
       "length": 8
     },
     {
@@ -7248,7 +7305,7 @@
       "decode-as": "bytes",
       "invalid-as": "utf8",
       "path": "language/sql/encoding/invalid-utf8.input",
-      "offset": 2747,
+      "offset": 2757,
       "length": 10
     },
     {
@@ -7267,7 +7324,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "language/sql/string/leading-trailing-whitespace.input",
-      "offset": 2757,
+      "offset": 2767,
       "length": 7
     },
     {
@@ -7292,7 +7349,7 @@
         }
       ],
       "path": "language/sql/pattern/escaped-percent.input",
-      "offset": 2764,
+      "offset": 2774,
       "length": 2
     },
     {
@@ -7316,7 +7373,7 @@
         }
       ],
       "path": "language/sql/pattern/percent.input",
-      "offset": 2766,
+      "offset": 2776,
       "length": 1
     },
     {
@@ -7335,7 +7392,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/pattern/percent-underscore.input",
-      "offset": 2767,
+      "offset": 2777,
       "length": 2
     },
     {
@@ -7353,7 +7410,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/pattern/underscore.input",
-      "offset": 2769,
+      "offset": 2779,
       "length": 1
     },
     {
@@ -7371,7 +7428,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/line-comment-marker.input",
-      "offset": 2770,
+      "offset": 2780,
       "length": 2
     },
     {
@@ -7390,7 +7447,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/numeric/nan.input",
-      "offset": 2772,
+      "offset": 2782,
       "length": 3
     },
     {
@@ -7409,7 +7466,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/numeric/negative-zero.input",
-      "offset": 2775,
+      "offset": 2785,
       "length": 2
     },
     {
@@ -7428,7 +7485,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "language/sql/string/newline.input",
-      "offset": 2777,
+      "offset": 2787,
       "length": 11
     },
     {
@@ -7447,7 +7504,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/null-keyword.input",
-      "offset": 2788,
+      "offset": 2798,
       "length": 4
     },
     {
@@ -7467,7 +7524,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/quote-semicolon-comment.input",
-      "offset": 2792,
+      "offset": 2802,
       "length": 4
     },
     {
@@ -7485,7 +7542,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "language/sql/string/semicolon.input",
-      "offset": 2796,
+      "offset": 2806,
       "length": 1
     },
     {
@@ -7510,7 +7567,7 @@
         }
       ],
       "path": "language/sql/string/single-quote.input",
-      "offset": 2797,
+      "offset": 2807,
       "length": 1
     },
     {
@@ -7536,7 +7593,7 @@
         "extended-grapheme-clusters": 6
       },
       "path": "language/sql/unicode/trailing-non-breaking-space.input",
-      "offset": 2798,
+      "offset": 2808,
       "length": 7
     },
     {
@@ -7561,7 +7618,7 @@
         "extended-grapheme-clusters": 6
       },
       "path": "language/sql/encoding/utf8-bom.input",
-      "offset": 2805,
+      "offset": 2815,
       "length": 8
     },
     {
@@ -7587,7 +7644,7 @@
         "extended-grapheme-clusters": 6
       },
       "path": "language/sql/unicode/zero-width-space-keyword.input",
-      "offset": 2813,
+      "offset": 2823,
       "length": 8
     },
     {
@@ -7623,7 +7680,7 @@
         "extended-grapheme-clusters": 3
       },
       "path": "utf8/line-break/ascii-line-feed.input",
-      "offset": 2821,
+      "offset": 2831,
       "length": 3
     },
     {
@@ -7652,7 +7709,7 @@
         "extended-grapheme-clusters": 3
       },
       "path": "utf8/line-break/line-separator.input",
-      "offset": 2824,
+      "offset": 2834,
       "length": 5
     },
     {
@@ -7681,7 +7738,7 @@
         "extended-grapheme-clusters": 3
       },
       "path": "utf8/line-break/next-line.input",
-      "offset": 2829,
+      "offset": 2839,
       "length": 4
     },
     {
@@ -7710,8 +7767,330 @@
         "extended-grapheme-clusters": 3
       },
       "path": "utf8/line-break/paragraph-separator.input",
-      "offset": 2833,
+      "offset": 2843,
       "length": 5
+    },
+    {
+      "name": "media_png_invalid_filter_type_five",
+      "description": "A deliberately invalid PNG whose chunks, CRCs, and zlib stream are valid, but\nthe decompressed scanline begins with filter type 5. For PNG filter method 0,\nonly filter types 0 through 4 are defined. This case catches decoders that\nvalidate the container and zlib layers but forget to validate the per-scanline\nfilter byte before reconstructing pixels.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG specification defines filter method 0 and its filter types:\nhttps://www.w3.org/TR/png-3/#9Filters\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "filter",
+        "scanline",
+        "decompression"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-filter-type-five.input",
+      "offset": 2848,
+      "length": 68
+    },
+    {
+      "name": "media_png_invalid_idat_crc_mismatch",
+      "description": "A deliberately invalid PNG whose image data is otherwise a valid 1x1 RGBA\nimage, but the IDAT chunk CRC has one bit flipped. This catches decoders that\ntrust compressed image data without verifying chunk integrity. The IHDR and\nIEND CRCs are correct, so the failure is isolated to IDAT integrity checking.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG specification defines the per-chunk CRC:\nhttps://www.w3.org/TR/png-3/#5CRC-algorithm\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "crc",
+        "idat",
+        "integrity"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-idat-crc-mismatch.input",
+      "offset": 2916,
+      "length": 68
+    },
+    {
+      "name": "media_png_invalid_nonconsecutive_idat",
+      "description": "A deliberately invalid PNG where the zlib stream is split across two IDAT\nchunks, but a valid tEXt chunk appears between them. The IDAT chunks and tEXt\nchunk all have correct CRCs; the problem is chunk ordering. PNG requires IDAT\nchunks to be consecutive, so a decoder must not silently concatenate IDAT\nbytes across an intervening ancillary chunk.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG specification defines chunk ordering and IDAT chunking:\nhttps://www.w3.org/TR/png-3/#5ChunkOrdering\nhttps://www.w3.org/TR/png-3/#11IDAT\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "idat",
+        "chunk-order",
+        "ancillary-chunk"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-idat-one-byte-chunks.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-nonconsecutive-idat.input",
+      "offset": 2984,
+      "length": 116
+    },
+    {
+      "name": "media_png_invalid_text_transfer_signature",
+      "description": "A deliberately invalid PNG whose only mutation is in the eight-byte signature:\nthe CR LF sequence has become LF LF, a classic symptom of text-mode transfer\ndamage. The rest of the file is a valid 1x1 RGBA PNG. This should fail at\nsignature validation, before chunk parsing starts.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nPNG Suite documents corrupted files caused by non-binary transfers, and the\nPNG specification defines the exact signature bytes:\nhttps://www.libpng.org/pub/png/pngsuite.html\nhttps://www.w3.org/TR/png-3/#5PNG-file-signature\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "known-problematic",
+        "png-suite-inspired",
+        "signature",
+        "text-transfer"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-text-transfer-signature.input",
+      "offset": 3100,
+      "length": 68
+    },
+    {
+      "name": "media_png_invalid_trailing_bytes_after_iend",
+      "description": "A deliberately invalid PNG with a complete valid PNG datastream followed by\nthe extra ASCII bytes TRAILING after IEND. Some decoders treat IEND as \"stop\nreading\" and silently ignore bytes that are outside the PNG datastream; other\ncontainer, upload, or signature checks need to notice the appended data.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG specification defines IEND as the image trailer:\nhttps://www.w3.org/TR/png-3/#11IEND\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "iend",
+        "trailing-data",
+        "polyglot-adjacent"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-trailing-bytes-after-iend.input",
+      "offset": 3168,
+      "length": 76
+    },
+    {
+      "name": "media_png_invalid_truncated_zlib_stream",
+      "description": "A deliberately invalid PNG whose IDAT chunk has a correct PNG chunk CRC, but\nthe zlib stream inside IDAT is truncated. This separates PNG chunk integrity\nfrom compressed image-data integrity: a parser that only checks chunk CRCs\nstill has to surface the decompression failure.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG specification requires compression method 0 to use zlib/deflate:\nhttps://www.w3.org/TR/png-3/#10Compression\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "idat",
+        "zlib",
+        "truncated"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-truncated-zlib-stream.input",
+      "offset": 3244,
+      "length": 65
+    },
+    {
+      "name": "media_png_invalid_unknown_critical_chunk",
+      "description": "A deliberately invalid PNG containing an unknown critical chunk named VPAG\nbetween IHDR and IDAT. The chunk length is zero and the CRC is correct, so the\nfailure should be specifically about the unknown critical chunk. A conforming\ndecoder may ignore unknown ancillary chunks, but must reject or warn on\nunknown critical chunks because their data could be required to render the\nimage correctly.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG specification defines chunk naming and critical chunk handling:\nhttps://www.w3.org/TR/png-3/#5Chunk-naming-conventions\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "critical-chunk",
+        "unknown-chunk",
+        "chunk-name"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-unknown-critical-chunk.input",
+      "offset": 3309,
+      "length": 80
+    },
+    {
+      "name": "media_png_invalid_zero_dimensions",
+      "description": "A deliberately invalid PNG with a valid signature and valid IHDR CRC, but\nIHDR declares both width and height as zero. PNG image dimensions are unsigned\n31-bit integers, but zero is forbidden. This should fail at IHDR validation\nbefore any pixel allocation or decompression work is attempted.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nPNG Suite documents an invalid 0x0 grayscale file as x00n0g01; this input is\nnot copied from PNG Suite, but targets the same known-problematic class:\nhttps://www.libpng.org/pub/png/pngsuite.html\nhttps://www.w3.org/TR/png-3/#11IHDR\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "invalid-png",
+        "known-problematic",
+        "png-suite-inspired",
+        "ihdr",
+        "dimensions"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/invalid-zero-dimensions.input",
+      "offset": 3389,
+      "length": 45
+    },
+    {
+      "name": "media_png_valid_idat_one_byte_chunks",
+      "description": "A valid 1x1 RGBA PNG whose zlib stream is split into eleven consecutive IDAT\nchunks, each carrying one byte. This is a deliberately awkward but conforming\nstreaming layout: the decoder must concatenate consecutive IDAT data before\ninflating it. It catches implementations that try to inflate each IDAT chunk\nindependently or accidentally reset decompression state at chunk boundaries.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG Suite includes a related \"all IDAT chunks length one\" class, and the\nPNG specification defines IDAT chunking:\nhttps://www.libpng.org/pub/png/pngsuite.html\nhttps://www.w3.org/TR/png-3/#11IDAT\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "valid-png",
+        "idat",
+        "chunk-boundary",
+        "streaming"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "invalid-nonconsecutive-idat.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/valid-idat-one-byte-chunks.input",
+      "offset": 3434,
+      "length": 188
+    },
+    {
+      "name": "media_png_valid_minimal_rgba_1x1",
+      "description": "A tiny, conforming 1x1 RGBA PNG used as a baseline for the PNG cases in this\ndirectory. It has the normal PNG signature, a single IHDR, one IDAT containing\na complete zlib stream for one transparent pixel, and IEND. The other PNG\ninputs pair against this one when they intentionally differ by one validation\nrule.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe format rules are from the PNG specification:\nhttps://www.w3.org/TR/png-3/\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "valid-png",
+        "baseline"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "invalid-filter-type-five.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "invalid-idat-crc-mismatch.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "invalid-text-transfer-signature.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "invalid-trailing-bytes-after-iend.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "invalid-truncated-zlib-stream.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "invalid-unknown-critical-chunk.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "invalid-zero-dimensions.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "valid-idat-one-byte-chunks.input",
+          "hint": "tricky"
+        },
+        {
+          "with": "valid-zero-length-idat-before-data.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/valid-minimal-rgba-1x1.input",
+      "offset": 3622,
+      "length": 68
+    },
+    {
+      "name": "media_png_valid_zero_length_idat_before_data",
+      "description": "A valid 1x1 RGBA PNG with an empty IDAT chunk immediately before the IDAT\nchunk that carries the zlib stream. PNG image data is the concatenation of the\ndata fields of consecutive IDAT chunks, so a zero-length IDAT contributes no\nbytes but is still a legal chunk with its own CRC. Decoders that assume every\nIDAT must contain compressed bytes may reject this valid stream.\n\nThis file is independently constructed for this corpus and is MIT licensed.\nThe PNG Suite documents \"different numbers and sizes of IDAT chunks\" as a\ndecoder test class, and the PNG specification defines IDAT chunking:\nhttps://www.libpng.org/pub/png/pngsuite.html\nhttps://www.w3.org/TR/png-3/#11IDAT\n",
+      "tags": [
+        "media",
+        "image",
+        "png",
+        "valid-png",
+        "idat",
+        "chunking",
+        "zero-length"
+      ],
+      "format": "hex",
+      "decode-as": "bytes",
+      "mime-type": "image/png",
+      "licence": "MIT",
+      "pair": [
+        {
+          "with": "valid-minimal-rgba-1x1.input",
+          "hint": "tricky"
+        }
+      ],
+      "path": "media/png/valid-zero-length-idat-before-data.input",
+      "offset": 3690,
+      "length": 80
     },
     {
       "name": "noncharacter_10ffff",
@@ -7734,7 +8113,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "utf8/noncharacter/noncharacter-10ffff.input",
-      "offset": 2838,
+      "offset": 3770,
       "length": 4
     },
     {
@@ -7758,7 +8137,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "utf8/noncharacter/noncharacter-1fffe.input",
-      "offset": 2842,
+      "offset": 3774,
       "length": 4
     },
     {
@@ -7780,7 +8159,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "utf8/noncharacter/noncharacter-fdd0.input",
-      "offset": 2846,
+      "offset": 3778,
       "length": 3
     },
     {
@@ -7803,7 +8182,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "utf8/noncharacter/noncharacter-fffe.input",
-      "offset": 2849,
+      "offset": 3781,
       "length": 3
     },
     {
@@ -7826,7 +8205,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "utf8/noncharacter/noncharacter-ffff.input",
-      "offset": 2852,
+      "offset": 3784,
       "length": 3
     },
     {
@@ -7847,7 +8226,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/syntax/all-atext-symbols.input",
-      "offset": 2855,
+      "offset": 3787,
       "length": 31
     },
     {
@@ -7868,7 +8247,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/syntax/apostrophe-local-part.input",
-      "offset": 2886,
+      "offset": 3818,
       "length": 18
     },
     {
@@ -7903,7 +8282,7 @@
         "extended-grapheme-clusters": 18
       },
       "path": "real-world/email/international/confusable-cyrillic.input",
-      "offset": 2904,
+      "offset": 3836,
       "length": 23
     },
     {
@@ -7928,7 +8307,7 @@
         }
       ],
       "path": "real-world/email/international/confusable-latin.input",
-      "offset": 2927,
+      "offset": 3859,
       "length": 18
     },
     {
@@ -7954,7 +8333,7 @@
         }
       ],
       "path": "real-world/email/equivalence/domain-lowercase.input",
-      "offset": 2945,
+      "offset": 3877,
       "length": 16
     },
     {
@@ -7980,7 +8359,7 @@
         }
       ],
       "path": "real-world/email/equivalence/domain-uppercase.input",
-      "offset": 2961,
+      "offset": 3893,
       "length": 16
     },
     {
@@ -8000,7 +8379,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/syntax/header-comments-around-at.input",
-      "offset": 2977,
+      "offset": 3909,
       "length": 40
     },
     {
@@ -8026,7 +8405,7 @@
         }
       ],
       "path": "real-world/email/international/idn-a-label.input",
-      "offset": 3017,
+      "offset": 3949,
       "length": 27
     },
     {
@@ -8061,7 +8440,7 @@
         "extended-grapheme-clusters": 11
       },
       "path": "real-world/email/international/idn-u-label.input",
-      "offset": 3044,
+      "offset": 3976,
       "length": 21
     },
     {
@@ -8081,7 +8460,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/syntax/ipv4-address-literal.input",
-      "offset": 3065,
+      "offset": 3997,
       "length": 16
     },
     {
@@ -8101,7 +8480,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/syntax/ipv6-address-literal.input",
-      "offset": 3081,
+      "offset": 4013,
       "length": 23
     },
     {
@@ -8127,7 +8506,7 @@
         }
       ],
       "path": "real-world/email/equivalence/local-part-lowercase.input",
-      "offset": 3104,
+      "offset": 4036,
       "length": 16
     },
     {
@@ -8162,7 +8541,7 @@
         "extended-grapheme-clusters": 16
       },
       "path": "real-world/email/international/local-part-nfc.input",
-      "offset": 3120,
+      "offset": 4052,
       "length": 17
     },
     {
@@ -8198,7 +8577,7 @@
         "extended-grapheme-clusters": 16
       },
       "path": "real-world/email/international/local-part-nfd.input",
-      "offset": 3137,
+      "offset": 4069,
       "length": 18
     },
     {
@@ -8224,7 +8603,7 @@
         }
       ],
       "path": "real-world/email/equivalence/local-part-uppercase.input",
-      "offset": 3155,
+      "offset": 4087,
       "length": 16
     },
     {
@@ -8244,7 +8623,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/limits/maximum-local-part.input",
-      "offset": 3171,
+      "offset": 4103,
       "length": 76
     },
     {
@@ -8264,7 +8643,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/limits/maximum-smtp-path.input",
-      "offset": 3247,
+      "offset": 4179,
       "length": 254
     },
     {
@@ -8290,7 +8669,7 @@
         }
       ],
       "path": "real-world/email/syntax/quoted-at-sign.input",
-      "offset": 3501,
+      "offset": 4433,
       "length": 22
     },
     {
@@ -8316,7 +8695,7 @@
         }
       ],
       "path": "real-world/email/syntax/quoted-consecutive-dots.input",
-      "offset": 3523,
+      "offset": 4455,
       "length": 23
     },
     {
@@ -8341,7 +8720,7 @@
         }
       ],
       "path": "real-world/email/equivalence/quoted-dot-string.input",
-      "offset": 3546,
+      "offset": 4478,
       "length": 22
     },
     {
@@ -8367,7 +8746,7 @@
         }
       ],
       "path": "real-world/email/syntax/quoted-empty-local-part.input",
-      "offset": 3568,
+      "offset": 4500,
       "length": 14
     },
     {
@@ -8393,7 +8772,7 @@
         }
       ],
       "path": "real-world/email/equivalence/quoted-escaped-space.input",
-      "offset": 3582,
+      "offset": 4514,
       "length": 23
     },
     {
@@ -8423,7 +8802,7 @@
         }
       ],
       "path": "real-world/email/equivalence/quoted-literal-space.input",
-      "offset": 3605,
+      "offset": 4537,
       "length": 22
     },
     {
@@ -8443,7 +8822,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/syntax/quoted-single-space.input",
-      "offset": 3627,
+      "offset": 4559,
       "length": 15
     },
     {
@@ -8465,7 +8844,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/syntax/slash-equals-local-part.input",
-      "offset": 3642,
+      "offset": 4574,
       "length": 40
     },
     {
@@ -8490,7 +8869,7 @@
         }
       ],
       "path": "real-world/email/equivalence/unquoted-dot-string.input",
-      "offset": 3682,
+      "offset": 4614,
       "length": 20
     },
     {
@@ -8515,7 +8894,7 @@
         }
       ],
       "path": "real-world/email/invalid/bare-space-local-part.input",
-      "offset": 3702,
+      "offset": 4634,
       "length": 20
     },
     {
@@ -8540,7 +8919,7 @@
         }
       ],
       "path": "real-world/email/invalid/consecutive-dots-local-part.input",
-      "offset": 3722,
+      "offset": 4654,
       "length": 21
     },
     {
@@ -8559,7 +8938,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/crlf-header-injection.input",
-      "offset": 3743,
+      "offset": 4675,
       "length": 38
     },
     {
@@ -8580,7 +8959,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/domain-label-over-63-octets.input",
-      "offset": 3781,
+      "offset": 4713,
       "length": 77
     },
     {
@@ -8599,7 +8978,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/empty-domain-label.input",
-      "offset": 3858,
+      "offset": 4790,
       "length": 17
     },
     {
@@ -8624,7 +9003,7 @@
         }
       ],
       "path": "real-world/email/invalid/empty-unquoted-local-part.input",
-      "offset": 3875,
+      "offset": 4807,
       "length": 12
     },
     {
@@ -8644,7 +9023,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/fake-idna-a-label.input",
-      "offset": 3887,
+      "offset": 4819,
       "length": 18
     },
     {
@@ -8664,7 +9043,7 @@
       "format": "hex",
       "decode-as": "bytes",
       "path": "real-world/email/invalid/invalid-utf8-local-part.input",
-      "offset": 3905,
+      "offset": 4837,
       "length": 17
     },
     {
@@ -8684,7 +9063,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/ipv4-address-literal-overflow.input",
-      "offset": 3922,
+      "offset": 4854,
       "length": 16
     },
     {
@@ -8703,7 +9082,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/leading-dot-domain.input",
-      "offset": 3938,
+      "offset": 4870,
       "length": 17
     },
     {
@@ -8722,7 +9101,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/leading-dot-local-part.input",
-      "offset": 3955,
+      "offset": 4887,
       "length": 17
     },
     {
@@ -8742,7 +9121,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/leading-hyphen-domain-label.input",
-      "offset": 3972,
+      "offset": 4904,
       "length": 17
     },
     {
@@ -8763,7 +9142,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/local-part-over-64-octets.input",
-      "offset": 3989,
+      "offset": 4921,
       "length": 77
     },
     {
@@ -8783,7 +9162,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/malformed-ipv6-address-literal.input",
-      "offset": 4066,
+      "offset": 4998,
       "length": 24
     },
     {
@@ -8801,7 +9180,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/missing-at-sign.input",
-      "offset": 4090,
+      "offset": 5022,
       "length": 16
     },
     {
@@ -8820,7 +9199,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/missing-domain.input",
-      "offset": 4106,
+      "offset": 5038,
       "length": 5
     },
     {
@@ -8845,7 +9224,7 @@
         }
       ],
       "path": "real-world/email/invalid/multiple-at-signs.input",
-      "offset": 4111,
+      "offset": 5043,
       "length": 20
     },
     {
@@ -8864,7 +9243,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/nul-local-part.input",
-      "offset": 4131,
+      "offset": 5063,
       "length": 17
     },
     {
@@ -8883,7 +9262,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/quote-inside-atom.input",
-      "offset": 4148,
+      "offset": 5080,
       "length": 20
     },
     {
@@ -8903,7 +9282,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/smtp-path-over-maximum.input",
-      "offset": 4168,
+      "offset": 5100,
       "length": 255
     },
     {
@@ -8923,7 +9302,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/trailing-dot-domain.input",
-      "offset": 4423,
+      "offset": 5355,
       "length": 17
     },
     {
@@ -8942,7 +9321,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/trailing-dot-local-part.input",
-      "offset": 4440,
+      "offset": 5372,
       "length": 17
     },
     {
@@ -8962,7 +9341,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/trailing-hyphen-domain-label.input",
-      "offset": 4457,
+      "offset": 5389,
       "length": 17
     },
     {
@@ -8981,7 +9360,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/unclosed-domain-literal.input",
-      "offset": 4474,
+      "offset": 5406,
       "length": 15
     },
     {
@@ -9000,7 +9379,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/unclosed-quoted-local-part.input",
-      "offset": 4489,
+      "offset": 5421,
       "length": 17
     },
     {
@@ -9019,7 +9398,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/email/invalid/unquoted-backslash-local-part.input",
-      "offset": 4506,
+      "offset": 5438,
       "length": 20
     },
     {
@@ -9039,7 +9418,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/backslash-scheme-separators.input",
-      "offset": 4526,
+      "offset": 5458,
       "length": 24
     },
     {
@@ -9058,7 +9437,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/data-after-ipv6-bracket.input",
-      "offset": 4550,
+      "offset": 5482,
       "length": 26
     },
     {
@@ -9077,7 +9456,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/embedded-ipv4-overflow.input",
-      "offset": 4576,
+      "offset": 5508,
       "length": 28
     },
     {
@@ -9096,7 +9475,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/empty-host-before-fragment.input",
-      "offset": 4604,
+      "offset": 5536,
       "length": 17
     },
     {
@@ -9115,7 +9494,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/empty-host-before-query.input",
-      "offset": 4621,
+      "offset": 5553,
       "length": 14
     },
     {
@@ -9134,7 +9513,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/empty-host-eof.input",
-      "offset": 4635,
+      "offset": 5567,
       "length": 8
     },
     {
@@ -9153,7 +9532,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/empty-punycode-a-label.input",
-      "offset": 4643,
+      "offset": 5575,
       "length": 13
     },
     {
@@ -9172,7 +9551,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/encoded-nul-host.input",
-      "offset": 4656,
+      "offset": 5588,
       "length": 20
     },
     {
@@ -9192,7 +9571,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/excess-authority-slashes.input",
-      "offset": 4676,
+      "offset": 5608,
       "length": 26
     },
     {
@@ -9211,7 +9590,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/fake-punycode-a-label.input",
-      "offset": 4702,
+      "offset": 5634,
       "length": 14
     },
     {
@@ -9230,7 +9609,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/file-url-port.input",
-      "offset": 4716,
+      "offset": 5648,
       "length": 27
     },
     {
@@ -9249,7 +9628,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/file-url-userinfo.input",
-      "offset": 4743,
+      "offset": 5675,
       "length": 29
     },
     {
@@ -9276,7 +9655,7 @@
         "extended-grapheme-clusters": 19
       },
       "path": "real-world/url/invalid/idna-contextj-violation.input",
-      "offset": 4772,
+      "offset": 5704,
       "length": 22
     },
     {
@@ -9295,7 +9674,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/ipv4-component-overflow.input",
-      "offset": 4794,
+      "offset": 5726,
       "length": 17
     },
     {
@@ -9314,7 +9693,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/ipv4-too-many-parts.input",
-      "offset": 4811,
+      "offset": 5743,
       "length": 19
     },
     {
@@ -9333,7 +9712,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/malformed-ipv6-compression.input",
-      "offset": 4830,
+      "offset": 5762,
       "length": 22
     },
     {
@@ -9351,7 +9730,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/malformed-percent-host.input",
-      "offset": 4852,
+      "offset": 5784,
       "length": 21
     },
     {
@@ -9370,7 +9749,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/multiple-port-separators.input",
-      "offset": 4873,
+      "offset": 5805,
       "length": 26
     },
     {
@@ -9390,7 +9769,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/nonhex-percent-escape-path.input",
-      "offset": 4899,
+      "offset": 5831,
       "length": 23
     },
     {
@@ -9408,7 +9787,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/nonnumeric-port.input",
-      "offset": 4922,
+      "offset": 5854,
       "length": 24
     },
     {
@@ -9426,7 +9805,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/raw-space-host.input",
-      "offset": 4946,
+      "offset": 5878,
       "length": 21
     },
     {
@@ -9444,7 +9823,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/scheme-starts-with-digit.input",
-      "offset": 4967,
+      "offset": 5899,
       "length": 21
     },
     {
@@ -9464,7 +9843,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/short-percent-escape-path.input",
-      "offset": 4988,
+      "offset": 5920,
       "length": 22
     },
     {
@@ -9483,7 +9862,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/signed-port.input",
-      "offset": 5010,
+      "offset": 5942,
       "length": 25
     },
     {
@@ -9502,7 +9881,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/space-before-scheme-colon.input",
-      "offset": 5035,
+      "offset": 5967,
       "length": 21
     },
     {
@@ -9522,7 +9901,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/tab-inside-host.input",
-      "offset": 5056,
+      "offset": 5988,
       "length": 25
     },
     {
@@ -9540,7 +9919,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/unclosed-ipv6-literal.input",
-      "offset": 5081,
+      "offset": 6013,
       "length": 20
     },
     {
@@ -9559,7 +9938,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/invalid/userinfo-without-host.input",
-      "offset": 5101,
+      "offset": 6033,
       "length": 14
     },
     {
@@ -9580,7 +9959,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/path/apache-encoded-traversal.input",
-      "offset": 5115,
+      "offset": 6047,
       "length": 48
     },
     {
@@ -9604,7 +9983,7 @@
         }
       ],
       "path": "real-world/url/international/ascii-dot-host.input",
-      "offset": 5163,
+      "offset": 6095,
       "length": 24
     },
     {
@@ -9630,7 +10009,7 @@
         }
       ],
       "path": "real-world/url/authority/backslash-authority-confusion.input",
-      "offset": 5187,
+      "offset": 6119,
       "length": 42
     },
     {
@@ -9650,7 +10029,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/path/backslash-traversal.input",
-      "offset": 5229,
+      "offset": 6161,
       "length": 34
     },
     {
@@ -9684,7 +10063,7 @@
         "extended-grapheme-clusters": 28
       },
       "path": "real-world/url/international/confusable-cyrillic.input",
-      "offset": 5263,
+      "offset": 6195,
       "length": 33
     },
     {
@@ -9710,7 +10089,7 @@
         }
       ],
       "path": "real-world/url/international/confusable-latin.input",
-      "offset": 5296,
+      "offset": 6228,
       "length": 28
     },
     {
@@ -9735,7 +10114,7 @@
         }
       ],
       "path": "real-world/url/equivalence/default-port-explicit.input",
-      "offset": 5324,
+      "offset": 6256,
       "length": 28
     },
     {
@@ -9760,7 +10139,7 @@
         }
       ],
       "path": "real-world/url/equivalence/default-port-implicit.input",
-      "offset": 5352,
+      "offset": 6284,
       "length": 24
     },
     {
@@ -9786,7 +10165,7 @@
         }
       ],
       "path": "real-world/url/path/dot-segments.input",
-      "offset": 5376,
+      "offset": 6308,
       "length": 37
     },
     {
@@ -9814,7 +10193,7 @@
         }
       ],
       "path": "real-world/url/path/dot-segments-normalized.input",
-      "offset": 5413,
+      "offset": 6345,
       "length": 30
     },
     {
@@ -9833,7 +10212,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/path/double-encoded-traversal.input",
-      "offset": 5443,
+      "offset": 6375,
       "length": 46
     },
     {
@@ -9858,7 +10237,7 @@
         }
       ],
       "path": "real-world/url/equivalence/empty-path.input",
-      "offset": 5489,
+      "offset": 6421,
       "length": 19
     },
     {
@@ -9878,7 +10257,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/authority/encoded-at-userinfo.input",
-      "offset": 5508,
+      "offset": 6440,
       "length": 51
     },
     {
@@ -9904,7 +10283,7 @@
         }
       ],
       "path": "real-world/url/path/encoded-dot-segment.input",
-      "offset": 5559,
+      "offset": 6491,
       "length": 42
     },
     {
@@ -9923,7 +10302,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/path/encoded-nul.input",
-      "offset": 5601,
+      "offset": 6533,
       "length": 37
     },
     {
@@ -9949,7 +10328,7 @@
         }
       ],
       "path": "real-world/url/path/encoded-slash.input",
-      "offset": 5638,
+      "offset": 6570,
       "length": 42
     },
     {
@@ -9967,7 +10346,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/parsing/fragment-looks-like-authority.input",
-      "offset": 5680,
+      "offset": 6612,
       "length": 43
     },
     {
@@ -10000,7 +10379,7 @@
         "extended-grapheme-clusters": 24
       },
       "path": "real-world/url/international/ideographic-dot-host.input",
-      "offset": 5723,
+      "offset": 6655,
       "length": 26
     },
     {
@@ -10026,7 +10405,7 @@
         }
       ],
       "path": "real-world/url/international/idn-a-label.input",
-      "offset": 5749,
+      "offset": 6681,
       "length": 35
     },
     {
@@ -10059,7 +10438,7 @@
         "extended-grapheme-clusters": 19
       },
       "path": "real-world/url/international/idn-u-label.input",
-      "offset": 5784,
+      "offset": 6716,
       "length": 29
     },
     {
@@ -10088,7 +10467,7 @@
         }
       ],
       "path": "real-world/url/authority/ipv4-dotted-decimal.input",
-      "offset": 5813,
+      "offset": 6745,
       "length": 17
     },
     {
@@ -10115,7 +10494,7 @@
         }
       ],
       "path": "real-world/url/authority/ipv4-octal.input",
-      "offset": 5830,
+      "offset": 6762,
       "length": 18
     },
     {
@@ -10141,7 +10520,7 @@
         }
       ],
       "path": "real-world/url/authority/ipv4-single-integer.input",
-      "offset": 5848,
+      "offset": 6780,
       "length": 18
     },
     {
@@ -10165,7 +10544,7 @@
         }
       ],
       "path": "real-world/url/authority/ipv6-compressed.input",
-      "offset": 5866,
+      "offset": 6798,
       "length": 29
     },
     {
@@ -10189,7 +10568,7 @@
         }
       ],
       "path": "real-world/url/authority/ipv6-expanded.input",
-      "offset": 5895,
+      "offset": 6827,
       "length": 57
     },
     {
@@ -10211,7 +10590,7 @@
       "format": "hex",
       "decode-as": "ascii",
       "path": "real-world/url/parsing/leading-space.input",
-      "offset": 5952,
+      "offset": 6884,
       "length": 29
     },
     {
@@ -10237,7 +10616,7 @@
         }
       ],
       "path": "real-world/url/path/literal-slash.input",
-      "offset": 5981,
+      "offset": 6913,
       "length": 40
     },
     {
@@ -10257,7 +10636,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/parsing/lone-percent.input",
-      "offset": 6021,
+      "offset": 6953,
       "length": 27
     },
     {
@@ -10282,7 +10661,7 @@
         }
       ],
       "path": "real-world/url/limits/maximum-dns-label.input",
-      "offset": 6048,
+      "offset": 6980,
       "length": 80
     },
     {
@@ -10307,7 +10686,7 @@
         }
       ],
       "path": "real-world/url/limits/maximum-port.input",
-      "offset": 6128,
+      "offset": 7060,
       "length": 26
     },
     {
@@ -10327,7 +10706,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/parsing/mixed-case-javascript-scheme.input",
-      "offset": 6154,
+      "offset": 7086,
       "length": 36
     },
     {
@@ -10346,7 +10725,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/parsing/network-path-reference.input",
-      "offset": 6190,
+      "offset": 7122,
       "length": 21
     },
     {
@@ -10372,7 +10751,7 @@
         }
       ],
       "path": "real-world/url/limits/overflowing-port.input",
-      "offset": 6211,
+      "offset": 7143,
       "length": 26
     },
     {
@@ -10398,7 +10777,7 @@
         }
       ],
       "path": "real-world/url/limits/oversized-dns-label.input",
-      "offset": 6237,
+      "offset": 7169,
       "length": 81
     },
     {
@@ -10423,7 +10802,7 @@
         }
       ],
       "path": "real-world/url/authority/percent-encoded-dot-host.input",
-      "offset": 6318,
+      "offset": 7250,
       "length": 22
     },
     {
@@ -10444,7 +10823,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/authority/percent-encoded-separator-host.input",
-      "offset": 6340,
+      "offset": 7272,
       "length": 35
     },
     {
@@ -10468,7 +10847,7 @@
         }
       ],
       "path": "real-world/url/authority/plain-dot-host.input",
-      "offset": 6375,
+      "offset": 7307,
       "length": 20
     },
     {
@@ -10488,7 +10867,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/query/crlf-injection.input",
-      "offset": 6395,
+      "offset": 7327,
       "length": 61
     },
     {
@@ -10513,7 +10892,7 @@
         }
       ],
       "path": "real-world/url/query/duplicate-admin-first.input",
-      "offset": 6456,
+      "offset": 7388,
       "length": 46
     },
     {
@@ -10538,7 +10917,7 @@
         }
       ],
       "path": "real-world/url/query/duplicate-user-first.input",
-      "offset": 6502,
+      "offset": 7434,
       "length": 46
     },
     {
@@ -10563,7 +10942,7 @@
         }
       ],
       "path": "real-world/url/query/empty-value.input",
-      "offset": 6548,
+      "offset": 7480,
       "length": 33
     },
     {
@@ -10582,7 +10961,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/query/encoded-ampersand.input",
-      "offset": 6581,
+      "offset": 7513,
       "length": 58
     },
     {
@@ -10607,7 +10986,7 @@
         }
       ],
       "path": "real-world/url/query/missing-equals.input",
-      "offset": 6639,
+      "offset": 7571,
       "length": 32
     },
     {
@@ -10626,7 +11005,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/query/nested-url.input",
-      "offset": 6671,
+      "offset": 7603,
       "length": 84
     },
     {
@@ -10651,7 +11030,7 @@
         }
       ],
       "path": "real-world/url/query/percent20-space.input",
-      "offset": 6755,
+      "offset": 7687,
       "length": 34
     },
     {
@@ -10676,7 +11055,7 @@
         }
       ],
       "path": "real-world/url/query/plus-literal.input",
-      "offset": 6789,
+      "offset": 7721,
       "length": 32
     },
     {
@@ -10695,7 +11074,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/query/semicolon-separator.input",
-      "offset": 6821,
+      "offset": 7753,
       "length": 47
     },
     {
@@ -10722,7 +11101,7 @@
         }
       ],
       "path": "real-world/url/path/repeated-slash-path.input",
-      "offset": 6868,
+      "offset": 7800,
       "length": 32
     },
     {
@@ -10747,7 +11126,7 @@
         }
       ],
       "path": "real-world/url/equivalence/root-path.input",
-      "offset": 6900,
+      "offset": 7832,
       "length": 20
     },
     {
@@ -10773,7 +11152,7 @@
         }
       ],
       "path": "real-world/url/equivalence/scheme-host-lowercase.input",
-      "offset": 6920,
+      "offset": 7852,
       "length": 33
     },
     {
@@ -10799,7 +11178,7 @@
         }
       ],
       "path": "real-world/url/equivalence/scheme-host-uppercase.input",
-      "offset": 6953,
+      "offset": 7885,
       "length": 33
     },
     {
@@ -10818,7 +11197,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/path/semicolon-traversal.input",
-      "offset": 6986,
+      "offset": 7918,
       "length": 35
     },
     {
@@ -10843,7 +11222,7 @@
         }
       ],
       "path": "real-world/url/path/single-slash-path.input",
-      "offset": 7021,
+      "offset": 7953,
       "length": 31
     },
     {
@@ -10862,7 +11241,7 @@
       "format": "utf8-strip",
       "decode-as": "ascii",
       "path": "real-world/url/parsing/special-scheme-without-slashes.input",
-      "offset": 7052,
+      "offset": 7984,
       "length": 21
     },
     {
@@ -10887,7 +11266,7 @@
         }
       ],
       "path": "real-world/url/equivalence/unreserved-literal.input",
-      "offset": 7073,
+      "offset": 8005,
       "length": 25
     },
     {
@@ -10912,7 +11291,7 @@
         }
       ],
       "path": "real-world/url/equivalence/unreserved-percent-encoded.input",
-      "offset": 7098,
+      "offset": 8030,
       "length": 27
     },
     {
@@ -10938,7 +11317,7 @@
         }
       ],
       "path": "real-world/url/authority/userinfo-host-confusion.input",
-      "offset": 7125,
+      "offset": 8057,
       "length": 48
     },
     {
@@ -10960,7 +11339,7 @@
         "extended-grapheme-clusters": 11
       },
       "path": "utf8/rendering/soft-hyphen-in-word.input",
-      "offset": 7173,
+      "offset": 8105,
       "length": 12
     },
     {
@@ -10990,7 +11369,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "utf8/chunk-boundary/ascii-a.input",
-      "offset": 7185,
+      "offset": 8117,
       "length": 1
     },
     {
@@ -11020,7 +11399,7 @@
         "extended-grapheme-clusters": 1
       },
       "path": "utf8/chunk-boundary/cent-sign.input",
-      "offset": 7186,
+      "offset": 8118,
       "length": 2
     },
     {
@@ -11043,7 +11422,7 @@
         "extended-grapheme-clusters": 4
       },
       "path": "utf8/rendering/zero-width-invisibles.input",
-      "offset": 7188,
+      "offset": 8120,
       "length": 15
     }
   ]

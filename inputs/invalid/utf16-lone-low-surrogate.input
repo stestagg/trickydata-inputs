@@ -1,0 +1,25 @@
+name: invalid_utf16_lone_low_surrogate
+description: |
+  An ASCII 'A' (0x0041) followed by a lone low surrogate (0xDC00) in
+  little-endian UTF-16. A low surrogate must be preceded by a high surrogate
+  in the range 0xD800..=0xDBFF; on its own it is not a valid Unicode scalar
+  value and well-formed UTF-16 decoders must reject it.
+
+  This complements the existing lone-high-surrogate case, since accepting an
+  unpaired low surrogate is a distinct validation failure.
+
+  See the Unicode UTF-16 conformance rules (D91, well-formed UTF-16):
+  https://www.unicode.org/versions/Unicode15.0.0/ch03.pdf
+format: hex
+decode-as: bytes
+invalid-as: utf16-le
+tags:
+  - "encoding"
+  - "unicode"
+  - "utf16"
+  - "invalid-utf16"
+  - "surrogate"
+  - "lone-surrogate"
+  - "low-surrogate"
+---
+41 00 00 dc   # 'A' then lone low surrogate U+DC00

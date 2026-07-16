@@ -1,0 +1,31 @@
+name: media_png_invalid_trailing_bytes_after_iend
+description: |
+  A deliberately invalid PNG with a complete valid PNG datastream followed by
+  the extra ASCII bytes TRAILING after IEND. Some decoders treat IEND as "stop
+  reading" and silently ignore bytes that are outside the PNG datastream; other
+  container, upload, or signature checks need to notice the appended data.
+
+  This file is independently constructed for this corpus and is MIT licensed.
+  The PNG specification defines IEND as the image trailer:
+  https://www.w3.org/TR/png-3/#11IEND
+format: hex
+decode-as: bytes
+mime-type: image/png
+licence: MIT
+pair:
+  - with: valid-minimal-rgba-1x1.input
+    hint: tricky
+tags:
+  - "media"
+  - "image"
+  - "png"
+  - "invalid-png"
+  - "iend"
+  - "trailing-data"
+  - "polyglot-adjacent"
+---
+89 50 4e 47 0d 0a 1a 0a
+00 00 00 0d 49 48 44 52 00 00 00 01 00 00 00 01 08 06 00 00 00 1f 15 c4 89
+00 00 00 0b 49 44 41 54 78 da 63 60 00 02 00 00 05 00 01 e9 fa dc d8
+00 00 00 00 49 45 4e 44 ae 42 60 82
+54 52 41 49 4c 49 4e 47
