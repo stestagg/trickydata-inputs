@@ -28,7 +28,7 @@ jobs:
       - name: Compile corpus
         run: cargo run --locked --manifest-path compiler/Cargo.toml --bin compile -- --version "$VERSION" dist
 
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v8
 
       - name: Render report
         run: uv run report/main.py --index dist/trickydata-index.json --out report-site
@@ -75,7 +75,7 @@ jobs:
           commit_message: Publish report for ${{ github.ref_name }}
 
       - name: Create release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             dist/trickydata.trickydata
