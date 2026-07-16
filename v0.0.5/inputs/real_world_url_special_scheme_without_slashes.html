@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>real_world_url_special_scheme_without_slashes &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.5 &middot; 464 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / real_world_url_special_scheme_without_slashes</p>
+<h1 class="mono">real_world_url_special_scheme_without_slashes</h1>
+
+<section class="meta">
+  <div class="description">A WHATWG parser treats this as `http://example.com/path` even though `//` is
+absent after the scheme. RFC 3986 parsing instead permits an
+authority-less path beginning with `example.com`, so component extraction is
+parser-dialect dependent.
+
+Compare RFC 3986 hierarchical syntax with the WHATWG special authority
+states:
+https://www.rfc-editor.org/rfc/rfc3986.html#section-3
+https://url.spec.whatwg.org/#special-authority-slashes-state
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">ascii</span></dd>
+
+    <dt>Size</dt>
+    <dd>21 B (21 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">real-world/url/parsing/special-scheme-without-slashes.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-real-world">real-world</a>
+      <a class="tag" href="../tags.html#tag-url">url</a>
+      <a class="tag" href="../tags.html#tag-http">http</a>
+      <a class="tag" href="../tags.html#tag-whatwg-url">whatwg-url</a>
+      <a class="tag" href="../tags.html#tag-missing-slashes">missing-slashes</a>
+      <a class="tag" href="../tags.html#tag-authority">authority</a>
+      <a class="tag" href="../tags.html#tag-parser-differential">parser-differential</a>
+      <a class="tag" href="../tags.html#tag-context-dependent">context-dependent</a>
+    </div>
+  </div>
+
+
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">http:example.com/path</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  68 74 74 70 3a 65 78 61  6d 70 6c 65 2e 63 6f 6d  |http:example.com|
+<span class="off">00000010</span>  2f 70 61 74 68                                    |/path|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 21 payload byte(s).</p>
+    <a class="download" download="real_world_url_special_scheme_without_slashes" href="data:application/octet-stream;base64,aHR0cDpleGFtcGxlLmNvbS9wYXRo">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

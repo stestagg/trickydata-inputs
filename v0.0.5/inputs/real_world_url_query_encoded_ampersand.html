@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>real_world_url_query_encoded_ampersand &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.5 &middot; 464 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / real_world_url_query_encoded_ampersand</p>
+<h1 class="mono">real_world_url_query_encoded_ampersand</h1>
+
+<section class="meta">
+  <div class="description">The encoded ampersand is data inside the `note` value, while the later
+literal ampersand separates the `mode` field. Decoding the entire query
+before splitting creates an extra apparent parameter.
+
+RFC 3986 sections 2.4 and 3.4 describe safe parsing order and query data:
+https://www.rfc-editor.org/rfc/rfc3986.html#section-2.4
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">ascii</span></dd>
+
+    <dt>Size</dt>
+    <dd>58 B (58 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">real-world/url/query/encoded-ampersand.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-real-world">real-world</a>
+      <a class="tag" href="../tags.html#tag-url">url</a>
+      <a class="tag" href="../tags.html#tag-query">query</a>
+      <a class="tag" href="../tags.html#tag-percent-encoding">percent-encoding</a>
+      <a class="tag" href="../tags.html#tag-ampersand">ampersand</a>
+      <a class="tag" href="../tags.html#tag-delimiter-confusion">delimiter-confusion</a>
+      <a class="tag" href="../tags.html#tag-parameter-pollution">parameter-pollution</a>
+      <a class="tag" href="../tags.html#tag-valid">valid</a>
+    </div>
+  </div>
+
+
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">https://example.com/update?note=a%26mode%3Dadmin&amp;mode=user</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  68 74 74 70 73 3a 2f 2f  65 78 61 6d 70 6c 65 2e  |https://example.|
+<span class="off">00000010</span>  63 6f 6d 2f 75 70 64 61  74 65 3f 6e 6f 74 65 3d  |com/update?note=|
+<span class="off">00000020</span>  61 25 32 36 6d 6f 64 65  25 33 44 61 64 6d 69 6e  |a%26mode%3Dadmin|
+<span class="off">00000030</span>  26 6d 6f 64 65 3d 75 73  65 72                    |&amp;mode=user|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 58 payload byte(s).</p>
+    <a class="download" download="real_world_url_query_encoded_ampersand" href="data:application/octet-stream;base64,aHR0cHM6Ly9leGFtcGxlLmNvbS91cGRhdGU/bm90ZT1hJTI2bW9kZSUzRGFkbWluJm1vZGU9dXNlcg==">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>
