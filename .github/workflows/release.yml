@@ -11,14 +11,14 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Derive version from tag
         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
 
       - uses: dtolnay/rust-toolchain@stable
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@v2.9.1
         with:
           workspaces: compiler
 
@@ -28,7 +28,7 @@ jobs:
       - name: Compile corpus
         run: cargo run --locked --manifest-path compiler/Cargo.toml --bin compile -- --version "$VERSION" dist
 
-      - uses: astral-sh/setup-uv@v8
+      - uses: astral-sh/setup-uv@v8.3.2
 
       - name: Render report
         run: uv run report/main.py --index dist/trickydata-index.json --out report-site
@@ -50,7 +50,7 @@ jobs:
 
       - name: Check out existing Pages content
         if: steps.pages-branch.outputs.exists == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: gh-pages
           path: pages-existing
