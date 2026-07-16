@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>effective_power &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.4 &middot; 464 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / effective_power</p>
+<h1 class="mono">effective_power</h1>
+
+<section class="meta">
+  <div class="description">This input file caused a boot-loop in iphones due to an issue handling
+unicode combining characters.
+
+https://en.wikipedia.org/wiki/SpringBoard#%22effective_power%22_bug
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">utf8</span></dd>
+
+    <dt>Size</dt>
+    <dd>95 B (95 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">utf8/incidents/effective-power.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-utf8">utf8</a>
+      <a class="tag" href="../tags.html#tag-unicode">unicode</a>
+      <a class="tag" href="../tags.html#tag-unicode-combiners">unicode-combiners</a>
+    </div>
+  </div>
+
+
+  <div class="meta-block">
+    <h2>Unicode metadata</h2>
+    <table class="kv">
+      <tr><th>Code units</th><td class="num">95</td></tr>
+      <tr><th>Code points</th><td class="num">67</td></tr>
+      <tr><th>Scalar values</th><td class="num">67</td></tr>
+      <tr><th>Legacy grapheme clusters</th><td class="num">55</td></tr>
+      <tr><th>Extended grapheme clusters</th><td class="num">55</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8"> effective. 
+      Power
+           لُلُصّبُلُلصّبُررً ॣ ॣh ॣ ॣ
+ 冗
+</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  20 65 66 66 65 63 74 69  76 65 2e 20 0a 20 20 20  | effective. .   |
+<span class="off">00000010</span>  20 20 20 50 6f 77 65 72  0a 20 20 20 20 20 20 20  |   Power.       |
+<span class="off">00000020</span>  20 20 20 20 d9 84 d9 8f  d9 84 d9 8f d8 b5 d9 91  |    ............|
+<span class="off">00000030</span>  d8 a8 d9 8f d9 84 d9 8f  d9 84 d8 b5 d9 91 d8 a8  |................|
+<span class="off">00000040</span>  d9 8f d8 b1 d8 b1 d9 8b  20 e0 a5 a3 20 e0 a5 a3  |........ ... ...|
+<span class="off">00000050</span>  68 20 e0 a5 a3 20 e0 a5  a3 0a 20 e5 86 97 0a     |h ... .... ....|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 95 payload byte(s).</p>
+    <a class="download" download="effective_power" href="data:application/octet-stream;base64,IGVmZmVjdGl2ZS4gCiAgICAgIFBvd2VyCiAgICAgICAgICAg2YTZj9mE2Y/YtdmR2KjZj9mE2Y/ZhNi12ZHYqNmP2LHYsdmLIOCloyDgpaNoIOCloyDgpaMKIOWGlwo=">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

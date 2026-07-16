@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>real_world_url_unreserved_percent_encoded &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.4 &middot; 464 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / real_world_url_unreserved_percent_encoded</p>
+<h1 class="mono">real_world_url_unreserved_percent_encoded</h1>
+
+<section class="meta">
+  <div class="description">`%7E` encodes the unreserved tilde character and is equivalent to the paired
+literal spelling. Canonicalizers may decode it without changing the path&#39;s
+delimiter structure.
+
+RFC 3986 section 6.2.2.2 permits decoding percent-encoded unreserved octets:
+https://www.rfc-editor.org/rfc/rfc3986.html#section-6.2.2.2
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">ascii</span></dd>
+
+    <dt>Size</dt>
+    <dd>27 B (27 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">real-world/url/equivalence/unreserved-percent-encoded.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-real-world">real-world</a>
+      <a class="tag" href="../tags.html#tag-url">url</a>
+      <a class="tag" href="../tags.html#tag-uri">uri</a>
+      <a class="tag" href="../tags.html#tag-rfc3986">rfc3986</a>
+      <a class="tag" href="../tags.html#tag-percent-encoding">percent-encoding</a>
+      <a class="tag" href="../tags.html#tag-unreserved">unreserved</a>
+      <a class="tag" href="../tags.html#tag-equivalence">equivalence</a>
+      <a class="tag" href="../tags.html#tag-valid">valid</a>
+    </div>
+  </div>
+
+  <div class="meta-block">
+    <h2>Paired with</h2>
+    <ul class="pairs">
+      <li><a href="real_world_url_unreserved_literal.html" class="mono">real_world_url_unreserved_literal</a> <span class="badge hint">equal</span></li>
+    </ul>
+  </div>
+
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">https://example.com/%7Euser</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  68 74 74 70 73 3a 2f 2f  65 78 61 6d 70 6c 65 2e  |https://example.|
+<span class="off">00000010</span>  63 6f 6d 2f 25 37 45 75  73 65 72                 |com/%7Euser|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 27 payload byte(s).</p>
+    <a class="download" download="real_world_url_unreserved_percent_encoded" href="data:application/octet-stream;base64,aHR0cHM6Ly9leGFtcGxlLmNvbS8lN0V1c2Vy">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>integer_u64_alternating_ones &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.4 &middot; 464 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / integer_u64_alternating_ones</p>
+<h1 class="mono">integer_u64_alternating_ones</h1>
+
+<section class="meta">
+  <div class="description">This checkerboard bit pattern alternates 1 and 0 across the entire u64
+value and has the sign bit set. Together with its complement it catches stuck
+bits, incorrect masks, shift errors, and signed intermediates.
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">hex</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">u64-le</span></dd>
+
+    <dt>Size</dt>
+    <dd>8 B (8 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">integer/u64/alternating-ones.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-integer">integer</a>
+      <a class="tag" href="../tags.html#tag-unsigned-integer">unsigned-integer</a>
+      <a class="tag" href="../tags.html#tag-u64">u64</a>
+      <a class="tag" href="../tags.html#tag-alternating-bits">alternating-bits</a>
+      <a class="tag" href="../tags.html#tag-bitwise">bitwise</a>
+      <a class="tag" href="../tags.html#tag-shift">shift</a>
+      <a class="tag" href="../tags.html#tag-mask">mask</a>
+      <a class="tag" href="../tags.html#tag-canary">canary</a>
+    </div>
+  </div>
+
+  <div class="meta-block">
+    <h2>Paired with</h2>
+    <ul class="pairs">
+      <li><a href="integer_u64_alternating_zeroes.html" class="mono">integer_u64_alternating_zeroes</a> <span class="badge hint">tricky</span></li>
+    </ul>
+  </div>
+
+</section>
+
+<section class="payload" data-default-tab="hex">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">��������</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  aa aa aa aa aa aa aa aa                           |........|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 8 payload byte(s).</p>
+    <a class="download" download="integer_u64_alternating_ones" href="data:application/octet-stream;base64,qqqqqqqqqqo=">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

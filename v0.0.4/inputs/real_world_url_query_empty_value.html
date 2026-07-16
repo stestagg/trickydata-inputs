@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>real_world_url_query_empty_value &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.4 &middot; 464 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / real_world_url_query_empty_value</p>
+<h1 class="mono">real_world_url_query_empty_value</h1>
+
+<section class="meta">
+  <div class="description">This query explicitly supplies an empty value with `flag=`. Form decoders
+often produce the same pair as the missing-equals input, while signature
+code, caches, and applications that inspect the raw query can distinguish
+them.
+
+The WHATWG form-urlencoded parser specifies empty-value handling:
+https://url.spec.whatwg.org/#urlencoded-parsing
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">ascii</span></dd>
+
+    <dt>Size</dt>
+    <dd>33 B (33 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">real-world/url/query/empty-value.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-real-world">real-world</a>
+      <a class="tag" href="../tags.html#tag-url">url</a>
+      <a class="tag" href="../tags.html#tag-query">query</a>
+      <a class="tag" href="../tags.html#tag-equals-sign">equals-sign</a>
+      <a class="tag" href="../tags.html#tag-empty-value">empty-value</a>
+      <a class="tag" href="../tags.html#tag-form-urlencoded">form-urlencoded</a>
+      <a class="tag" href="../tags.html#tag-context-dependent">context-dependent</a>
+      <a class="tag" href="../tags.html#tag-valid">valid</a>
+    </div>
+  </div>
+
+  <div class="meta-block">
+    <h2>Paired with</h2>
+    <ul class="pairs">
+      <li><a href="real_world_url_query_missing_equals.html" class="mono">real_world_url_query_missing_equals</a> <span class="badge hint">tricky</span></li>
+    </ul>
+  </div>
+
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">https://example.com/options?flag=</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  68 74 74 70 73 3a 2f 2f  65 78 61 6d 70 6c 65 2e  |https://example.|
+<span class="off">00000010</span>  63 6f 6d 2f 6f 70 74 69  6f 6e 73 3f 66 6c 61 67  |com/options?flag|
+<span class="off">00000020</span>  3d                                                |=|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 33 payload byte(s).</p>
+    <a class="download" download="real_world_url_query_empty_value" href="data:application/octet-stream;base64,aHR0cHM6Ly9leGFtcGxlLmNvbS9vcHRpb25zP2ZsYWc9">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>

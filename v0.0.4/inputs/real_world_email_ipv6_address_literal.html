@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>real_world_email_ipv6_address_literal &middot; trickydata report</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="../index.html">trickydata</a>
+      <a href="../index.html">Inputs</a>
+      <a href="../tags.html">Tags</a>
+    </nav>
+    <a class="version" href="../../index.html">v0.0.4 &middot; 464 inputs</a>
+  </header>
+  <main>
+<p class="crumb"><a href="../index.html">Inputs</a> / real_world_email_ipv6_address_literal</p>
+<h1 class="mono">real_world_email_ipv6_address_literal</h1>
+
+<section class="meta">
+  <div class="description">SMTP permits an IPv6 address-literal with a required `IPv6:` tag. The
+address is from the documentation prefix. Parsers frequently reject the
+brackets or mistake the colons for unrelated address syntax.
+
+RFC 5321 sections 4.1.2 and 4.1.3 define IPv6-address-literal:
+https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.2
+https://www.rfc-editor.org/rfc/rfc5321.html#section-4.1.3
+</div>
+
+  <dl class="fields">
+    <dt title="The format of the input data. Determines how the data after the frontmatter is decoded, or whether it is stored in a separate file. Pick the format carefully so the raw data is encoded correctly and is easy to debug.">Format</dt>
+    <dd><span class="badge">utf8-strip</span></dd>
+    <dt title="The logical type the decoded input data should be interpreted as. Covers fixed-size Rust-style numeric types as well as string/byte encodings. Multi-byte types carry an explicit byte-order suffix (`-le`); the corpus currently only stores little-endian encodings. Required unless a mime-type is given, in which case it is optional and defaults to `bytes`. When a mime-type is given, decode-as may only be one of the string/byte types (bytes, ascii, utf8, utf16-le, utf32-le, latin1).">Decode As</dt>
+    <dd><span class="badge">ascii</span></dd>
+
+    <dt>Size</dt>
+    <dd>23 B (23 bytes)</dd>
+
+    <dt>Source</dt>
+    <dd class="mono">real-world/email/syntax/ipv6-address-literal.input</dd>
+  </dl>
+
+  <div class="meta-block">
+    <h2>Tags</h2>
+    <div class="tags-cell">
+      <a class="tag" href="../tags.html#tag-real-world">real-world</a>
+      <a class="tag" href="../tags.html#tag-email">email</a>
+      <a class="tag" href="../tags.html#tag-email-address">email-address</a>
+      <a class="tag" href="../tags.html#tag-smtp">smtp</a>
+      <a class="tag" href="../tags.html#tag-rfc5321">rfc5321</a>
+      <a class="tag" href="../tags.html#tag-address-literal">address-literal</a>
+      <a class="tag" href="../tags.html#tag-ipv6">ipv6</a>
+      <a class="tag" href="../tags.html#tag-valid">valid</a>
+      <a class="tag" href="../tags.html#tag-interoperability">interoperability</a>
+    </div>
+  </div>
+
+
+</section>
+
+<section class="payload" data-default-tab="utf8">
+  <h2>Payload</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab" data-tab="utf8" role="tab">UTF-8</button>
+    <button class="tab" data-tab="hex" role="tab">Hex</button>
+    <button class="tab" data-tab="file" role="tab">File</button>
+  </div>
+
+  <div class="panel" data-panel="utf8">
+    <p class="muted">Decoded as UTF-8; invalid bytes shown as &#xFFFD;.</p>
+    <pre class="utf8">user@[IPv6:2001:db8::1]</pre>
+  </div>
+
+  <div class="panel" data-panel="hex">
+    <pre class="hex"><span class="off">00000000</span>  75 73 65 72 40 5b 49 50  76 36 3a 32 30 30 31 3a  |user@[IPv6:2001:|
+<span class="off">00000010</span>  64 62 38 3a 3a 31 5d                              |db8::1]|
+</pre>
+  </div>
+
+  <div class="panel" data-panel="file">
+    <p class="muted">Download the exact 23 payload byte(s).</p>
+    <a class="download" download="real_world_email_ipv6_address_literal" href="data:application/octet-stream;base64,dXNlckBbSVB2NjoyMDAxOmRiODo6MV0=">Download payload</a>
+  </div>
+</section>
+  </main>
+  <script src="../static/app.js"></script>
+</body>
+</html>
